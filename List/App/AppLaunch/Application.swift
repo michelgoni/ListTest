@@ -12,12 +12,12 @@ final class Application {
 
     func start(with window: UIWindow) {
         
-        let mainViewController = ListContactsViewController()
         let contactsApiService = ContactsApiServiceImplm(apiService: SuperHeroApiClient())
         let repository = ContactsRepositoryImplm(contactsApiService: contactsApiService)
         let contactsUsecase = ContactsUseCaseImplm(repository:repository)
         
         let initialViewController = builder(contactsUsecase)
+       
         window.rootViewController = initialViewController
         window.makeKeyAndVisible()
     }
@@ -25,9 +25,9 @@ final class Application {
     private func builder(_ useCase: ContactsUseCase) -> UINavigationController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let listNavigation = storyboard.instantiateViewController(withIdentifier: "ListViewController") as! UINavigationController
-        
-        
-       
+        let listViewController = listNavigation.viewControllers.first as! ListContactsViewController
+        let viewModel = ContactsViewModelImplm(useCase: useCase)
+        listViewController.viewModel = viewModel
         return listNavigation
     }
 

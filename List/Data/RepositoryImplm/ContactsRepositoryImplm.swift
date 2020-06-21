@@ -26,17 +26,3 @@ class ContactsRepositoryImplm: ContactsRepository {
             .mapResponse()
     }
 }
-
-extension PrimitiveSequence where Trait == SingleTrait {
-    
-    func mapResponse() -> Single<Result<Element, ErrorResponse>> {
-        
-        self.map { .success($0) }
-            .catchError { error in
-                if let apiError = error as? ErrorResponse {
-                    return .just(.failure(apiError))
-                }
-                return .just(.failure(ErrorResponse.generic()))
-            }
-    }
-}
