@@ -3,4 +3,70 @@
    uuid = "9A0B9F95-367E-40B5-BC94-64A5354FD7B9"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "03996209-6291-4E31-B91F-D1270A1D1128"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "List/App/Scenes/ListContactsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "bindTableView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "95E06BEF-0F09-426B-956D-8647399923AA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "List/App/Scenes/ListContactsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "bindTableView()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "95E06BEF-0F09-426B-956D-8647399923AA - fd14452d956ead66"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "List.ListContactsViewController.(bindTableView in _D2862ED2590B332FA6F10DD459ECBD33)() -&gt; ()"
+                  moduleName = "List"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miguelgoni/Documents/List/List/App/Scenes/ListContactsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "1243">
+               </Location>
+               <Location
+                  uuid = "95E06BEF-0F09-426B-956D-8647399923AA - db8309a3fccaa80d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Int, List.Contact, List.ContactsTableViewCell) -&gt; () in List.ListContactsViewController.(bindTableView in _D2862ED2590B332FA6F10DD459ECBD33)() -&gt; ()"
+                  moduleName = "List"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miguelgoni/Documents/List/List/App/Scenes/ListContactsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -25,9 +25,9 @@ final class Application {
     private func builder(_ useCase: ContactsUseCase) -> UINavigationController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let listNavigation = storyboard.instantiateViewController(withIdentifier: "ListViewController") as! UINavigationController
-        let listViewController = listNavigation.viewControllers.first as! ListContactsViewController
+        var listViewController = listNavigation.viewControllers.first as! ListContactsViewController
         let viewModel = ContactsViewModelImplm(useCase: useCase)
-        listViewController.viewModel = viewModel
+        listViewController.bind(to: viewModel)
         return listNavigation
     }
 
