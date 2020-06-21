@@ -1,0 +1,6 @@
+framework module TransportsUI {
+  umbrella header "TransportsUI-umbrella.h"
+
+  export *
+  module * { export * }
+}
