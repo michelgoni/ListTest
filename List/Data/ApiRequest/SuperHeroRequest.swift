@@ -7,5 +7,34 @@
 //
 
 import Foundation
-import RxSwift
+import Alamofire
+import TransportationApiClient
 
+struct SuperHeroRequest: APIRequest {
+    typealias Response = SuperHeroResponse
+    typealias Error = ErrorResponseContainer
+    
+    public var resourceName: String {
+        return "/v1/public/characters?"
+    }
+    
+    public var method: HTTPMethod {
+        return HTTPMethod.get
+    }
+    
+    public var resourcePath: String {
+        return "ts&=\(baseApiParams.timeStamp)&apikey=\(baseApiParams.publicApiKey)&hash=\(baseApiParams.hash)"
+    }
+    
+    public var body: Parameters? {
+        return nil
+    }
+    
+    let baseApiParams: BaseApiParams
+    
+    var adapter: RequestAdapter?
+    
+    public init(baseApiParams: BaseApiParams) {
+        self.baseApiParams = baseApiParams
+    }
+}

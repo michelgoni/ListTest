@@ -13,3 +13,12 @@ struct Results: Codable {
     let name: String
     let thumbnail: Thumbnail
 }
+
+extension Contact {
+    
+    init(contact: Results) {
+        self.init(name: contact.name,
+                  image: contact.thumbnail.imageUrl,
+                  isSelected:false)
+    }
+}
