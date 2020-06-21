@@ -33,6 +33,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="81" id="WFc-8q-Tg5"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>

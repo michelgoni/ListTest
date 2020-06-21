@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol UITableViewCellRepresentable: UITableViewCell {
+    func setup(with data: Any)
+}
+
 class ContactsTableViewCell: UITableViewCell {
     
     static let nibName = "ContactsTableViewCell"
@@ -21,11 +25,14 @@ class ContactsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
+}
+
+extension ContactsTableViewCell: UITableViewCellRepresentable {
+    
+    func setup(with data: Any) {
+        if let contactElement = data as? ContactRepresentable {
+            contactLabel.text = contactElement.name
+        }
+    }
 }

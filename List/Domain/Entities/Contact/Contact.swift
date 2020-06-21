@@ -8,7 +8,13 @@
 
 import Foundation
 
-public struct Contact {
+ protocol ContactRepresentable {
+    var name: String {get}
+    var image: String {get}
+    var isSelected: Bool {get}
+}
+
+public struct Contact: ContactRepresentable {
     
     var name: String
     var image: String
