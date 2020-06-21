@@ -9,7 +9,7 @@
 import Foundation
 import TransportationApiClient
 
-class SuperHeroApiClient: APIClient {
+public class SuperHeroApiClient: APIClient {
     
     static let shared = SuperHeroApiClient( printsDebug: true)
     

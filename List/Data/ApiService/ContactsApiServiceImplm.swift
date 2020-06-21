@@ -12,8 +12,6 @@ import TransportationApiClient
 
 class ContactsApiServiceImplm: ContactsApiService {
     
-    
-    
     let apiService: APIClient
     
     init(apiService: APIClient) {

@@ -11,10 +11,18 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
+       
+       // MARK: Private Properties
+       
+       private let app = Application()
+    
+    override init() {
+           self.window = UIWindow()
+       }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        app.start(with: window!)
         return true
     }
 

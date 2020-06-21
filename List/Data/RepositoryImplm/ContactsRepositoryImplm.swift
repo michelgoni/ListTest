@@ -10,11 +10,33 @@ import Foundation
 import RxSwift
 
 class ContactsRepositoryImplm: ContactsRepository {
-    func getContacts() -> Single<Result<[Contact], ErrorResponse>> {
-        .just(.failure(ErrorResponse.generic()))
+    
+    let contactsApiService: ContactsApiService
+    
+    init(contactsApiService: ContactsApiService) {
+        self.contactsApiService = contactsApiService
     }
     
+    // MARK: -ContactsRepository
+    func getContacts() -> Single<Result<[Contact], ErrorResponse>> {
+        
+        return self.contactsApiService
+            .getSuperHeroContacts()
+            .map { $0.data.results.map(Contact.init)}
+            .mapResponse()
+    }
+}
 
-
-
+extension PrimitiveSequence where Trait == SingleTrait {
+    
+    func mapResponse() -> Single<Result<Element, ErrorResponse>> {
+        
+        self.map { .success($0) }
+            .catchError { error in
+                if let apiError = error as? ErrorResponse {
+                    return .just(.failure(apiError))
+                }
+                return .just(.failure(ErrorResponse.generic()))
+            }
+    }
 }
