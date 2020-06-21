@@ -13,7 +13,6 @@
 		B43F9BC0249F3DD000ACC137 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B43F9BBE249F3DD000ACC137 /* Main.storyboard */; };
 		B43F9BC2249F3DD100ACC137 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B43F9BC1249F3DD100ACC137 /* Assets.xcassets */; };
 		B43F9BC5249F3DD100ACC137 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B43F9BC3249F3DD100ACC137 /* LaunchScreen.storyboard */; };
-		B43F9BD0249F3DD100ACC137 /* ListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BCF249F3DD100ACC137 /* ListTests.swift */; };
 		B43F9BDD249F414B00ACC137 /* BaseApiParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BDC249F414B00ACC137 /* BaseApiParams.swift */; };
 		B43F9BE0249F417400ACC137 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BDF249F417400ACC137 /* String+Extensions.swift */; };
 		B43F9BE2249F419500ACC137 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BE1249F419500ACC137 /* Date+Extensions.swift */; };
@@ -21,6 +20,9 @@
 		B43F9BE7249F433A00ACC137 /* ErrorResponseContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BE6249F433A00ACC137 /* ErrorResponseContainer.swift */; };
 		B43F9BED249F44FB00ACC137 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BEC249F44FB00ACC137 /* Contact.swift */; };
 		B43F9BEF249F454100ACC137 /* SuperHeroRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BEE249F454100ACC137 /* SuperHeroRequest.swift */; };
+		B43F9BF4249F464900ACC137 /* ContactsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BF3249F464900ACC137 /* ContactsUseCase.swift */; };
+		B43F9BF7249F46D900ACC137 /* ContactsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BF6249F46D900ACC137 /* ContactsRepository.swift */; };
+		B43F9BF9249F475F00ACC137 /* ContactsUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BF8249F475F00ACC137 /* ContactsUseCaseTest.swift */; };
 		B9CCF081769E640F7AA25C2F /* Pods_List.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B1A961A8ADD515F6F6B8F5 /* Pods_List.framework */; };
 		BF507D7D89C612FDC370D133 /* Pods_ListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5978BACE524679A939A5FD2E /* Pods_ListTests.framework */; };
 /* End PBXBuildFile section */
@@ -48,7 +50,6 @@
 		B43F9BC4249F3DD100ACC137 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B43F9BC6249F3DD100ACC137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B43F9BCB249F3DD100ACC137 /* ListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B43F9BCF249F3DD100ACC137 /* ListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTests.swift; sourceTree = "<group>"; };
 		B43F9BD1249F3DD100ACC137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B43F9BDC249F414B00ACC137 /* BaseApiParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiParams.swift; sourceTree = "<group>"; };
 		B43F9BDF249F417400ACC137 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -57,6 +58,9 @@
 		B43F9BE6249F433A00ACC137 /* ErrorResponseContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponseContainer.swift; sourceTree = "<group>"; };
 		B43F9BEC249F44FB00ACC137 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		B43F9BEE249F454100ACC137 /* SuperHeroRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroRequest.swift; sourceTree = "<group>"; };
+		B43F9BF3249F464900ACC137 /* ContactsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsUseCase.swift; sourceTree = "<group>"; };
+		B43F9BF6249F46D900ACC137 /* ContactsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRepository.swift; sourceTree = "<group>"; };
+		B43F9BF8249F475F00ACC137 /* ContactsUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsUseCaseTest.swift; sourceTree = "<group>"; };
 		C2B1A961A8ADD515F6F6B8F5 /* Pods_List.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_List.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D542E817153DEBBEC9455F98 /* Pods-List.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-List.release.xcconfig"; path = "Target Support Files/Pods-List/Pods-List.release.xcconfig"; sourceTree = "<group>"; };
 		F607D0DA9039698B2420F9F2 /* Pods-ListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListTests.debug.xcconfig"; path = "Target Support Files/Pods-ListTests/Pods-ListTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,8 +124,8 @@
 		B43F9BCE249F3DD100ACC137 /* ListTests */ = {
 			isa = PBXGroup;
 			children = (
-				B43F9BCF249F3DD100ACC137 /* ListTests.swift */,
 				B43F9BD1249F3DD100ACC137 /* Info.plist */,
+				B43F9BF8249F475F00ACC137 /* ContactsUseCaseTest.swift */,
 			);
 			path = ListTests;
 			sourceTree = "<group>";
@@ -158,6 +162,8 @@
 		B43F9BE5249F432A00ACC137 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				B43F9BF5249F46C500ACC137 /* Repository */,
+				B43F9BF2249F460600ACC137 /* UseCase */,
 				B43F9BE8249F434400ACC137 /* Entities */,
 			);
 			path = Domain;
@@ -191,9 +197,41 @@
 		B43F9BEB249F44CE00ACC137 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				B43F9BEE249F454100ACC137 /* SuperHeroRequest.swift */,
+				B43F9BF1249F45DA00ACC137 /* Entity */,
+				B43F9BF0249F45D000ACC137 /* ApiRequest */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		B43F9BF0249F45D000ACC137 /* ApiRequest */ = {
+			isa = PBXGroup;
+			children = (
+				B43F9BEE249F454100ACC137 /* SuperHeroRequest.swift */,
+			);
+			path = ApiRequest;
+			sourceTree = "<group>";
+		};
+		B43F9BF1249F45DA00ACC137 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		B43F9BF2249F460600ACC137 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				B43F9BF3249F464900ACC137 /* ContactsUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		B43F9BF5249F46C500ACC137 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				B43F9BF6249F46D900ACC137 /* ContactsRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		DB961F24F380403AE6FD7AEC /* Pods */ = {
@@ -273,6 +311,7 @@
 					};
 					B43F9BCA249F3DD100ACC137 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 						TestTargetID = B43F9BB4249F3DD000ACC137;
 					};
 				};
@@ -404,12 +443,14 @@
 			files = (
 				B43F9BED249F44FB00ACC137 /* Contact.swift in Sources */,
 				B43F9BE4249F430000ACC137 /* SuperHeroApiClient.swift in Sources */,
+				B43F9BF7249F46D900ACC137 /* ContactsRepository.swift in Sources */,
 				B43F9BE0249F417400ACC137 /* String+Extensions.swift in Sources */,
 				B43F9BEF249F454100ACC137 /* SuperHeroRequest.swift in Sources */,
 				B43F9BBD249F3DD000ACC137 /* ViewController.swift in Sources */,
 				B43F9BE7249F433A00ACC137 /* ErrorResponseContainer.swift in Sources */,
 				B43F9BB9249F3DD000ACC137 /* AppDelegate.swift in Sources */,
 				B43F9BBB249F3DD000ACC137 /* SceneDelegate.swift in Sources */,
+				B43F9BF4249F464900ACC137 /* ContactsUseCase.swift in Sources */,
 				B43F9BDD249F414B00ACC137 /* BaseApiParams.swift in Sources */,
 				B43F9BE2249F419500ACC137 /* Date+Extensions.swift in Sources */,
 			);
@@ -419,7 +460,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B43F9BD0249F3DD100ACC137 /* ListTests.swift in Sources */,
+				B43F9BF9249F475F00ACC137 /* ContactsUseCaseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +650,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ListTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -619,6 +661,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mgi.list.ListTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/List.app/List";
@@ -631,6 +674,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ListTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
