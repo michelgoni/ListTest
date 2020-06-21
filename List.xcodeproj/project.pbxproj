@@ -19,6 +19,8 @@
 		B43F9BE2249F419500ACC137 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BE1249F419500ACC137 /* Date+Extensions.swift */; };
 		B43F9BE4249F430000ACC137 /* SuperHeroApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BE3249F430000ACC137 /* SuperHeroApiClient.swift */; };
 		B43F9BE7249F433A00ACC137 /* ErrorResponseContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BE6249F433A00ACC137 /* ErrorResponseContainer.swift */; };
+		B43F9BED249F44FB00ACC137 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BEC249F44FB00ACC137 /* Contact.swift */; };
+		B43F9BEF249F454100ACC137 /* SuperHeroRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BEE249F454100ACC137 /* SuperHeroRequest.swift */; };
 		B9CCF081769E640F7AA25C2F /* Pods_List.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B1A961A8ADD515F6F6B8F5 /* Pods_List.framework */; };
 		BF507D7D89C612FDC370D133 /* Pods_ListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5978BACE524679A939A5FD2E /* Pods_ListTests.framework */; };
 /* End PBXBuildFile section */
@@ -53,6 +55,8 @@
 		B43F9BE1249F419500ACC137 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		B43F9BE3249F430000ACC137 /* SuperHeroApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroApiClient.swift; sourceTree = "<group>"; };
 		B43F9BE6249F433A00ACC137 /* ErrorResponseContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponseContainer.swift; sourceTree = "<group>"; };
+		B43F9BEC249F44FB00ACC137 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		B43F9BEE249F454100ACC137 /* SuperHeroRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroRequest.swift; sourceTree = "<group>"; };
 		C2B1A961A8ADD515F6F6B8F5 /* Pods_List.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_List.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D542E817153DEBBEC9455F98 /* Pods-List.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-List.release.xcconfig"; path = "Target Support Files/Pods-List/Pods-List.release.xcconfig"; sourceTree = "<group>"; };
 		F607D0DA9039698B2420F9F2 /* Pods-ListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListTests.debug.xcconfig"; path = "Target Support Files/Pods-ListTests/Pods-ListTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 		B43F9BB7249F3DD000ACC137 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				B43F9BEB249F44CE00ACC137 /* Data */,
 				B43F9BE5249F432A00ACC137 /* Domain */,
 				B43F9BDE249F416600ACC137 /* Extensions */,
 				B43F9BDA249F40CF00ACC137 /* API */,
@@ -161,6 +166,7 @@
 		B43F9BE8249F434400ACC137 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				B43F9BEA249F448700ACC137 /* Contact */,
 				B43F9BE9249F434E00ACC137 /* Error */,
 			);
 			path = Entities;
@@ -172,6 +178,22 @@
 				B43F9BE6249F433A00ACC137 /* ErrorResponseContainer.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		B43F9BEA249F448700ACC137 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				B43F9BEC249F44FB00ACC137 /* Contact.swift */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
+		B43F9BEB249F44CE00ACC137 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B43F9BEE249F454100ACC137 /* SuperHeroRequest.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		DB961F24F380403AE6FD7AEC /* Pods */ = {
@@ -380,8 +402,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B43F9BED249F44FB00ACC137 /* Contact.swift in Sources */,
 				B43F9BE4249F430000ACC137 /* SuperHeroApiClient.swift in Sources */,
 				B43F9BE0249F417400ACC137 /* String+Extensions.swift in Sources */,
+				B43F9BEF249F454100ACC137 /* SuperHeroRequest.swift in Sources */,
 				B43F9BBD249F3DD000ACC137 /* ViewController.swift in Sources */,
 				B43F9BE7249F433A00ACC137 /* ErrorResponseContainer.swift in Sources */,
 				B43F9BB9249F3DD000ACC137 /* AppDelegate.swift in Sources */,
