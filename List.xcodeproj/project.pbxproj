@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,11 @@
 		B43F9BC2249F3DD100ACC137 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B43F9BC1249F3DD100ACC137 /* Assets.xcassets */; };
 		B43F9BC5249F3DD100ACC137 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B43F9BC3249F3DD100ACC137 /* LaunchScreen.storyboard */; };
 		B43F9BD0249F3DD100ACC137 /* ListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BCF249F3DD100ACC137 /* ListTests.swift */; };
+		B43F9BDD249F414B00ACC137 /* BaseApiParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BDC249F414B00ACC137 /* BaseApiParams.swift */; };
+		B43F9BE0249F417400ACC137 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BDF249F417400ACC137 /* String+Extensions.swift */; };
+		B43F9BE2249F419500ACC137 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BE1249F419500ACC137 /* Date+Extensions.swift */; };
+		B43F9BE4249F430000ACC137 /* SuperHeroApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BE3249F430000ACC137 /* SuperHeroApiClient.swift */; };
+		B43F9BE7249F433A00ACC137 /* ErrorResponseContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BE6249F433A00ACC137 /* ErrorResponseContainer.swift */; };
 		B9CCF081769E640F7AA25C2F /* Pods_List.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B1A961A8ADD515F6F6B8F5 /* Pods_List.framework */; };
 		BF507D7D89C612FDC370D133 /* Pods_ListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5978BACE524679A939A5FD2E /* Pods_ListTests.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +48,11 @@
 		B43F9BCB249F3DD100ACC137 /* ListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B43F9BCF249F3DD100ACC137 /* ListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTests.swift; sourceTree = "<group>"; };
 		B43F9BD1249F3DD100ACC137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B43F9BDC249F414B00ACC137 /* BaseApiParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiParams.swift; sourceTree = "<group>"; };
+		B43F9BDF249F417400ACC137 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		B43F9BE1249F419500ACC137 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		B43F9BE3249F430000ACC137 /* SuperHeroApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroApiClient.swift; sourceTree = "<group>"; };
+		B43F9BE6249F433A00ACC137 /* ErrorResponseContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponseContainer.swift; sourceTree = "<group>"; };
 		C2B1A961A8ADD515F6F6B8F5 /* Pods_List.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_List.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D542E817153DEBBEC9455F98 /* Pods-List.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-List.release.xcconfig"; path = "Target Support Files/Pods-List/Pods-List.release.xcconfig"; sourceTree = "<group>"; };
 		F607D0DA9039698B2420F9F2 /* Pods-ListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListTests.debug.xcconfig"; path = "Target Support Files/Pods-ListTests/Pods-ListTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -91,10 +101,10 @@
 		B43F9BB7249F3DD000ACC137 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				B43F9BB8249F3DD000ACC137 /* AppDelegate.swift */,
-				B43F9BBA249F3DD000ACC137 /* SceneDelegate.swift */,
-				B43F9BBC249F3DD000ACC137 /* ViewController.swift */,
-				B43F9BBE249F3DD000ACC137 /* Main.storyboard */,
+				B43F9BE5249F432A00ACC137 /* Domain */,
+				B43F9BDE249F416600ACC137 /* Extensions */,
+				B43F9BDA249F40CF00ACC137 /* API */,
+				B43F9BDB249F40EA00ACC137 /* App */,
 				B43F9BC1249F3DD100ACC137 /* Assets.xcassets */,
 				B43F9BC3249F3DD100ACC137 /* LaunchScreen.storyboard */,
 				B43F9BC6249F3DD100ACC137 /* Info.plist */,
@@ -111,6 +121,59 @@
 			path = ListTests;
 			sourceTree = "<group>";
 		};
+		B43F9BDA249F40CF00ACC137 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B43F9BDC249F414B00ACC137 /* BaseApiParams.swift */,
+				B43F9BE3249F430000ACC137 /* SuperHeroApiClient.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B43F9BDB249F40EA00ACC137 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B43F9BB8249F3DD000ACC137 /* AppDelegate.swift */,
+				B43F9BBA249F3DD000ACC137 /* SceneDelegate.swift */,
+				B43F9BBC249F3DD000ACC137 /* ViewController.swift */,
+				B43F9BBE249F3DD000ACC137 /* Main.storyboard */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B43F9BDE249F416600ACC137 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B43F9BDF249F417400ACC137 /* String+Extensions.swift */,
+				B43F9BE1249F419500ACC137 /* Date+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B43F9BE5249F432A00ACC137 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B43F9BE8249F434400ACC137 /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B43F9BE8249F434400ACC137 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				B43F9BE9249F434E00ACC137 /* Error */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		B43F9BE9249F434E00ACC137 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				B43F9BE6249F433A00ACC137 /* ErrorResponseContainer.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		DB961F24F380403AE6FD7AEC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +182,6 @@
 				F607D0DA9039698B2420F9F2 /* Pods-ListTests.debug.xcconfig */,
 				A686FDB7048A19DEA8984673 /* Pods-ListTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -318,9 +380,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B43F9BE4249F430000ACC137 /* SuperHeroApiClient.swift in Sources */,
+				B43F9BE0249F417400ACC137 /* String+Extensions.swift in Sources */,
 				B43F9BBD249F3DD000ACC137 /* ViewController.swift in Sources */,
+				B43F9BE7249F433A00ACC137 /* ErrorResponseContainer.swift in Sources */,
 				B43F9BB9249F3DD000ACC137 /* AppDelegate.swift in Sources */,
 				B43F9BBB249F3DD000ACC137 /* SceneDelegate.swift in Sources */,
+				B43F9BDD249F414B00ACC137 /* BaseApiParams.swift in Sources */,
+				B43F9BE2249F419500ACC137 /* Date+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
