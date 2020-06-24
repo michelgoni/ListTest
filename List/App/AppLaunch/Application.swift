@@ -17,6 +17,8 @@ final class Application {
         let contactsUsecase = ContactsUseCaseImplm(repository:repository)
         
         let initialViewController = builder(contactsUsecase)
+        
+        var listViewController = initialViewController.viewControllers.first as! ListContactsViewController
        
         window.rootViewController = initialViewController
         window.makeKeyAndVisible()
@@ -27,7 +29,8 @@ final class Application {
         let listNavigation = storyboard.instantiateViewController(withIdentifier: "ListViewController") as! UINavigationController
         var listViewController = listNavigation.viewControllers.first as! ListContactsViewController
         let viewModel = ContactsViewModelImplm(useCase: useCase)
-        listViewController.bind(to: viewModel)
+        listViewController.viewModel = viewModel
+        //listViewController.bind(to: viewModel)
         return listNavigation
     }
 

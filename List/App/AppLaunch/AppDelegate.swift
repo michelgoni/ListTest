@@ -13,16 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
        
-       // MARK: Private Properties
-       
-       private let app = Application()
-    
-    override init() {
-           self.window = UIWindow()
-       }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        app.start(with: window!)
+        
         return true
     }
 

@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4CACD093-9D1B-4BBE-83A5-F02E54FEBC65"
+            uuid = "8C6A7230-08BB-4BDD-B37B-0875DE961864"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "List/App/Scenes/VisualElements/ContactsTableViewCell.swift"
+            filePath = "List/Data/ApiService/ContactsApiServiceImplm.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "awakeFromNib()"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "getSuperHeroContacts()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
