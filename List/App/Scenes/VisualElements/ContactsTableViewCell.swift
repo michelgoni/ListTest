@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import RxKingfisher
+import Kingfisher
+import RxSwift
 
 protocol UITableViewCellRepresentable: UITableViewCell {
     func setup(with data: Any)
@@ -33,6 +36,15 @@ extension ContactsTableViewCell: UITableViewCellRepresentable {
     func setup(with data: Any) {
         if let contactElement = data as? ContactRepresentable {
             contactLabel.text = contactElement.name
+            
+            contactImage
+                .kf
+                .rx
+                .setImage(with: ImageResource(downloadURL: URL(string: contactElement.image)!))
+                .observeOn(MainScheduler.asyncInstance)
+                .subscribe(onSuccess: { (image) in
+                self.contactImage.image = image
+            }).disposed(by: rx.disposeBag)
         }
     }
 }

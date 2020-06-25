@@ -13,6 +13,7 @@ import Action
 import NSObject_Rx
 import RxCocoa
 
+
 class ListContactsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -46,6 +47,10 @@ class ListContactsViewController: UIViewController {
             cell.setup(with: model)
         }
         .disposed(by: bag)
+        
+       
+        
+        
     }
 }
 

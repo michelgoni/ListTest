@@ -15,6 +15,7 @@ target 'List' do
    pod 'NSObject+Rx'
    pod 'Action'
    pod 'RxDataSources', '~> 4.0'
+   pod 'RxKingfisher'
 
   target 'ListTests' do
     inherit! :search_paths

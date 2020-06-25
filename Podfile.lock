@@ -4,6 +4,9 @@ PODS:
     - RxSwift (~> 5.0)
   - Alamofire (5.2.1)
   - Differentiator (4.0.1)
+  - Kingfisher (5.14.0):
+    - Kingfisher/Core (= 5.14.0)
+  - Kingfisher/Core (5.14.0)
   - Nimble (8.1.1)
   - "NSObject+Rx (5.1.0)":
     - RxSwift (~> 5.1)
@@ -17,6 +20,10 @@ PODS:
     - Differentiator (~> 4.0)
     - RxCocoa (~> 5.0)
     - RxSwift (~> 5.0)
+  - RxKingfisher (1.0.0):
+    - Kingfisher (~> 5)
+    - RxCocoa (~> 5)
+    - RxSwift (~> 5)
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
@@ -32,6 +39,7 @@ DEPENDENCIES:
   - RxBlocking
   - RxCocoa
   - RxDataSources (~> 4.0)
+  - RxKingfisher
   - RxSwift
   - TransportationApiClient (= 0.1.3)
   - TransportsUI (= 0.1.2)
@@ -41,12 +49,14 @@ SPEC REPOS:
     - Action
     - Alamofire
     - Differentiator
+    - Kingfisher
     - Nimble
     - "NSObject+Rx"
     - Quick
     - RxBlocking
     - RxCocoa
     - RxDataSources
+    - RxKingfisher
     - RxRelay
     - RxSwift
   https://github.com/michelgoni/TransportProjectSpecs:
@@ -57,17 +67,19 @@ SPEC CHECKSUMS:
   Action: 79e6c5dc91e13eea045ab6744b3e5609086671aa
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
+  Kingfisher: 7b64389a43139c903ec434788344c288217c792d
   Nimble: 5f8a2fb6fa343a7242dfdd9d42f7267419d464b2
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   Quick: 6d9559f40647bc4d510103842ef2fdd882d753e2
   RxBlocking: 5f700a78cad61ce253ebd37c9a39b5ccc76477b4
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
+  RxKingfisher: 0f07678aca3e6a20143dfba67ec2d2c70d443a9a
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   TransportationApiClient: d9704e331b15d5aa24b37aec8d94b40b5ae022b0
   TransportsUI: 9b2fa0c622246b863b41a3d0285c86e9292efef8
 
-PODFILE CHECKSUM: a4b22ecde36c8c4b0ec52fc0922294ddc1714826
+PODFILE CHECKSUM: 63e813fbbae009ea13549960e16fe292b7ea7d04
 
 COCOAPODS: 1.9.1
