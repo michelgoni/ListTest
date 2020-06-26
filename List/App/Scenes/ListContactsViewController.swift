@@ -33,6 +33,8 @@ class ListContactsViewController: UIViewController {
     private func setupTableView() {
         let contactCellNib = UINib(nibName: ContactsTableViewCell.nibName, bundle:nil)
         tableView.register(contactCellNib, forCellReuseIdentifier: ContactsTableViewCell.identifier)
+        tableView.estimatedRowHeight = 120
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     private func bindTableView() {

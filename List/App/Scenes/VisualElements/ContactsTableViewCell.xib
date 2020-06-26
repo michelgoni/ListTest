@@ -9,36 +9,35 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ContactsTableViewCell" customModule="List" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="97"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="KGk-i7-Jjw" customClass="ContactsTableViewCell" customModule="List" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="97"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uxD-16-9iB">
-                        <rect key="frame" x="8" y="8" width="304" height="81"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l8R-Yb-Cmp">
-                                <rect key="frame" x="0.0" y="0.0" width="40" height="81"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="CtG-Gx-tFC"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-5r-eE6">
-                                <rect key="frame" x="50" y="0.0" width="254" height="81"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-5r-eE6">
+                        <rect key="frame" x="76" y="0.0" width="236" height="89"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l8R-Yb-Cmp">
+                        <rect key="frame" x="8" y="18" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="AYJ-nF-q7g"/>
+                            <constraint firstAttribute="width" secondItem="l8R-Yb-Cmp" secondAttribute="height" multiplier="1:1" priority="999" id="koW-Y3-XgJ"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="uxD-16-9iB" secondAttribute="bottom" constant="8" id="82G-E7-MdQ"/>
-                    <constraint firstItem="uxD-16-9iB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="8E6-wo-cKC"/>
-                    <constraint firstAttribute="trailing" secondItem="uxD-16-9iB" secondAttribute="trailing" constant="8" id="ses-Zv-Pm2"/>
-                    <constraint firstItem="uxD-16-9iB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="xSo-aG-kgD"/>
+                    <constraint firstItem="GJd-5r-eE6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="1Zq-Tx-b3B"/>
+                    <constraint firstAttribute="bottom" secondItem="GJd-5r-eE6" secondAttribute="bottom" id="4MF-MZ-nrq"/>
+                    <constraint firstItem="l8R-Yb-Cmp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="XI4-sO-wgO"/>
+                    <constraint firstItem="GJd-5r-eE6" firstAttribute="leading" secondItem="l8R-Yb-Cmp" secondAttribute="trailing" constant="8" id="YVS-X7-5xt"/>
+                    <constraint firstItem="l8R-Yb-Cmp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="3.5" id="baC-14-RMZ"/>
+                    <constraint firstAttribute="trailing" secondItem="GJd-5r-eE6" secondAttribute="trailing" constant="8" id="mHO-Vo-a1S"/>
+                    <constraint firstAttribute="bottom" secondItem="l8R-Yb-Cmp" secondAttribute="bottom" constant="11" id="tit-0b-nfm"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -46,7 +45,7 @@
                 <outlet property="contactImage" destination="l8R-Yb-Cmp" id="vzw-xM-eDW"/>
                 <outlet property="contactLabel" destination="GJd-5r-eE6" id="zfw-a2-gRT"/>
             </connections>
-            <point key="canvasLocation" x="131.8840579710145" y="168.41517857142856"/>
+            <point key="canvasLocation" x="131.8840579710145" y="157.70089285714286"/>
         </tableViewCell>
     </objects>
 </document>

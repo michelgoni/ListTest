@@ -27,6 +27,10 @@ class ContactsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        contactImage.layer.cornerRadius = contactImage.frame.size.width / 2
+        contactImage.layer.masksToBounds = true
+        contactImage.clipsToBounds = true
+        
     }
     
 }
