@@ -63,23 +63,6 @@ class ListContactsViewController: UIViewController {
         .disposed(by: bag)
         
        
-        
-//        let newData = Observable.combineLatest(tableView.rx.itemSelected, elementsSubject).map { indexPath, elements in
-//
-//            elements.enumerated().map { index, value in
-//
-//                return Contact(name: value.name, image: value.image, isSelected: index == indexPath.row)
-//            }
-//        }
-//        tableView.rx.modelSelected(Contact.self).bind(to: viewModel.isSelected.inputs).disposed(by: bag)
-//
-//      
-//
-//        tableView.rx.itemSelected
-//                   .map { $0.row }
-//                   .distinctUntilChanged()
-//                   .bind(to: selectedItemSubject)
-//                   .disposed(by: bag)
 
     
     }

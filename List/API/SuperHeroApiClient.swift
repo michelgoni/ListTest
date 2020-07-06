@@ -14,7 +14,7 @@ public class SuperHeroApiClient: APIClient {
     static let shared = SuperHeroApiClient( printsDebug: true)
     
     override public var baseEndpoint: String {
-        return "http://gateway.marvel.com/"
+        return "http://gateway.marvel.com"
     }
     
     public func sendServer<T: APIRequest>(_ request: T, success: @escaping (T.Response) -> Void, failure: @escaping (ErrorResponse) -> Void) {
