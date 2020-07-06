@@ -26,11 +26,14 @@ class ContactsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        configureView()
+        
+    }
+    
+    private func configureView() {
         contactImage.layer.cornerRadius = contactImage.frame.size.width / 2
         contactImage.layer.masksToBounds = true
         contactImage.clipsToBounds = true
-        
     }
     
 }
@@ -40,15 +43,15 @@ extension ContactsTableViewCell: UITableViewCellRepresentable {
     func setup(with data: Any) {
         if let contactElement = data as? ContactRepresentable {
             contactLabel.text = contactElement.name
-            
+            accessoryType = contactElement.isSelected ? .checkmark : .none
             contactImage
                 .kf
                 .rx
                 .setImage(with: ImageResource(downloadURL: URL(string: contactElement.image)!))
                 .observeOn(MainScheduler.asyncInstance)
                 .subscribe(onSuccess: { (image) in
-                self.contactImage.image = image
-            }).disposed(by: rx.disposeBag)
+                    self.contactImage.image = image
+                }).disposed(by: rx.disposeBag)
         }
     }
 }

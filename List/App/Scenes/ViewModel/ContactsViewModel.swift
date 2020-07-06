@@ -12,6 +12,7 @@ import Action
 
 protocol ContactsViewModel {
      var contacts: Action<Void, [Contact]> { get }
+     var isSelected: Action<Contact, Contact> { get }
 }
 
 class ContactsViewModelImplm: ContactsViewModel {
@@ -25,6 +26,13 @@ class ContactsViewModelImplm: ContactsViewModel {
     lazy var contacts: Action<Void, [Contact]> = { this in
         Action<Void, [Contact]> { _ in
             return this.useCase.getContacts().mapResult()
+        }
+    }(self)
+    
+    lazy var isSelected: Action<Contact, Contact> = {this in
+        
+        Action<Contact, Contact> { contact in
+            return .just(Contact(name: contact.name, image: contact.image, isSelected: !contact.isSelected))
         }
     }(self)
 }

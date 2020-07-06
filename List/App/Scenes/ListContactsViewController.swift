@@ -18,6 +18,16 @@ class ListContactsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    private let elementsSubject = PublishSubject<[Contact]>()
+    public var elements: AnyObserver<[Contact]> {
+        return elementsSubject.asObserver()
+    }
+    
+    private var selectedItemSubject = PublishSubject<Int>()
+      public var selectedItem: Observable<Int> {
+          selectedItemSubject.asObservable()
+      }
+    
     // MARK: Dispose Bag
     private let bag = DisposeBag()
     
@@ -39,6 +49,8 @@ class ListContactsViewController: UIViewController {
     
     private func bindTableView() {
         
+       
+        
         let data = viewModel.contacts.elements
         
         data.bind(to:
@@ -52,7 +64,24 @@ class ListContactsViewController: UIViewController {
         
        
         
-        
+//        let newData = Observable.combineLatest(tableView.rx.itemSelected, elementsSubject).map { indexPath, elements in
+//
+//            elements.enumerated().map { index, value in
+//
+//                return Contact(name: value.name, image: value.image, isSelected: index == indexPath.row)
+//            }
+//        }
+//        tableView.rx.modelSelected(Contact.self).bind(to: viewModel.isSelected.inputs).disposed(by: bag)
+//
+//      
+//
+//        tableView.rx.itemSelected
+//                   .map { $0.row }
+//                   .distinctUntilChanged()
+//                   .bind(to: selectedItemSubject)
+//                   .disposed(by: bag)
+
+    
     }
 }
 
