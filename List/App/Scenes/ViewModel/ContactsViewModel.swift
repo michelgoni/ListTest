@@ -12,9 +12,9 @@ import Action
 import RxCocoa
 
 protocol ContactsViewModel {
-    var contacts: Observable<[Contact]> { get }
-    var selected: PublishSubject<Contact> { get }
-    var selectedElementsIndex: BehaviorRelay<[Int]> { get }
+   
+    var getContacts: Action<Void, [Contact]> { get }
+
 }
 
 class ContactsViewModelImplm: ContactsViewModel {
@@ -26,16 +26,13 @@ class ContactsViewModelImplm: ContactsViewModel {
         self.useCase = useCase
     }
     
-    lazy var contacts: Observable<[Contact]> = {
-        let elements: Observable<[Contact]>  = useCase.getContacts().mapResult()
-        return Observable.merge(useCase.getContacts().mapResult(), Observable.combineLatest(elements, selectedElementsIndex) { names, selected in
-            var mutable = names
-            selected.forEach {mutable[$0].isSelected = true}
-            return mutable
-        })
-    }()
+    lazy var getContacts: Action<Void, [Contact]> = { this in
+        Action <Void, [Contact]> {
+            this.useCase.getContacts().mapResult()
+        }
+    }(self)
     
-    var selected = PublishSubject<Contact>()
+
     
 }
 

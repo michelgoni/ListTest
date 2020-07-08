@@ -50,8 +50,7 @@ class ListContactsViewController: UIViewController {
     private func bindTableView() {
         
        
-        
-        viewModel.contacts.bind(to:
+        viewModel.getContacts.elements.bind(to:
             tableView.rx.items(
                 cellIdentifier: ContactsTableViewCell.identifier,
                 cellType: ContactsTableViewCell.self)
@@ -59,24 +58,11 @@ class ListContactsViewController: UIViewController {
             cell.setup(with: model)
         }
         .disposed(by: bag)
-        
+
     }
     
     private func bindTableViewSelection() {
         
-        tableView
-            .rx
-            .modelSelected(Contact.self)
-            .bind(to: viewModel.selected)
-            .disposed(by: rx.disposeBag)
-        
-        tableView.rx.itemSelected
-            .subscribe(onNext: { [weak self] indexPath in
-                
-                self?.viewModel.selectedElementsIndex.value.contains(indexPath.row) ?? false ? self?.viewModel.selectedElementsIndex.remove(at: indexPath.row) : self?.viewModel.selectedElementsIndex.add(element: indexPath.row)
-                
-                
-            }).disposed(by: bag)
         
     }
 }
@@ -87,6 +73,7 @@ extension ListContactsViewController: Bindable {
         
         bindTableView()
         bindTableViewSelection()
+        viewModel.getContacts.execute()
         
     }
 }
