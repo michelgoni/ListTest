@@ -14,7 +14,7 @@ import Foundation
     var isSelected: Bool {get}
 }
 
-public struct Contact: ContactRepresentable {
+public struct Contact: ContactRepresentable, Equatable {
     
     var name: String
     var image: String
@@ -24,6 +24,10 @@ public struct Contact: ContactRepresentable {
         self.name = name
         self.image = image
         self.isSelected = isSelected
+    }
+    
+    public static func ==(lhs: Contact, rhs: Contact) -> Bool {
+        return lhs.name == rhs.name
     }
 }
 

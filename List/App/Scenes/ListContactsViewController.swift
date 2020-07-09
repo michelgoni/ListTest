@@ -49,8 +49,9 @@ class ListContactsViewController: UIViewController {
     
     private func bindTableView() {
         
-       
-        viewModel.getContacts.elements.bind(to:
+        let data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedNames.elements)
+        
+        data.bind(to:
             tableView.rx.items(
                 cellIdentifier: ContactsTableViewCell.identifier,
                 cellType: ContactsTableViewCell.self)
@@ -58,13 +59,21 @@ class ListContactsViewController: UIViewController {
             cell.setup(with: model)
         }
         .disposed(by: bag)
+        
+        let selectedData = tableView.rx.modelSelected(Contact.self).asObservable()
+        let combinedData = Observable
+            .combineLatest(data,selectedData)
+            .map {(name: $1, names: $0)}
+        
+        tableView
+            .rx
+            .itemSelected
+            .withLatestFrom(combinedData)
+            .bind(to: viewModel.updatedNames.inputs)
+            .disposed(by: bag)
 
     }
-    
-    private func bindTableViewSelection() {
-        
-        
-    }
+
 }
 
 extension ListContactsViewController: Bindable {
@@ -72,7 +81,6 @@ extension ListContactsViewController: Bindable {
     func bind() {
         
         bindTableView()
-        bindTableViewSelection()
         viewModel.getContacts.execute()
         
     }
