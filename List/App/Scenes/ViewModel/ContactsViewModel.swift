@@ -37,15 +37,12 @@ class ContactsViewModelImplm: ContactsViewModel {
         
         Action<(name: Contact, names: [Contact]), [Contact]> { value in
             var newContacts = [Contact]()
-            value.names.forEach {
+            
+            let _ = value.names.reduce([]) {value.name == $1 ? newContacts.append(Contact(name: value.name.name, image: value.name.image, isSelected: !$1.isSelected)) : newContacts.append($1)
                 
-                if value.name == $0 {
-                    newContacts.append(Contact(name: value.name.name, image: value.name.image, isSelected: !$0.isSelected))
-                } else {
-                    newContacts.append($0)
-                }
-                
+                return newContacts
             }
+            
             return .just(newContacts)
         }
         

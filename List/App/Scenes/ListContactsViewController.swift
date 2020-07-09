@@ -71,9 +71,7 @@ class ListContactsViewController: UIViewController {
             .withLatestFrom(combinedData)
             .bind(to: viewModel.updatedNames.inputs)
             .disposed(by: bag)
-
     }
-
 }
 
 extension ListContactsViewController: Bindable {
@@ -82,7 +80,5 @@ extension ListContactsViewController: Bindable {
         
         bindTableView()
         viewModel.getContacts.execute()
-        
     }
 }
-    
