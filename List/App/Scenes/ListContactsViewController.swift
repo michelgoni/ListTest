@@ -77,9 +77,9 @@ class ListContactsViewController: UIViewController {
                 case 0:
                     self.title = ""
                 case 1:
-                    self.title = " \($0.filter{$0.isSelected}.count) element"
+                    self.title = " \($0.filter{$0.isSelected}.count) element selected"
                 default:
-                    self.title = " \($0.filter{$0.isSelected}.count) elements"
+                    self.title = " \($0.filter{$0.isSelected}.count) elements selected"
                 }
             })
             .disposed(by: rx.disposeBag)
