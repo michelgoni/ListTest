@@ -71,9 +71,17 @@ class ListContactsViewController: UIViewController {
     }
     
     private func bindTitle() {
-        viewModel.updatedNames.elements.subscribe(onNext: {
-            self.title = "\($0.filter{$0.isSelected}.count)" + " \($0.filter{$0.isSelected}.count > 1 ? "elements" : "element") "
-        })
+        viewModel.updatedNames.elements
+            .subscribe(onNext: {
+                switch $0.filter({ $0.isSelected}).count {
+                case 0:
+                    self.title = ""
+                case 1:
+                    self.title = " \($0.filter{$0.isSelected}.count) element"
+                default:
+                    self.title = " \($0.filter{$0.isSelected}.count) elements"
+                }
+            })
             .disposed(by: rx.disposeBag)
     }
 }
