@@ -38,11 +38,7 @@ class ContactsViewModelImplm: ContactsViewModel {
         Action<(name: Contact, names: [Contact]), [Contact]> { value in
             var newContacts = [Contact]()
             
-            let _ = value.names.reduce([]) {value.name == $1 ? newContacts.append(Contact(name: value.name.name, image: value.name.image, isSelected: !$1.isSelected)) : newContacts.append($1)
-                
-                return newContacts
-            }
-            
+            newContacts.append(contentsOf: value.names.map { $0.name == value.name.name ? Contact(name: value.name.name, image: value.name.image, isSelected: !$0.isSelected) : $0})
             return .just(newContacts)
         }
         
