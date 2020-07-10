@@ -10,17 +10,18 @@ import Foundation
 import RxSwift
 import Action
 import RxCocoa
+import NSObject_Rx
 
 protocol ContactsViewModel {
     
     var getContacts: Action<Void, [Contact]> { get }
     var updatedNames: Action<(name: Contact, names: [Contact]), [Contact]> { get }
+    var selectedElements: Action<Void,String> { get }
     
 }
 
 class ContactsViewModelImplm: ContactsViewModel {
-    var selectedElementsIndex = BehaviorRelay<[Int]>(value: [])
-    
+   
     let useCase: ContactsUseCase
     
     init(useCase: ContactsUseCase) {
@@ -42,5 +43,25 @@ class ContactsViewModelImplm: ContactsViewModel {
             return .just(newContacts)
         }
         
+    }(self)
+    
+    lazy var selectedElements: Action<Void,String> = { this in
+        
+        Action<Void,String> {
+            
+            return  this.updatedNames.elements.flatMap { contacts -> Observable<String> in
+                var value = ""
+                switch contacts.filter({ $0.isSelected}).count {
+                case 0:
+                    value = ""
+                case 1:
+                    value = "\(contacts.filter{$0.isSelected}.count) elements selected"
+                default:
+                    value = "\(contacts.filter{$0.isSelected}.count) elements selected"
+                }
+                
+                return .just(value)
+            }
+        }
     }(self)
 }

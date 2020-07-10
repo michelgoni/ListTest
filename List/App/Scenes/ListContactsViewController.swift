@@ -17,16 +17,9 @@ import RxCocoa
 class ListContactsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var selectedButton: UIButton!
     
-    private let elementsSubject = PublishSubject<[Contact]>()
-    public var elements: AnyObserver<[Contact]> {
-        return elementsSubject.asObserver()
-    }
-    
-    private var selectedItemSubject = PublishSubject<Int>()
-      public var selectedItem: Observable<Int> {
-          selectedItemSubject.asObservable()
-      }
+  
     
     // MARK: ViewModel
     var viewModel: ContactsViewModel!
@@ -68,22 +61,22 @@ class ListContactsViewController: UIViewController {
             .withLatestFrom(combinedData)
             .bind(to: viewModel.updatedNames.inputs)
             .disposed(by: rx.disposeBag)
+        
+        
     }
     
     private func bindTitle() {
-        viewModel.updatedNames.elements
-            .subscribe(onNext: {
-                switch $0.filter({ $0.isSelected}).count {
-                case 0:
-                    self.title = ""
-                case 1:
-                    self.title = " \($0.filter{$0.isSelected}.count) element selected"
-                default:
-                    self.title = " \($0.filter{$0.isSelected}.count) elements selected"
-                }
-            })
+        viewModel.selectedElements.elements
+            .observeOn(MainScheduler.asyncInstance)
+            .bind(to: selectedButton.rx.title())
             .disposed(by: rx.disposeBag)
+
     }
+    
+    @IBAction func selectedElementsPressed(_ sender: Any) {
+        
+    }
+    
 }
 
 extension ListContactsViewController: Bindable {
@@ -93,5 +86,6 @@ extension ListContactsViewController: Bindable {
         bindTableView()
         bindTitle()
         viewModel.getContacts.execute()
+        viewModel.selectedElements.execute()
     }
 }
