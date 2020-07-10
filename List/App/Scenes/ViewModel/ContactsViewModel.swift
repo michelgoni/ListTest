@@ -44,4 +44,3 @@ class ContactsViewModelImplm: ContactsViewModel {
         
     }(self)
 }
-

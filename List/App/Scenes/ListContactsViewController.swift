@@ -28,9 +28,6 @@ class ListContactsViewController: UIViewController {
           selectedItemSubject.asObservable()
       }
     
-    // MARK: Dispose Bag
-    private let bag = DisposeBag()
-    
     // MARK: ViewModel
     var viewModel: ContactsViewModel!
     
@@ -58,7 +55,7 @@ class ListContactsViewController: UIViewController {
         ) { _, model, cell in
             cell.setup(with: model)
         }
-        .disposed(by: bag)
+        .disposed(by: rx.disposeBag)
         
         let selectedData = tableView.rx.modelSelected(Contact.self).asObservable()
         let combinedData = Observable
@@ -70,7 +67,14 @@ class ListContactsViewController: UIViewController {
             .itemSelected
             .withLatestFrom(combinedData)
             .bind(to: viewModel.updatedNames.inputs)
-            .disposed(by: bag)
+            .disposed(by: rx.disposeBag)
+    }
+    
+    private func bindTitle() {
+        viewModel.updatedNames.elements.subscribe(onNext: {
+            self.title = "\($0.filter{$0.isSelected}.count)" + " \($0.filter{$0.isSelected}.count > 1 ? "elements" : "element") "
+        })
+            .disposed(by: rx.disposeBag)
     }
 }
 
@@ -79,6 +83,7 @@ extension ListContactsViewController: Bindable {
     func bind() {
         
         bindTableView()
+        bindTitle()
         viewModel.getContacts.execute()
     }
 }
