@@ -14,7 +14,7 @@ import NSObject_Rx
 import RxCocoa
 
 
-class ListContactsViewController: UIViewController {
+class ListContactsViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedButton: UIButton!
@@ -73,6 +73,14 @@ class ListContactsViewController: UIViewController {
 
     }
     
+    private func bindActivityIndicator() {
+                
+        Observable.merge(viewModel.getContacts.executing, viewModel.selectedElements.executing)
+            .subscribe(onNext: { [weak self] (isLoading) in
+            isLoading ? self?.showLoading() : self?.hideLoading()
+        }).disposed(by: rx.disposeBag)
+    }
+    
     @IBAction func selectedElementsPressed(_ sender: Any) {
         
     }
@@ -85,6 +93,7 @@ extension ListContactsViewController: Bindable {
         
         bindTableView()
         bindTitle()
+        bindActivityIndicator()
         viewModel.getContacts.execute()
         viewModel.selectedElements.execute()
     }

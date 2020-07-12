@@ -31,6 +31,10 @@
 		B43F9C09249F49D700ACC137 /* ContactsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9C08249F49D700ACC137 /* ContactsApiService.swift */; };
 		B43F9C0B249F4A2800ACC137 /* ContactsApiServiceImplm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9C0A249F4A2800ACC137 /* ContactsApiServiceImplm.swift */; };
 		B43F9C0F249F4BD900ACC137 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9C0E249F4BD900ACC137 /* Application.swift */; };
+		B490E2F424BB709D00B079C0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490E2F324BB709D00B079C0 /* ActivityIndicator.swift */; };
+		B490E2F624BB70B400B079C0 /* Nibable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490E2F524BB70B400B079C0 /* Nibable.swift */; };
+		B490E2F824BB70E800B079C0 /* ActivityIndicatorScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B490E2F724BB70E800B079C0 /* ActivityIndicatorScreen.xib */; };
+		B490E2FB24BB71DE00B079C0 /* BaseviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490E2FA24BB71DE00B079C0 /* BaseviewController.swift */; };
 		B4ACAC18249F527E00180834 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAC17249F527E00180834 /* ContactsViewModel.swift */; };
 		B4ACAC1A249F54BE00180834 /* ListContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAC19249F54BE00180834 /* ListContactsViewController.swift */; };
 		B4ACAC1E249F569900180834 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAC1C249F569900180834 /* ContactsTableViewCell.swift */; };
@@ -83,6 +87,10 @@
 		B43F9C08249F49D700ACC137 /* ContactsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsApiService.swift; sourceTree = "<group>"; };
 		B43F9C0A249F4A2800ACC137 /* ContactsApiServiceImplm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsApiServiceImplm.swift; sourceTree = "<group>"; };
 		B43F9C0E249F4BD900ACC137 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		B490E2F324BB709D00B079C0 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		B490E2F524BB70B400B079C0 /* Nibable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nibable.swift; sourceTree = "<group>"; };
+		B490E2F724BB70E800B079C0 /* ActivityIndicatorScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityIndicatorScreen.xib; sourceTree = "<group>"; };
+		B490E2FA24BB71DE00B079C0 /* BaseviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseviewController.swift; sourceTree = "<group>"; };
 		B4ACAC17249F527E00180834 /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 		B4ACAC19249F54BE00180834 /* ListContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsViewController.swift; sourceTree = "<group>"; };
 		B4ACAC1C249F569900180834 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
@@ -302,9 +310,28 @@
 			path = DataTest;
 			sourceTree = "<group>";
 		};
+		B490E2F224BB706700B079C0 /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				B490E2F724BB70E800B079C0 /* ActivityIndicatorScreen.xib */,
+				B490E2F324BB709D00B079C0 /* ActivityIndicator.swift */,
+				B490E2F524BB70B400B079C0 /* Nibable.swift */,
+			);
+			path = ActivityIndicator;
+			sourceTree = "<group>";
+		};
+		B490E2F924BB71CC00B079C0 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B490E2FA24BB71DE00B079C0 /* BaseviewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		B4ACAC14249F512200180834 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B490E2F924BB71CC00B079C0 /* Base */,
 				B4ACAC1B249F567100180834 /* VisualElements */,
 				B4ACAC16249F51E900180834 /* ViewModel */,
 				B4ACAC19249F54BE00180834 /* ListContactsViewController.swift */,
@@ -333,6 +360,7 @@
 		B4ACAC1B249F567100180834 /* VisualElements */ = {
 			isa = PBXGroup;
 			children = (
+				B490E2F224BB706700B079C0 /* ActivityIndicator */,
 				B43F9BBE249F3DD000ACC137 /* Main.storyboard */,
 				B4ACAC1C249F569900180834 /* ContactsTableViewCell.swift */,
 				B4ACAC1D249F569900180834 /* ContactsTableViewCell.xib */,
@@ -455,6 +483,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4ACAC1F249F569900180834 /* ContactsTableViewCell.xib in Resources */,
+				B490E2F824BB70E800B079C0 /* ActivityIndicatorScreen.xib in Resources */,
 				B43F9BC5249F3DD100ACC137 /* LaunchScreen.storyboard in Resources */,
 				B43F9BC2249F3DD100ACC137 /* Assets.xcassets in Resources */,
 				B43F9BC0249F3DD000ACC137 /* Main.storyboard in Resources */,
@@ -560,6 +589,8 @@
 				B43F9C0B249F4A2800ACC137 /* ContactsApiServiceImplm.swift in Sources */,
 				B4ACAC22249F584400180834 /* Bindable.swift in Sources */,
 				B43F9BE4249F430000ACC137 /* SuperHeroApiClient.swift in Sources */,
+				B490E2F624BB70B400B079C0 /* Nibable.swift in Sources */,
+				B490E2F424BB709D00B079C0 /* ActivityIndicator.swift in Sources */,
 				B43F9BFD249F489500ACC137 /* DataClass.swift in Sources */,
 				B43F9BF7249F46D900ACC137 /* ContactsRepository.swift in Sources */,
 				B43F9C06249F49A200ACC137 /* ContactsRepositoryImplm.swift in Sources */,
@@ -567,6 +598,7 @@
 				B43F9BEF249F454100ACC137 /* SuperHeroRequest.swift in Sources */,
 				B43F9BFB249F488500ACC137 /* SuperHeroResponse.swift in Sources */,
 				B43F9BE7249F433A00ACC137 /* ErrorResponseContainer.swift in Sources */,
+				B490E2FB24BB71DE00B079C0 /* BaseviewController.swift in Sources */,
 				B43F9BFF249F48AA00ACC137 /* Results.swift in Sources */,
 				B43F9C03249F48E400ACC137 /* Extension.swift in Sources */,
 				B43F9C09249F49D700ACC137 /* ContactsApiService.swift in Sources */,
