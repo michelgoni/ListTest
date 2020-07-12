@@ -15,8 +15,9 @@ import NSObject_Rx
 protocol ContactsViewModel {
     
     var getContacts: Action<Void, [Contact]> { get }
-    var updatedNames: Action<(name: Contact, names: [Contact]), [Contact]> { get }
+    var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> { get }
     var selectedElements: Action<Void,String> { get }
+    
     
 }
 
@@ -34,12 +35,12 @@ class ContactsViewModelImplm: ContactsViewModel {
         }
     }(self)
     
-    lazy var updatedNames: Action<(name: Contact, names: [Contact]), [Contact]> = { _ in
+    lazy var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> = { _ in
         
-        Action<(name: Contact, names: [Contact]), [Contact]> { value in
+        Action<(contact: Contact, contacts: [Contact]), [Contact]> { value in
             var newContacts = [Contact]()
             
-            newContacts.append(contentsOf: value.names.map { $0.name == value.name.name ? Contact(name: value.name.name, image: value.name.image, isSelected: !$0.isSelected) : $0})
+            newContacts.append(contentsOf: value.contacts.map { $0.name == value.contact.name ? Contact(name: value.contact.name, image: value.contact.image, isSelected: !$0.isSelected) : $0})
             return .just(newContacts)
         }
         
@@ -49,7 +50,7 @@ class ContactsViewModelImplm: ContactsViewModel {
         
         Action<Void,String> {
             
-            return  this.updatedNames.elements.flatMap { contacts -> Observable<String> in
+            return  this.updatedContacts.elements.flatMap { contacts -> Observable<String> in
                 var value = ""
                 switch contacts.filter({ $0.isSelected}).count {
                 case 0:

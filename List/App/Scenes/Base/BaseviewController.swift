@@ -16,7 +16,7 @@ protocol BaseViewProtocol {
 }
 
 class BaseViewController: UIViewController {
-
+    
     var loadingScreen = ActivityIndicatorScreen()
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,7 +33,6 @@ class BaseViewController: UIViewController {
     }
     
     func showLoading() {
-        
         loadingScreen.show(view: view)
     }
     
@@ -45,6 +44,5 @@ class BaseViewController: UIViewController {
     
     func hideLoading(completion: (() -> Void)? = nil) {
         loadingScreen.hide(completion: completion)
-        
     }
 }

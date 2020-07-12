@@ -35,6 +35,7 @@
 		B490E2F624BB70B400B079C0 /* Nibable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490E2F524BB70B400B079C0 /* Nibable.swift */; };
 		B490E2F824BB70E800B079C0 /* ActivityIndicatorScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B490E2F724BB70E800B079C0 /* ActivityIndicatorScreen.xib */; };
 		B490E2FB24BB71DE00B079C0 /* BaseviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490E2FA24BB71DE00B079C0 /* BaseviewController.swift */; };
+		B490E2FF24BB80D000B079C0 /* SelectedContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490E2FE24BB80D000B079C0 /* SelectedContactsViewController.swift */; };
 		B4ACAC18249F527E00180834 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAC17249F527E00180834 /* ContactsViewModel.swift */; };
 		B4ACAC1A249F54BE00180834 /* ListContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAC19249F54BE00180834 /* ListContactsViewController.swift */; };
 		B4ACAC1E249F569900180834 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAC1C249F569900180834 /* ContactsTableViewCell.swift */; };
@@ -91,6 +92,7 @@
 		B490E2F524BB70B400B079C0 /* Nibable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nibable.swift; sourceTree = "<group>"; };
 		B490E2F724BB70E800B079C0 /* ActivityIndicatorScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityIndicatorScreen.xib; sourceTree = "<group>"; };
 		B490E2FA24BB71DE00B079C0 /* BaseviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseviewController.swift; sourceTree = "<group>"; };
+		B490E2FE24BB80D000B079C0 /* SelectedContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedContactsViewController.swift; sourceTree = "<group>"; };
 		B4ACAC17249F527E00180834 /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 		B4ACAC19249F54BE00180834 /* ListContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsViewController.swift; sourceTree = "<group>"; };
 		B4ACAC1C249F569900180834 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		B43F9BDB249F40EA00ACC137 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				B4ACAC1B249F567100180834 /* VisualElements */,
 				B4ACAC20249F582D00180834 /* Protocols */,
 				B4ACAC15249F512D00180834 /* AppLaunch */,
 				B4ACAC14249F512200180834 /* Scenes */,
@@ -328,13 +331,29 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		B490E2FC24BB7D4500B079C0 /* MainContactList */ = {
+			isa = PBXGroup;
+			children = (
+				B4ACAC19249F54BE00180834 /* ListContactsViewController.swift */,
+			);
+			path = MainContactList;
+			sourceTree = "<group>";
+		};
+		B490E2FD24BB7D5700B079C0 /* SelectedContactsScene */ = {
+			isa = PBXGroup;
+			children = (
+				B490E2FE24BB80D000B079C0 /* SelectedContactsViewController.swift */,
+			);
+			path = SelectedContactsScene;
+			sourceTree = "<group>";
+		};
 		B4ACAC14249F512200180834 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B490E2FD24BB7D5700B079C0 /* SelectedContactsScene */,
 				B490E2F924BB71CC00B079C0 /* Base */,
-				B4ACAC1B249F567100180834 /* VisualElements */,
 				B4ACAC16249F51E900180834 /* ViewModel */,
-				B4ACAC19249F54BE00180834 /* ListContactsViewController.swift */,
+				B490E2FC24BB7D4500B079C0 /* MainContactList */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -597,6 +616,7 @@
 				B43F9BE0249F417400ACC137 /* String+Extensions.swift in Sources */,
 				B43F9BEF249F454100ACC137 /* SuperHeroRequest.swift in Sources */,
 				B43F9BFB249F488500ACC137 /* SuperHeroResponse.swift in Sources */,
+				B490E2FF24BB80D000B079C0 /* SelectedContactsViewController.swift in Sources */,
 				B43F9BE7249F433A00ACC137 /* ErrorResponseContainer.swift in Sources */,
 				B490E2FB24BB71DE00B079C0 /* BaseviewController.swift in Sources */,
 				B43F9BFF249F48AA00ACC137 /* Results.swift in Sources */,

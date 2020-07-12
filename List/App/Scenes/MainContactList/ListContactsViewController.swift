@@ -39,7 +39,7 @@ class ListContactsViewController: BaseViewController {
     
     private func bindTableView() {
         
-        let data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedNames.elements)
+        let data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements)
         
         data.bind(to:
             tableView.rx.items(
@@ -53,13 +53,13 @@ class ListContactsViewController: BaseViewController {
         let selectedData = tableView.rx.modelSelected(Contact.self).asObservable()
         let combinedData = Observable
             .combineLatest(data,selectedData)
-            .map {(name: $1, names: $0)}
+            .map {(contact: $1, contacts: $0)}
         
         tableView
             .rx
             .itemSelected
             .withLatestFrom(combinedData)
-            .bind(to: viewModel.updatedNames.inputs)
+            .bind(to: viewModel.updatedContacts.inputs)
             .disposed(by: rx.disposeBag)
         
         

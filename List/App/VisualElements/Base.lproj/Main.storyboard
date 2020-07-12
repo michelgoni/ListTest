@@ -52,6 +52,7 @@
                                         </state>
                                         <connections>
                                             <action selector="selectedElementsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pOE-sn-52N"/>
+                                            <segue destination="w3I-27-8m5" kind="show" id="kv5-3T-Nz7"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -82,6 +83,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="138.61607142857142"/>
+        </scene>
+        <!--Selected Contacts View Controller-->
+        <scene sceneID="qjz-7v-0eI">
+            <objects>
+                <viewController id="w3I-27-8m5" customClass="SelectedContactsViewController" customModule="List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dwo-3o-WrU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="43S-AO-AR7"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fvq-h0-aXR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="umu-Ta-yDD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1869" y="151"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZXw-cs-w9B">
