@@ -17,6 +17,7 @@ protocol ContactsViewModel {
     var getContacts: Action<Void, [Contact]> { get }
     var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> { get }
     var selectedElements: Action<Void,String> { get }
+    var selectedContacts: Action<[Contact], Swift.Never> { get }
     
     
 }
@@ -63,6 +64,12 @@ class ContactsViewModelImplm: ContactsViewModel {
                 
                 return .just(value)
             }
+        }
+    }(self)
+    
+    lazy var selectedContacts: Action<[Contact], Never> = { this in
+        Action<[Contact], Never> { contacts in
+            return .empty()
         }
     }(self)
 }
