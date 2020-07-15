@@ -73,15 +73,6 @@ class ListContactsViewController: BaseViewController {
 
     }
     
-    private func bindSelection() {
-        tableView.rx.itemSelected.withLatestFrom(viewModel
-            .updatedContacts.elements)
-            .flatMap { elements -> Observable<[Contact]> in
-            return .just(elements.filter({ $0.isSelected}))
-         }.subscribe(onNext: { (contacts) in
-            debugPrint("selected \(contacts.count) ")
-         }).disposed(by: rx.disposeBag)
-    }
     
     func bindButton() {
    viewModel.updatedContacts
