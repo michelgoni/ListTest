@@ -16,19 +16,10 @@ final class Application {
         let repository = ContactsRepositoryImplm(contactsApiService: contactsApiService)
         let contactsUsecase = ContactsUseCaseImplm(repository:repository)
         
-        let initialViewController = builder(contactsUsecase)
-        
-        window.rootViewController = initialViewController
-        window.makeKeyAndVisible()
-    }
-    
-    private func builder(_ useCase: ContactsUseCase) -> UINavigationController {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let listNavigation = storyboard.instantiateViewController(withIdentifier: "ListViewController") as! UINavigationController
-        var listViewController = listNavigation.viewControllers.first as! ListContactsViewController
-        let viewModel = ContactsViewModelImplm(useCase: useCase)
-        listViewController.bind(to: viewModel)
-        return listNavigation
-    }
+        let sceneCoordinator = SceneCoordinator(window: window)
+        let viewModel = ContactsViewModelImplm(useCase: contactsUsecase)
+        let firstScene = Scene.contacts(viewModel)
+        sceneCoordinator.transition(to: firstScene, type: .root)
 
+    }
 }
