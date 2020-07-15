@@ -52,7 +52,6 @@
                                         </state>
                                         <connections>
                                             <action selector="selectedElementsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pOE-sn-52N"/>
-                                            <segue destination="w3I-27-8m5" kind="show" id="kv5-3T-Nz7"/>
                                         </connections>
                                     </button>
                                 </subviews>

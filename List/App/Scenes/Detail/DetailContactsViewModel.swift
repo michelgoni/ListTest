@@ -9,14 +9,14 @@
 import Foundation
 
 protocol DetailContactsViewModel {
-    var title: String { get }
+    var contacts: [Contact] { get }
 }
 
 struct DetailContacts: DetailContactsViewModel {
     
-    var title: String
+    var contacts: [Contact]
     
-    init (title: String) {
-        self.title = title
+    init (contacts: [Contact]) {
+        self.contacts = contacts
     }
 }

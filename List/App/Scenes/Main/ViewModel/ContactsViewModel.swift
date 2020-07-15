@@ -69,6 +69,9 @@ class ContactsViewModelImplm: ContactsViewModel {
     
     lazy var selectedContacts: Action<[Contact], Never> = { this in
         Action<[Contact], Never> { contacts in
+            
+           
+            
             return .empty()
         }
     }(self)

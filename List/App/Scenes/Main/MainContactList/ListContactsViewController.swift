@@ -73,16 +73,46 @@ class ListContactsViewController: BaseViewController {
 
     }
     
+    private func bindSelection() {
+        tableView.rx.itemSelected.withLatestFrom(viewModel
+            .updatedContacts.elements)
+            .flatMap { elements -> Observable<[Contact]> in
+            return .just(elements.filter({ $0.isSelected}))
+         }.subscribe(onNext: { (contacts) in
+            debugPrint("selected \(contacts.count) ")
+         }).disposed(by: rx.disposeBag)
+    }
+    
+    func bindButton() {
+   viewModel.updatedContacts
+        .elements
+        .withLatestFrom(viewModel.updatedContacts.elements)
+        .flatMap { elements -> Observable<Bool> in
+            return .just(!elements.filter({ $0.isSelected}).isEmpty)
+        }.startWith(false)
+        .bind(to: selectedButton.rx.isEnabled)
+    .disposed(by: rx.disposeBag)
+      
+        
+        
+    }
+    
     private func bindActivityIndicator() {
                 
         Observable.merge(viewModel.getContacts.executing, viewModel.selectedElements.executing)
-            .subscribe(onNext: { [weak self] (isLoading) in
+            .subscribe(onNext: { [weak self] isLoading in
             isLoading ? self?.showLoading() : self?.hideLoading()
         }).disposed(by: rx.disposeBag)
     }
     
     @IBAction func selectedElementsPressed(_ sender: Any) {
         
+        selectedButton
+            .rx.tap.subscribe(onNext: { _ in
+                debugPrint("tapped")
+            }).disposed(by: rx.disposeBag)
+        
+        //let selectedContactsViewModel = DetailContacts(contacts: <#T##[Contact]#>)
     }
     
 }
@@ -93,6 +123,7 @@ extension ListContactsViewController: Bindable {
         
         bindTableView()
         bindTitle()
+        bindButton()
         bindActivityIndicator()
         viewModel.getContacts.execute()
         viewModel.selectedElements.execute()
