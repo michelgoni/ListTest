@@ -29,7 +29,7 @@ PODS:
   - RxSwift (5.1.1)
   - TransportationApiClient (0.1.3):
     - Alamofire (~> 5.2)
-  - TransportsUI (0.1.2)
+  - TransportsUI (0.1.4)
 
 DEPENDENCIES:
   - Action
@@ -42,7 +42,7 @@ DEPENDENCIES:
   - RxKingfisher
   - RxSwift
   - TransportationApiClient (= 0.1.3)
-  - TransportsUI (= 0.1.2)
+  - TransportsUI
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -78,8 +78,8 @@ SPEC CHECKSUMS:
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   TransportationApiClient: d9704e331b15d5aa24b37aec8d94b40b5ae022b0
-  TransportsUI: 9b2fa0c622246b863b41a3d0285c86e9292efef8
+  TransportsUI: bede78da1cc2420e3f359c4f46809f7f582a2333
 
-PODFILE CHECKSUM: 63e813fbbae009ea13549960e16fe292b7ea7d04
+PODFILE CHECKSUM: 915d770c9ac3052c410011017755978b5329fc32
 
 COCOAPODS: 1.9.1

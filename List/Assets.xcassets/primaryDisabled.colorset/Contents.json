@@ -2,8 +2,8 @@
   "colors" : [
     {
       "color" : {
-        "platform" : "osx",
-        "reference" : "controlColor"
+        "platform" : "ios",
+        "reference" : "systemGray5Color"
       },
       "idiom" : "universal"
     }
@@ -11,8 +11,5 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "localizable" : true
   }
 }

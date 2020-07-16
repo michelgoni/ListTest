@@ -94,14 +94,14 @@ class ListContactsViewController: BaseViewController {
             
         selected.subscribe(onNext: { [weak self] (selected) in
             self?.selectedButton.isEnabled = selected
-            self?.selectedButton.backgroundColor = selected ? .red : .yellow
+            self?.selectedButton.backgroundColor = selected ? .primary : .primaryDisabled
         }).disposed(by: rx.disposeBag)
         
     }
     
     private func bindActivityIndicator() {
                 
-        Observable.merge(viewModel.getContacts.executing, viewModel.selectedElements.executing)
+        Observable.merge(viewModel.getContacts.executing)
             .subscribe(onNext: { [weak self] isLoading in
             isLoading ? self?.showLoading() : self?.hideLoading()
         }).disposed(by: rx.disposeBag)
@@ -128,6 +128,6 @@ extension ListContactsViewController: Bindable {
         bindButton()
         bindActivityIndicator()
         viewModel.getContacts.execute()
-        viewModel.selectedElements.execute()
+        
     }
 }

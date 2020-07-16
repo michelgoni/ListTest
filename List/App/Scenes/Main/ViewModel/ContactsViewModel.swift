@@ -16,7 +16,6 @@ protocol ContactsViewModel {
     
     var getContacts: Action<Void, [Contact]> { get }
     var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> { get }
-    var selectedElements: Action<Void,String> { get }
     var selectedContacts: Action<[Contact], Swift.Never> { get }
     
     
@@ -47,25 +46,6 @@ class ContactsViewModelImplm: ContactsViewModel {
         
     }(self)
     
-    lazy var selectedElements: Action<Void,String> = { this in
-        
-        Action<Void,String> {
-            
-            return  this.updatedContacts.elements.flatMap { contacts -> Observable<String> in
-                var value = ""
-                switch contacts.filter({ $0.isSelected}).count {
-                case 0:
-                    value = ""
-                case 1:
-                    value = "\(contacts.filter{$0.isSelected}.count) elements selected"
-                default:
-                    value = "\(contacts.filter{$0.isSelected}.count) elements selected"
-                }
-                
-                return .just(value)
-            }
-        }
-    }(self)
     
     lazy var selectedContacts: Action<[Contact], Never> = { this in
         Action<[Contact], Never> { contacts in
