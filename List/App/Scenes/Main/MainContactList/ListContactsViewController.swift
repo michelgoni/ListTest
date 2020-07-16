@@ -12,6 +12,7 @@ import RxDataSources
 import Action
 import NSObject_Rx
 import RxCocoa
+import TransportsUI
 
 
 class ListContactsViewController: BaseViewController {
@@ -75,16 +76,17 @@ class ListContactsViewController: BaseViewController {
     
     
     func bindButton() {
-   viewModel.updatedContacts
-        .elements
-        .withLatestFrom(viewModel.updatedContacts.elements)
-        .flatMap { elements -> Observable<Bool> in
-            return .just(!elements.filter({ $0.isSelected}).isEmpty)
+       let selected =  viewModel.updatedContacts
+            .elements
+            .withLatestFrom(viewModel.updatedContacts.elements)
+            .flatMap { elements -> Observable<Bool> in
+                return .just(!elements.filter({ $0.isSelected}).isEmpty)
         }.startWith(false)
-        .bind(to: selectedButton.rx.isEnabled)
-    .disposed(by: rx.disposeBag)
-      
-        
+            
+        selected.subscribe(onNext: { [weak self] (selected) in
+            self?.selectedButton.isEnabled = selected
+            self?.selectedButton.backgroundColor = selected ? .red : UIColor.primary
+        }).disposed(by: rx.disposeBag)
         
     }
     
