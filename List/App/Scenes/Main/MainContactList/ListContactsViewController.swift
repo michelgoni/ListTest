@@ -67,11 +67,20 @@ class ListContactsViewController: BaseViewController {
     }
     
     private func bindTitle() {
-        viewModel.selectedElements.elements
-            .observeOn(MainScheduler.asyncInstance)
-            .bind(to: selectedButton.rx.title())
-            .disposed(by: rx.disposeBag)
 
+        var value = ""
+        viewModel.updatedContacts.elements.flatMap { contacts -> Observable<String> in
+            switch contacts.filter({ $0.isSelected}).count {
+            case 0:
+                value = ""
+            case 1:
+                value = "\(contacts.filter{$0.isSelected}.count) elements selected"
+            default:
+                value = "\(contacts.filter{$0.isSelected}.count) elements selected"
+            }
+            
+            return .just(value)
+        }.bind(to: selectedButton.rx.title()).disposed(by: rx.disposeBag)
     }
     
     
@@ -85,7 +94,7 @@ class ListContactsViewController: BaseViewController {
             
         selected.subscribe(onNext: { [weak self] (selected) in
             self?.selectedButton.isEnabled = selected
-            self?.selectedButton.backgroundColor = selected ? .red : UIColor.primary
+            self?.selectedButton.backgroundColor = selected ? .red : .yellow
         }).disposed(by: rx.disposeBag)
         
     }
