@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Thumbnail: Codable {
-    let path: String
-    let thumbnailExtension: Extension
+public struct Thumbnail: Codable {
+   public let path: String
+   public let thumbnailExtension: Extension
     
-    var imageUrl: String {
+    public var imageUrl: String {
         return path + "." + thumbnailExtension.getExtension()
     }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DataClass: Codable {
+public struct DataClass: Codable {
 
-    let results: [Results]
+   public let results: [Results]
 }

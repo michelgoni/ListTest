@@ -8,11 +8,11 @@
 
 import Foundation
 
-enum Extension: String, Codable {
+public enum Extension: String, Codable {
     case gif = "gif"
     case jpg = "jpg"
     
-    func getExtension () -> String {
+    public func getExtension () -> String {
         switch self {
         case .gif:
             return "gif"

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SuperHeroResponse: Codable {
+public struct SuperHeroResponse: Codable {
 
-    let data: DataClass
+   public  let data: DataClass
 }

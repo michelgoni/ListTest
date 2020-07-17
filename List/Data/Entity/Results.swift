@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct Results: Codable {
-    let id: Int
-    let name: String
-    let thumbnail: Thumbnail
+public struct Results: Codable {
+    public let id: Int
+    public let name: String
+    public let thumbnail: Thumbnail
 }
 
-extension Contact {
+public extension Contact {
     
     init(contact: Results) {
         self.init(name: contact.name,

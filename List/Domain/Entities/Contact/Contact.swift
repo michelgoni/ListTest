@@ -8,7 +8,7 @@
 
 import Foundation
 
- protocol ContactRepresentable {
+protocol ContactRepresentable {
     var name: String {get}
     var image: String {get}
     var isSelected: Bool {get}
@@ -16,9 +16,9 @@ import Foundation
 
 public struct Contact: ContactRepresentable, Equatable {
     
-    var name: String
-    var image: String
-    var isSelected: Bool
+    public var name: String
+    public var image: String
+    public var isSelected: Bool
     
     public init(name: String, image: String, isSelected: Bool) {
         self.name = name
