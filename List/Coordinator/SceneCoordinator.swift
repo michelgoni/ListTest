@@ -11,12 +11,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-public class SceneCoordinator: NSObject, SceneCoordinatorType {
+open class SceneCoordinator: NSObject, SceneCoordinatorType {
     
     private var window: UIWindow
     private var currentViewController: UIViewController
     
-    required init(window: UIWindow) {
+    required public init(window: UIWindow) {
         self.window = window
         currentViewController = window.rootViewController!
     }
