@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol DetailContactsViewModel {
+public protocol DetailContactsViewModel {
     var contacts: [Contact] { get }
 }
 
-struct DetailContacts: DetailContactsViewModel {
+public struct DetailContacts: DetailContactsViewModel {
     
-    var contacts: [Contact]
+    public var contacts: [Contact]
     
     init (contacts: [Contact]) {
         self.contacts = contacts

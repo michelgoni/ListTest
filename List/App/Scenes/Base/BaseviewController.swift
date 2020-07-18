@@ -15,11 +15,11 @@ protocol BaseViewProtocol {
     func hideLoading(completion: (() -> Void)?)
 }
 
-class BaseViewController: UIViewController {
+public class BaseViewController: UIViewController {
     
     var loadingScreen = ActivityIndicatorScreen()
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         let message = "Showing " + NSStringFromClass(self.classForCoder)
