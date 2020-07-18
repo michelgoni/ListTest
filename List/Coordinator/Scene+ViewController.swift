@@ -11,7 +11,7 @@ import UIKit
 
 public extension Scene {
     
-    public func viewController() -> UIViewController {
+    func viewController() -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         switch self {
