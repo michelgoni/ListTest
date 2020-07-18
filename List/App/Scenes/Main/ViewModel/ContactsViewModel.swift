@@ -12,7 +12,7 @@ import Action
 import RxCocoa
 import NSObject_Rx
 
-protocol ContactsViewModel {
+public protocol ContactsViewModel {
     
     var getContacts: Action<Void, [Contact]> { get }
     var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> { get }
@@ -21,21 +21,21 @@ protocol ContactsViewModel {
     
 }
 
-class ContactsViewModelImplm: ContactsViewModel {
+public class ContactsViewModelImplm: ContactsViewModel {
    
     let useCase: ContactsUseCase
     
-    init(useCase: ContactsUseCase) {
+   public init(useCase: ContactsUseCase) {
         self.useCase = useCase
     }
     
-    lazy var getContacts: Action<Void, [Contact]> = { this in
+    lazy public var getContacts: Action<Void, [Contact]> = { this in
         Action <Void, [Contact]> {
             this.useCase.getContacts().mapResult()
         }
     }(self)
     
-    lazy var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> = { _ in
+    lazy public var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> = { _ in
         
         Action<(contact: Contact, contacts: [Contact]), [Contact]> { value in
             var newContacts = [Contact]()
@@ -47,7 +47,7 @@ class ContactsViewModelImplm: ContactsViewModel {
     }(self)
     
     
-    lazy var selectedContacts: Action<[Contact], Never> = { this in
+    lazy public var selectedContacts: Action<[Contact], Never> = { this in
         Action<[Contact], Never> { contacts in
             
            

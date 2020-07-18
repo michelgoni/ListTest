@@ -14,18 +14,15 @@ import NSObject_Rx
 import RxCocoa
 import TransportsUI
 
-
-class ListContactsViewController: BaseViewController {
+ public class ListContactsViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedButton: UIButton!
     
-  
-    
     // MARK: ViewModel
     var viewModel: ContactsViewModel!
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
     }

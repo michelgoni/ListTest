@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-extension Scene {
+public extension Scene {
     
-    func viewController() -> UIViewController {
+    public func viewController() -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         switch self {

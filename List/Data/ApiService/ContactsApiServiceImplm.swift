@@ -10,16 +10,16 @@ import Foundation
 import RxSwift
 import TransportationApiClient
 
-class ContactsApiServiceImplm: ContactsApiService {
+public class ContactsApiServiceImplm: ContactsApiService {
     
     let apiService: APIClient
     
-    init(apiService: APIClient) {
+    public init(apiService: APIClient) {
         
         self.apiService = apiService
     }
     
-    func getSuperHeroContacts() -> Single<SuperHeroResponse> {
+    public func getSuperHeroContacts() -> Single<SuperHeroResponse> {
         let superHerorequest = SuperHeroRequest(baseApiParams: BaseApiParams(date: Date(),
                                                                              publicApiKey: "ab96482ca6c6b9304f381e5ac433ce59",
                                                                              privateKey: "95b8baf2f2882d5ead42665c539b60d2b9741e93"))

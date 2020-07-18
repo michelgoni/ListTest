@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Scene {
+public enum Scene {
     case contacts(ContactsViewModel)
     case selectedContacts(DetailContactsViewModel)
 }
