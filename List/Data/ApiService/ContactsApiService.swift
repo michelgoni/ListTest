@@ -9,6 +9,6 @@
 import Foundation
 import RxSwift
 
- protocol ContactsApiService {
+public protocol ContactsApiService {
     func getSuperHeroContacts() -> Single<SuperHeroResponse>
 }
