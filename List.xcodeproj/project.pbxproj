@@ -335,9 +335,25 @@
 		B43F9C0D249F4B6800ACC137 /* DataTest */ = {
 			isa = PBXGroup;
 			children = (
-				B462EBA424C1FAD9007C9B9D /* ContactResponseTest.swift */,
+				B45FF24D24C302C800826F32 /* Repository */,
+				B45FF24C24C302BF00826F32 /* Entity */,
 			);
 			path = DataTest;
+			sourceTree = "<group>";
+		};
+		B45FF24C24C302BF00826F32 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				B462EBA424C1FAD9007C9B9D /* ContactResponseTest.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		B45FF24D24C302C800826F32 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		B462EBA624C1FBD8007C9B9D /* Stubs */ = {

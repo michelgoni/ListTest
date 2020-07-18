@@ -31,6 +31,11 @@ class ContactResponseTest: QuickSpec {
                 expect(contacts).notTo(beNil())
             }
             
+            it("Contains Data and Results inside contactResponse") {
+                expect(contactResponse.data).notTo(beNil())
+                expect(contactResponse.data.results).notTo(beNil())
+            }
+            
             it("Decodable is properly working") {
                 let contact = contactsResponse.data.results.map(Contact.init).first!
                 expect(contact.name).to(be("3-D Man"))
