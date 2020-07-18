@@ -10,5 +10,5 @@ import Foundation
 
 public struct SuperHeroResponse: Codable {
 
-   public  let data: DataClass
+   public let data: DataClass
 }

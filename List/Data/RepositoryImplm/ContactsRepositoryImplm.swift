@@ -9,16 +9,16 @@
 import Foundation
 import RxSwift
 
-class ContactsRepositoryImplm: ContactsRepository {
+public class ContactsRepositoryImplm: ContactsRepository {
     
-    let contactsApiService: ContactsApiService
+   public let contactsApiService: ContactsApiService
     
-    init(contactsApiService: ContactsApiService) {
+   public init(contactsApiService: ContactsApiService) {
         self.contactsApiService = contactsApiService
     }
     
     // MARK: -ContactsRepository
-    func getContacts() -> Single<Result<[Contact], ErrorResponse>> {
+   public func getContacts() -> Single<Result<[Contact], ErrorResponse>> {
         
         return self.contactsApiService
             .getSuperHeroContacts()

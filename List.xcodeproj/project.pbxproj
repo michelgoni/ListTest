@@ -31,6 +31,7 @@
 		B43F9C09249F49D700ACC137 /* ContactsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9C08249F49D700ACC137 /* ContactsApiService.swift */; };
 		B43F9C0B249F4A2800ACC137 /* ContactsApiServiceImplm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9C0A249F4A2800ACC137 /* ContactsApiServiceImplm.swift */; };
 		B43F9C0F249F4BD900ACC137 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9C0E249F4BD900ACC137 /* Application.swift */; };
+		B45FF24F24C305F200826F32 /* ContactsRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45FF24E24C305F200826F32 /* ContactsRepositoryTest.swift */; };
 		B462EBA524C1FAD9007C9B9D /* ContactResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B462EBA424C1FAD9007C9B9D /* ContactResponseTest.swift */; };
 		B462EBA824C1FC68007C9B9D /* contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = B462EBA724C1FC68007C9B9D /* contacts.json */; };
 		B462EBAA24C1FC95007C9B9D /* XCTestCase+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B462EBA924C1FC95007C9B9D /* XCTestCase+.swift */; };
@@ -99,6 +100,7 @@
 		B43F9C08249F49D700ACC137 /* ContactsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsApiService.swift; sourceTree = "<group>"; };
 		B43F9C0A249F4A2800ACC137 /* ContactsApiServiceImplm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsApiServiceImplm.swift; sourceTree = "<group>"; };
 		B43F9C0E249F4BD900ACC137 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		B45FF24E24C305F200826F32 /* ContactsRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRepositoryTest.swift; sourceTree = "<group>"; };
 		B462EBA424C1FAD9007C9B9D /* ContactResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactResponseTest.swift; sourceTree = "<group>"; };
 		B462EBA724C1FC68007C9B9D /* contacts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = contacts.json; sourceTree = "<group>"; };
 		B462EBA924C1FC95007C9B9D /* XCTestCase+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+.swift"; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 		B45FF24D24C302C800826F32 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				B45FF24E24C305F200826F32 /* ContactsRepositoryTest.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -740,6 +743,7 @@
 			files = (
 				B43F9BF9249F475F00ACC137 /* ContactsUseCaseTest.swift in Sources */,
 				B462EBA524C1FAD9007C9B9D /* ContactResponseTest.swift in Sources */,
+				B45FF24F24C305F200826F32 /* ContactsRepositoryTest.swift in Sources */,
 				B462EBAA24C1FC95007C9B9D /* XCTestCase+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
