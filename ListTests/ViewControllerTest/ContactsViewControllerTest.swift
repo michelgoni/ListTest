@@ -81,7 +81,6 @@ class ContactsViewControllerTest: QuickSpec {
                         expect(element.name) == name ?? ""
                     }).disposed(by: self.rx.disposeBag)
                 }
-                
             }
             
             it("Disclosure indicator changes after pressing a contact") {
@@ -96,6 +95,29 @@ class ContactsViewControllerTest: QuickSpec {
                 }
 
                 expect(cell.accessoryType) != .checkmark
+            }
+            
+            it("Modifies background button color after selecting one contact") {
+                let _ = Observable.merge(viewModel.getContacts.elements,
+                                         viewModel.updatedContacts.elements)
+                
+                sut.tableView.delegate?.tableView?(tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+                expect(sut.selectedButton.backgroundColor) == .primary
+            }
+            
+            it("Button is enabled after pressing one contact") {
+                let _ = Observable.merge(viewModel.getContacts.elements,
+                                         viewModel.updatedContacts.elements)
+                
+                sut.tableView.delegate?.tableView?(tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+                expect(sut.selectedButton.isEnabled).to(beTrue())
+            }
+            
+            it("Button is not enabled when loading table view") {
+                let _ = Observable.merge(viewModel.getContacts.elements,
+                                         viewModel.updatedContacts.elements)
+                
+                expect(sut.selectedButton.isEnabled).notTo(beTrue())
             }
             
             class MockContactCell: ContactsTableViewCell {
@@ -137,10 +159,7 @@ class ContactsViewControllerTest: QuickSpec {
                     }
                 }(self)
                 
-                
             }
-            
         }
     }
-    
 }
