@@ -39,6 +39,7 @@ import TransportsUI
         
         let data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements)
         
+        
         data.bind(to:
             tableView.rx.items(
                 cellIdentifier: ContactsTableViewCell.identifier,
@@ -104,7 +105,7 @@ import TransportsUI
         }).disposed(by: rx.disposeBag)
     }
     
-    @IBAction func selectedElementsPressed(_ sender: Any) {
+    @IBAction func selectedElementsPressed(_ sender: UIButton) {
         
         selectedButton
             .rx.tap.subscribe(onNext: { _ in

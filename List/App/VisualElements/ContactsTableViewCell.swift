@@ -15,7 +15,7 @@ protocol UITableViewCellRepresentable: UITableViewCell {
     func setup(with data: Any)
 }
 
-class ContactsTableViewCell: UITableViewCell {
+class ContactsTableViewCell: UITableViewCell, UITableViewCellRepresentable {
     
     static let nibName = "ContactsTableViewCell"
     static let identifier = "ContactsTableViewCell"
@@ -36,22 +36,21 @@ class ContactsTableViewCell: UITableViewCell {
         contactImage.clipsToBounds = true
     }
     
-}
-
-extension ContactsTableViewCell: UITableViewCellRepresentable {
-    
     func setup(with data: Any) {
-        if let contactElement = data as? ContactRepresentable {
+        if let contactElement = data as? ContactRepresentable, let imageUrl = URL(string: contactElement.image) {
             contactLabel.text = contactElement.name
             accessoryType = contactElement.isSelected ? .checkmark : .none
             contactImage
                 .kf
                 .rx
-                .setImage(with: ImageResource(downloadURL: URL(string: contactElement.image)!))
+                .setImage(with: ImageResource(downloadURL: imageUrl))
                 .observeOn(MainScheduler.asyncInstance)
                 .subscribe(onSuccess: { (image) in
                     self.contactImage.image = image
                 }).disposed(by: rx.disposeBag)
         }
     }
+    
 }
+
+
