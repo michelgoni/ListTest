@@ -38,6 +38,30 @@ class ContactViewModelTest: QuickSpec {
                 disposeBag = DisposeBag()
             }
             
+            it("Gets initial Contacts for testing purpose") {
+                expect(ContactsFake.contacts).notTo(beNil())
+            }
+            
+            it("Updates selected contacts") {
+                let selectedElement = scheduler.createObserver([Bool].self)
+
+                sut.getContacts.elements.map { $0.map{$0.isSelected}}
+                               .bind(to: selectedElement)
+                               .disposed(by: disposeBag)
+
+                sut.updatedContacts.inputs.onNext((contact: ContactsFake.contactSelected, contacts: ContactsFake.contacts))
+
+                sut.updatedContacts.elements
+                    .map { $0.map { $0.isSelected}}
+                    .bind(to: selectedElement)
+                    .disposed(by: disposeBag)
+
+                //scheduler.createHotObservable([.next(10, ContactsFake.contactSelected)]).bind(to: sut.updatedContacts.inputs)
+
+                scheduler.start()
+                expect(selectedElement.events) == [.next(10, ContactsFake.contactsSelected.map{$0.isSelected})]
+            }
+            
             it("Gets contacts") {
                 let contactName = scheduler.createObserver([String].self)
                 
@@ -45,7 +69,7 @@ class ContactViewModelTest: QuickSpec {
                     .bind(to: contactName)
                     .disposed(by: disposeBag)
                 
-                scheduler.createColdObservable([.next(10, ())])
+                scheduler.createHotObservable([.next(10, ())])
                     .bind(to: sut.getContacts.inputs)
                     .disposed(by: disposeBag)
                 
@@ -96,10 +120,6 @@ class ContactViewModelTest: QuickSpec {
                 .just(.success(contacts))
             }
             
-            
         }
-        
-        
     }
-
 }
