@@ -13,6 +13,7 @@ import Nimble
 import RxSwift
 import RxCocoa
 import Action
+import RxTest
 
 class ContactsViewControllerTest: QuickSpec {
     
@@ -23,12 +24,17 @@ class ContactsViewControllerTest: QuickSpec {
             var sut: ListContactsViewController!
             var viewModel: ContactsMockViewModel!
             var tableView: UITableView!
+            var scheduler: TestScheduler!
+            var disposeBag: DisposeBag!
             
             beforeEach {
                 viewModel  = ContactsMockViewModel()
                 sut = Scene.contacts(viewModel).viewController() as? ListContactsViewController
                 sut.loadViewIfNeeded()
                 tableView = sut.tableView
+                
+                scheduler = TestScheduler(initialClock: 0)
+                disposeBag = DisposeBag()
                 
             }
             
@@ -120,11 +126,21 @@ class ContactsViewControllerTest: QuickSpec {
                 expect(sut.selectedButton.isEnabled).notTo(beTrue())
             }
             
+            it("Button text is modified after selecting one contact") {
+                
+                sut.viewModel.updatedContacts.inputs.onNext((contact: ContactsFake.contactSelected, contacts: ContactsFake.contactsSelected))
+                
+                expect(sut.selectedButton.titleLabel?.text) == "1 element selected"
+                
+   
+            }
+            
             class MockContactCell: ContactsTableViewCell {
                 
                 let identifier = "MockContactCell"
                 var element: ContactRepresentable?
                 var accesoryTypeElement = ""
+                
                 override func setup(with data: Any) {
                     
                     guard let contactElement = data as? ContactRepresentable else {return}

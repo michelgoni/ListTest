@@ -23,6 +23,7 @@ target 'List' do
     pod 'RxBlocking'
     pod 'Quick'
     pod 'Nimble'
+    pod 'RxTest'
   end
   
 end

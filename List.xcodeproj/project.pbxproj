@@ -193,8 +193,8 @@
 		B43F9BCE249F3DD100ACC137 /* ListTests */ = {
 			isa = PBXGroup;
 			children = (
-				B4A032B324C4AFF600DEA70B /* ViewControllerTest */,
 				B43F9BD1249F3DD100ACC137 /* Info.plist */,
+				B4A032B324C4AFF600DEA70B /* ViewControllerTest */,
 				B45FF25024C30F5900826F32 /* CoordinatorTest */,
 				B462EBA624C1FBD8007C9B9D /* Stubs */,
 				B43F9C0D249F4B6800ACC137 /* DataTest */,
