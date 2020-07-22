@@ -108,8 +108,11 @@ import TransportsUI
     @IBAction func selectedElementsPressed(_ sender: UIButton) {
         
         selectedButton
-            .rx.tap.subscribe(onNext: { _ in
-                debugPrint("tapped")
+            .rx.tap.subscribe(onNext: {[weak self] _ in
+                
+                if let contacts = self?.viewModel.updatedContacts.elements.map({ $0.filter{$0.isSelected}}) {
+                    self?.viewModel.selectedContacts.inputs.onNext(contacts)
+                }
             }).disposed(by: rx.disposeBag)
         
         //let selectedContactsViewModel = DetailContacts(contacts: <#T##[Contact]#>)

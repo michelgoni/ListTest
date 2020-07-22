@@ -7,16 +7,17 @@
 //
 
 import Foundation
+import RxSwift
 
 public protocol DetailContactsViewModel {
-    var contacts: [Contact] { get }
+    var contacts: Observable<[Contact]> { get }
 }
 
 public struct DetailContacts: DetailContactsViewModel {
     
-    public var contacts: [Contact]
+    public var contacts: Observable<[Contact]>
     
-    init (contacts: [Contact]) {
+    public init (contacts: Observable<[Contact]>) {
         self.contacts = contacts
     }
 }

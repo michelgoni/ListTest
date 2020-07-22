@@ -16,17 +16,18 @@ public protocol ContactsViewModel {
     
     var getContacts: Action<Void, [Contact]> { get }
     var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> { get }
-    var selectedContacts: Action<[Contact], Swift.Never> { get }
-    
+    var selectedContacts: Action<Observable<[Contact]>, Never> { get }
     
 }
 
 public class ContactsViewModelImplm: ContactsViewModel {
-   
-    let useCase: ContactsUseCase
     
-   public init(useCase: ContactsUseCase) {
+    let useCase: ContactsUseCase
+    let coordinator: SceneCoordinator
+    
+    public init(useCase: ContactsUseCase, coordinator: SceneCoordinator) {
         self.useCase = useCase
+        self.coordinator = coordinator
     }
     
     lazy public var getContacts: Action<Void, [Contact]> = { this in
@@ -47,10 +48,10 @@ public class ContactsViewModelImplm: ContactsViewModel {
     }(self)
     
     
-    lazy public var selectedContacts: Action<[Contact], Never> = { this in
-        Action<[Contact], Never> { contacts in
+    lazy public var selectedContacts: Action<Observable<[Contact]>, Never> = { this in
+        Action<Observable<[Contact]>, Never> { contacts in
             
-           
+            this.coordinator.transition(to: .selectedContacts(DetailContacts(contacts: contacts)), type: .push)
             
             return .empty()
         }
