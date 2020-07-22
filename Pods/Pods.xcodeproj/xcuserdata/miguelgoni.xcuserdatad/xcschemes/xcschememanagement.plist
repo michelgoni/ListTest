@@ -109,19 +109,26 @@
 			<key>orderHint</key>
 			<integer>14</integer>
 		</dict>
-		<key>TransportationApiClient.xcscheme</key>
+		<key>RxTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>15</integer>
 		</dict>
-		<key>TransportsUI.xcscheme</key>
+		<key>TransportationApiClient.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>16</integer>
+		</dict>
+		<key>TransportsUI.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>17</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

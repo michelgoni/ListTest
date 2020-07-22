@@ -72,7 +72,7 @@ import TransportsUI
             case 0:
                 value = ""
             case 1:
-                value = "\(contacts.filter{$0.isSelected}.count) elements selected"
+                value = "\(contacts.filter{$0.isSelected}.count) element selected"
             default:
                 value = "\(contacts.filter{$0.isSelected}.count) elements selected"
             }
