@@ -17,7 +17,7 @@ final class Application {
         let contactsUsecase = ContactsUseCaseImplm(repository:repository)
         
         let sceneCoordinator = SceneCoordinator(window: window)
-        let viewModel = ContactsViewModelImplm(useCase: contactsUsecase)
+        let viewModel = ContactsViewModelImplm(useCase: contactsUsecase, coordinator: sceneCoordinator)
         let firstScene = Scene.contacts(viewModel)
         sceneCoordinator.transition(to: firstScene, type: .root)
 

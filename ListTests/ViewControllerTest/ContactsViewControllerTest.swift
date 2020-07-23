@@ -24,18 +24,12 @@ class ContactsViewControllerTest: QuickSpec {
             var sut: ListContactsViewController!
             var viewModel: ContactsMockViewModel!
             var tableView: UITableView!
-            var scheduler: TestScheduler!
-            var disposeBag: DisposeBag!
             
             beforeEach {
                 viewModel  = ContactsMockViewModel()
                 sut = Scene.contacts(viewModel).viewController() as? ListContactsViewController
                 sut.loadViewIfNeeded()
                 tableView = sut.tableView
-                
-                scheduler = TestScheduler(initialClock: 0)
-                disposeBag = DisposeBag()
-                
             }
             
             it("Table view is not nil") {
@@ -150,7 +144,7 @@ class ContactsViewControllerTest: QuickSpec {
             }
             
             class ContactsMockViewModel: ContactsViewModel {
-                
+               
                 var detailContactCalled = false
                 
                 lazy  var getContacts: Action<Void, [Contact]> = { _ in
@@ -168,8 +162,8 @@ class ContactsViewControllerTest: QuickSpec {
                     
                 }(self)
                 
-                lazy var selectedContacts: Action<[Contact], Never> = { _ in
-                    Action<[Contact], Never> { _ in
+                lazy var selectedContacts: Action<[Contact], Void> = { _ in
+                    Action<[Contact], Void> { _ in
                         self.detailContactCalled = true
                         return .empty()
                     }
