@@ -43,19 +43,14 @@ class ContactViewModelTest: QuickSpec {
             it("Updates selected contacts") {
                
                 let selectedElement = scheduler.createObserver([Bool].self)
-                sut.getContacts.elements
+                
+                sut.updatedContacts.elements
                     .map { $0.map{$0.isSelected}}
                     .bind(to: selectedElement)
                     .disposed(by: disposeBag)
-                
-                sut.updatedContacts.inputs.onNext((contact: ContactsFake.contactSelected, contacts: ContactsFake.contacts))
-                
-                sut.updatedContacts.elements.subscribe(onNext: { (contacts) in
-                    debugPrint(contacts)
-                    }).disposed(by: disposeBag)
-                
-                scheduler.createColdObservable([.next(10, ())])
-                    .bind(to: sut.getContacts.inputs)
+
+                scheduler.createColdObservable([.next(10, (contact: ContactsFake.contactSelected, contacts: ContactsFake.contacts))])
+                    .bind(to: sut.updatedContacts.inputs)
                     .disposed(by: disposeBag)
                 
                 scheduler.start()
