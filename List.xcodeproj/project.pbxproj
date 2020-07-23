@@ -46,6 +46,8 @@
 		B490E2FF24BB80D000B079C0 /* SelectedContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490E2FE24BB80D000B079C0 /* SelectedContactsViewController.swift */; };
 		B490E30424BB8F3D00B079C0 /* DetailContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490E30324BB8F3D00B079C0 /* DetailContactsViewModel.swift */; };
 		B490E30724BB8F9700B079C0 /* DetailContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490E30624BB8F9700B079C0 /* DetailContact.swift */; };
+		B4A032B524C4B03B00DEA70B /* ContactsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A032B424C4B03B00DEA70B /* ContactsViewControllerTest.swift */; };
+		B4A032B724C4B48C00DEA70B /* ContactsFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A032B624C4B48C00DEA70B /* ContactsFake.swift */; };
 		B4ACAC18249F527E00180834 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAC17249F527E00180834 /* ContactsViewModel.swift */; };
 		B4ACAC1A249F54BE00180834 /* ListContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAC19249F54BE00180834 /* ListContactsViewController.swift */; };
 		B4ACAC1E249F569900180834 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAC1C249F569900180834 /* ContactsTableViewCell.swift */; };
@@ -118,6 +120,8 @@
 		B490E2FE24BB80D000B079C0 /* SelectedContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedContactsViewController.swift; sourceTree = "<group>"; };
 		B490E30324BB8F3D00B079C0 /* DetailContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContactsViewModel.swift; sourceTree = "<group>"; };
 		B490E30624BB8F9700B079C0 /* DetailContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContact.swift; sourceTree = "<group>"; };
+		B4A032B424C4B03B00DEA70B /* ContactsViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewControllerTest.swift; sourceTree = "<group>"; };
+		B4A032B624C4B48C00DEA70B /* ContactsFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsFake.swift; sourceTree = "<group>"; };
 		B4ACAC17249F527E00180834 /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 		B4ACAC19249F54BE00180834 /* ListContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsViewController.swift; sourceTree = "<group>"; };
 		B4ACAC1C249F569900180834 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
@@ -194,12 +198,15 @@
 			isa = PBXGroup;
 			children = (
 				B43F9BD1249F3DD100ACC137 /* Info.plist */,
+				B4A032B324C4AFF600DEA70B /* ViewControllerTest */,
+				B45FF25024C30F5900826F32 /* CoordinatorTest */,
 				B45FF25324C3512F00826F32 /* ViewModelTest */,
 				B45FF25024C30F5900826F32 /* CoordinatorTest */,
 				B462EBA624C1FBD8007C9B9D /* Stubs */,
 				B43F9C0D249F4B6800ACC137 /* DataTest */,
 				B43F9C0C249F4B5C00ACC137 /* DomainTest */,
 				B462EBA924C1FC95007C9B9D /* XCTestCase+.swift */,
+				B4A032B624C4B48C00DEA70B /* ContactsFake.swift */,
 			);
 			path = ListTests;
 			sourceTree = "<group>";
@@ -451,6 +458,14 @@
 				B490E30624BB8F9700B079C0 /* DetailContact.swift */,
 			);
 			path = DetailContact;
+			sourceTree = "<group>";
+		};
+		B4A032B324C4AFF600DEA70B /* ViewControllerTest */ = {
+			isa = PBXGroup;
+			children = (
+				B4A032B424C4B03B00DEA70B /* ContactsViewControllerTest.swift */,
+			);
+			path = ViewControllerTest;
 			sourceTree = "<group>";
 		};
 		B4ACAC14249F512200180834 /* Scenes */ = {
@@ -771,6 +786,7 @@
 				B45FF25724C35E4700826F32 /* ContactsFake.swift in Sources */,
 				B462EBA524C1FAD9007C9B9D /* ContactResponseTest.swift in Sources */,
 				B45FF24F24C305F200826F32 /* ContactsRepositoryTest.swift in Sources */,
+				B4A032B524C4B03B00DEA70B /* ContactsViewControllerTest.swift in Sources */,
 				B462EBAA24C1FC95007C9B9D /* XCTestCase+.swift in Sources */,
 				B45FF25524C3515100826F32 /* ContactViewModelTest.swift in Sources */,
 			);
