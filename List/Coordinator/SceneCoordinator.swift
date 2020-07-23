@@ -11,12 +11,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-public class SceneCoordinator: NSObject, SceneCoordinatorType {
+open class SceneCoordinator: NSObject, SceneCoordinatorType {
     
     private var window: UIWindow
     private var currentViewController: UIViewController
     
-    required init(window: UIWindow) {
+    required public init(window: UIWindow) {
         self.window = window
         currentViewController = window.rootViewController!
     }
@@ -38,7 +38,7 @@ public class SceneCoordinator: NSObject, SceneCoordinatorType {
     }
     
     @discardableResult
-    func transition(to scene: Scene, type: SceneTransitionType) -> Completable {
+    public func transition(to scene: Scene, type: SceneTransitionType) -> Completable {
         let subject = PublishSubject<Void>()
         let viewController = scene.viewController()
         switch type {

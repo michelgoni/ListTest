@@ -28,7 +28,7 @@ class StoryTest: QuickSpec {
         describe("Coordinator is properly working") {
             it("Gets Contacts ViewController") {
                 
-                let viewModel = ContactsViewModelImplm(useCase: useCase)
+                let viewModel = ContactsViewModelImplm(useCase: useCase, coordinator: coordinator)
                 let viewController = Scene.contacts(viewModel).viewController()
                 
                 viewController.loadViewIfNeeded()

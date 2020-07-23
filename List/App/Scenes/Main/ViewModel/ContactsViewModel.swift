@@ -16,7 +16,8 @@ public protocol ContactsViewModel {
     
     var getContacts: Action<Void, [Contact]> { get }
     var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> { get }
-    var selectedContacts: Action<Observable<[Contact]>, Never> { get }
+    var selectedContacts: Action<[Contact], Void> { get }
+    
     
 }
 
@@ -48,12 +49,13 @@ public class ContactsViewModelImplm: ContactsViewModel {
     }(self)
     
     
-    lazy public var selectedContacts: Action<Observable<[Contact]>, Never> = { this in
-        Action<Observable<[Contact]>, Never> { contacts in
+    lazy public var selectedContacts: Action<[Contact], Void> = { this in
+        Action<[Contact], Void> { contacts in
             
-            this.coordinator.transition(to: .selectedContacts(DetailContacts(contacts: contacts)), type: .push)
-            
-            return .empty()
+            let detailContactsViewModel = DetailContacts(contacts: [Contact(name: "", image: "", isSelected: false)])
+            return this.coordinator.transition(to: .selectedContacts(detailContactsViewModel), type: .push)
+                .asObservable()
+                .map {_ in}
         }
     }(self)
 }

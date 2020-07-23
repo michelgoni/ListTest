@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum SceneTransitionType {
+public enum SceneTransitionType {
 
   case root
   case push
