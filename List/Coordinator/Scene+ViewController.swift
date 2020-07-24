@@ -23,8 +23,8 @@ public extension Scene {
             listViewController.bind(to: viewModel)
             return listViewController
         case .selectedContacts(let selectedContacts):
-            let listNavigation = storyboard.instantiateViewController(withIdentifier: "ListViewController") as! UINavigationController
-            var detailContacts = listNavigation.viewControllers.first as! SelectedContactsViewController
+           
+            var detailContacts = storyboard.instantiateViewController(withIdentifier: "SelectedContactsViewController")as! SelectedContactsViewController
             detailContacts.bind(to: selectedContacts)
             return detailContacts
         }

@@ -86,11 +86,11 @@
         <!--Selected Contacts View Controller-->
         <scene sceneID="qjz-7v-0eI">
             <objects>
-                <viewController id="w3I-27-8m5" customClass="SelectedContactsViewController" customModule="List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectedContactsViewController" id="w3I-27-8m5" customClass="SelectedContactsViewController" customModule="List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dwo-3o-WrU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="43S-AO-AR7"/>
                     </view>
                     <navigationItem key="navigationItem" id="Fvq-h0-aXR"/>

@@ -21,6 +21,7 @@ import TransportsUI
     
     // MARK: ViewModel
     var viewModel: ContactsViewModel!
+    let disposeBag = DisposeBag()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,13 +108,13 @@ import TransportsUI
     
     @IBAction func selectedElementsPressed(_ sender: UIButton) {
         
-        selectedButton
-            .rx.tap.subscribe(onNext: {[weak self] _ in
-                
-                if let contacts = self?.viewModel.updatedContacts.elements.map({ $0.filter{$0.isSelected}}) {
-                    self?.viewModel.selectedContacts.inputs.onNext(contacts)
-                }
-            }).disposed(by: rx.disposeBag)
+        
+        let elements = selectedButton.rx
+            .tap
+            .flatMapLatest { _ ->  Observable<[Contact]> in
+            return self.viewModel.updatedContacts.elements.map({ $0.filter{$0.isSelected}})
+        }
+        self.viewModel.selectedContacts.inputs.onNext(elements)
         
         //let selectedContactsViewModel = DetailContacts(contacts: <#T##[Contact]#>)
     }

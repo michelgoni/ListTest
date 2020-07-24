@@ -53,7 +53,7 @@ public class ContactsViewModelImplm: ContactsViewModel {
         Action<Observable<[Contact]>, Void> { contacts in
             
             let detailContactsViewModel = DetailContacts(contacts: contacts)
-            return this.coordinator.transition(to: .selectedContacts(detailContactsViewModel), type: .push)
+            return this.coordinator.transition(to: .selectedContacts(detailContactsViewModel), type: .modal)
                 .asObservable()
                 .map {_ in}
         }
