@@ -73,15 +73,16 @@ class ContactViewModelTest: QuickSpec {
             }
             
             it("Selects contacts for the Detail Contacts view controller") {
-
-                sut.selectedContacts.inputs.onNext(ContactsFake.contacts)
+                
+                let contacts = Observable.of(ContactsFake.contacts)
+                sut.selectedContacts.inputs.onNext(contacts)
                 expect(coordinator.areSelectedContacts).to(beTrue())
             }
             
             it("Transitions to the detail Contacts viewController") {
-                
-                sut.selectedContacts.inputs.onNext(ContactsFake.contacts)
-                expect(coordinator.sceneTransitionCalled) == .push
+                let contacts = Observable.of(ContactsFake.contacts)
+                sut.selectedContacts.inputs.onNext(contacts)
+                expect(coordinator.sceneTransitionCalled) == .modal
             }
         }
         

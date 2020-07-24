@@ -17,8 +17,7 @@ public protocol ContactsViewModel {
     var getContacts: Action<Void, [Contact]> { get }
     var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> { get }
     var selectedContacts: Action<Observable<[Contact]>, Void> { get }
-    
-    
+
 }
 
 public class ContactsViewModelImplm: ContactsViewModel {

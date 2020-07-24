@@ -108,11 +108,11 @@ import TransportsUI
     
     @IBAction func selectedElementsPressed(_ sender: UIButton) {
         
-        
         let elements = selectedButton.rx
             .tap
-            .flatMapLatest { _ ->  Observable<[Contact]> in
-            return self.viewModel.updatedContacts.elements.map({ $0.filter{$0.isSelected}})
+            .flatMapLatest {
+                
+             return self.viewModel.updatedContacts.elements.map({ $0.filter{$0.isSelected}})
         }
         self.viewModel.selectedContacts.inputs.onNext(elements)
         

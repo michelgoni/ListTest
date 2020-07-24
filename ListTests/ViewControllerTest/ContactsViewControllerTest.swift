@@ -145,6 +145,7 @@ class ContactsViewControllerTest: QuickSpec {
             
             class ContactsMockViewModel: ContactsViewModel {
                
+                
                 var detailContactCalled = false
                 
                 lazy  var getContacts: Action<Void, [Contact]> = { _ in
@@ -162,8 +163,8 @@ class ContactsViewControllerTest: QuickSpec {
                     
                 }(self)
                 
-                lazy var selectedContacts: Action<[Contact], Void> = { _ in
-                    Action<[Contact], Void> { _ in
+                lazy var selectedContacts: Action<Observable<[Contact]>, Void> = { _ in
+                    Action<Observable<[Contact]>, Void> { _ in
                         self.detailContactCalled = true
                         return .empty()
                     }
