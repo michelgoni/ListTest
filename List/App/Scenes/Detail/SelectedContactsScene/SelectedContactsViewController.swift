@@ -12,15 +12,17 @@ class SelectedContactsViewController: BaseViewController {
     
  var viewModel: DetailContactsViewModel!
     
+    @IBOutlet weak var okButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-//        let coordinator = SceneCoordinator()
-//        coordinator.pop()
     }
 
-
+    @IBAction func okPressed(_ sender: Any) {
+        viewModel.coordinator.pop(animated: true)
+    }
+    
 }
 
 extension SelectedContactsViewController: Bindable {

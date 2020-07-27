@@ -51,7 +51,7 @@ public class ContactsViewModelImplm: ContactsViewModel {
     lazy public var selectedContacts: Action<Observable<[Contact]>, Void> = { this in
         Action<Observable<[Contact]>, Void> { contacts in
             
-            let detailContactsViewModel = DetailContacts(contacts: contacts)
+            let detailContactsViewModel = DetailContacts(contacts: contacts, coordinator: this.coordinator)
             return this.coordinator.transition(to: .selectedContacts(detailContactsViewModel), type: .modal)
                 .asObservable()
                 .map {_ in}

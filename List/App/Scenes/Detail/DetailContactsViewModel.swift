@@ -11,13 +11,16 @@ import RxSwift
 
 public protocol DetailContactsViewModel {
     var contacts: Observable<[Contact]> { get }
+    var coordinator: SceneCoordinator { get }
 }
 
 public struct DetailContacts: DetailContactsViewModel {
     
     public var contacts: Observable<[Contact]>
+    public var coordinator: SceneCoordinator
     
-    public init (contacts: Observable<[Contact]>) {
+    public init (contacts: Observable<[Contact]>, coordinator: SceneCoordinator) {
         self.contacts = contacts
+        self.coordinator = coordinator
     }
 }
