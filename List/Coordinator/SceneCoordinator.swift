@@ -52,6 +52,7 @@ open class SceneCoordinator: NSObject, SceneCoordinatorType {
                 fatalError("Can't push a view controller without a current navigation controller")
             }
             // one-off subscription to be notified when push complete
+            navigationController.delegate = self
             _ = navigationController.rx.delegate
                 .sentMessage(#selector(UINavigationControllerDelegate.navigationController(_:didShow:animated:)))
                 .map { _ in }
@@ -60,6 +61,7 @@ open class SceneCoordinator: NSObject, SceneCoordinatorType {
             currentViewController = SceneCoordinator.actualViewController(for: viewController)
             
         case .modal:
+            viewController.modalPresentationStyle = .fullScreen
             currentViewController.present(viewController, animated: true) {
                 subject.onCompleted()
             }
@@ -97,5 +99,11 @@ open class SceneCoordinator: NSObject, SceneCoordinatorType {
             .take(1)
             .ignoreElements()
     }
+}
+
+extension SceneCoordinator: UINavigationControllerDelegate {
+    public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+    currentViewController = viewController
+  }
 }
 
