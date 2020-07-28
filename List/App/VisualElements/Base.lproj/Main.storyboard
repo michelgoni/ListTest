@@ -94,11 +94,7 @@
                         <viewLayoutGuide key="safeArea" id="43S-AO-AR7"/>
                     </view>
                     <navigationItem key="navigationItem" title="Selected contacts" id="Fvq-h0-aXR">
-                        <barButtonItem key="leftBarButtonItem" title="Ok" id="N3k-Lx-bkg">
-                            <connections>
-                                <action selector="okPressed:" destination="w3I-27-8m5" id="M8y-94-fWm"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Ok" id="N3k-Lx-bkg"/>
                     </navigationItem>
                     <connections>
                         <outlet property="okButton" destination="N3k-Lx-bkg" id="g2T-yG-8CJ"/>

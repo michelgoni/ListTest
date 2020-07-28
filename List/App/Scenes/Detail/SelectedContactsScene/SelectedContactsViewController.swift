@@ -20,7 +20,11 @@ class SelectedContactsViewController: BaseViewController {
     }
 
     @IBAction func okPressed(_ sender: Any) {
-        viewModel.coordinator.pop(animated: true)
+        
+    }
+    
+    private func bindButtonAction() {
+        okButton.rx.action = viewModel.dismiss
     }
     
 }
@@ -28,6 +32,6 @@ class SelectedContactsViewController: BaseViewController {
 extension SelectedContactsViewController: Bindable {
     
     func bind() {
-        
+        bindButtonAction()
     }
 }

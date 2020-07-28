@@ -17,7 +17,7 @@ public protocol ContactsViewModel {
     var getContacts: Action<Void, [Contact]> { get }
     var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> { get }
     var selectedContacts: Action<Observable<[Contact]>, Void> { get }
-
+    
 }
 
 public class ContactsViewModelImplm: ContactsViewModel {
@@ -46,7 +46,6 @@ public class ContactsViewModelImplm: ContactsViewModel {
         }
         
     }(self)
-    
     
     lazy public var selectedContacts: Action<Observable<[Contact]>, Void> = { this in
         Action<Observable<[Contact]>, Void> { contacts in
