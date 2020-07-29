@@ -37,6 +37,12 @@ public class ContactsViewModelImplm: ContactsViewModel {
         }
     }(self)
     
+    lazy public var resetContacts: CocoaAction = { this in
+        CocoaAction { _ in
+             this.getContacts.execute().asObservable().map{ _ in}
+        }
+    }(self)
+    
     lazy public var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> = { _ in
         
         Action<(contact: Contact, contacts: [Contact]), [Contact]> { value in
@@ -54,7 +60,7 @@ public class ContactsViewModelImplm: ContactsViewModel {
             let detailContactsViewModel = DetailContacts(
                 contacts: contacts,
                 coordinator: this.coordinator,
-                resetContacts: self.getContacts)
+                resetContacts: self.resetContacts)
             
             return this.coordinator.transition(to: .selectedContacts(detailContactsViewModel), type: .modal)
                 .asObservable()

@@ -15,7 +15,7 @@ import RxCocoa
 public protocol DetailContactsViewModel {
     var contacts: Observable<[Contact]> { get }
     var coordinator: SceneCoordinator { get }
-    var resetContacts: Action<Void, [Contact]> { get }
+    var resetContacts: CocoaAction { get }
     var dismiss: CocoaAction { get }
 }
 
@@ -23,10 +23,10 @@ public class DetailContacts: DetailContactsViewModel {
     
     public var contacts: Observable<[Contact]>
     public var coordinator: SceneCoordinator
-    public var resetContacts: Action<Void, [Contact]>
+    public var resetContacts: CocoaAction
     let disposeBag = DisposeBag()
     
-    public init (contacts: Observable<[Contact]>, coordinator: SceneCoordinator, resetContacts: Action<Void, [Contact]>) {
+    public init (contacts: Observable<[Contact]>, coordinator: SceneCoordinator, resetContacts: CocoaAction) {
         self.contacts = contacts
         self.coordinator = coordinator
         self.resetContacts = resetContacts

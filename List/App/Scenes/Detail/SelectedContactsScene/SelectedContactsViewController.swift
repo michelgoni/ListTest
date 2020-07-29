@@ -24,7 +24,7 @@ class SelectedContactsViewController: BaseViewController {
         cancelButton.rx.action = viewModel.dismiss
     }
     private func bindButtonOkAction() {
-        
+        okButton.rx.action = viewModel.resetContacts
     }
 }
 
