@@ -95,8 +95,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Selected contacts" id="Fvq-h0-aXR">
                         <barButtonItem key="leftBarButtonItem" title="Ok" id="N3k-Lx-bkg"/>
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="Rb2-W7-wXB"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="Rb2-W7-wXB" id="xlV-mr-l9h"/>
                         <outlet property="okButton" destination="N3k-Lx-bkg" id="g2T-yG-8CJ"/>
                     </connections>
                 </viewController>

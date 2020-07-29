@@ -10,13 +10,14 @@ import Foundation
 import RxSwift
 import Action
 import RxCocoa
-import NSObject_Rx
+
 
 public protocol ContactsViewModel {
     
     var getContacts: Action<Void, [Contact]> { get }
     var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> { get }
     var selectedContacts: Action<Observable<[Contact]>, Void> { get }
+
     
 }
 
@@ -47,10 +48,14 @@ public class ContactsViewModelImplm: ContactsViewModel {
         
     }(self)
     
-    lazy public var selectedContacts: Action<Observable<[Contact]>, Void> = { this in
+    lazy public var selectedContacts: Action<Observable<[Contact]>, Void> = {  this in
         Action<Observable<[Contact]>, Void> { contacts in
             
-            let detailContactsViewModel = DetailContacts(contacts: contacts, coordinator: this.coordinator)
+            let detailContactsViewModel = DetailContacts(
+                contacts: contacts,
+                coordinator: this.coordinator,
+                resetContacts: self.getContacts)
+            
             return this.coordinator.transition(to: .selectedContacts(detailContactsViewModel), type: .modal)
                 .asObservable()
                 .map {_ in}

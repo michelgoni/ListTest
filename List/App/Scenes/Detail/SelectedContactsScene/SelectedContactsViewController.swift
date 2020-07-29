@@ -13,25 +13,25 @@ class SelectedContactsViewController: BaseViewController {
  var viewModel: DetailContactsViewModel!
     
     @IBOutlet weak var okButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-
-    @IBAction func okPressed(_ sender: Any) {
+    
+    private func bindButtonCancelAction() {
+        cancelButton.rx.action = viewModel.dismiss
+    }
+    private func bindButtonOkAction() {
         
     }
-    
-    private func bindButtonAction() {
-        okButton.rx.action = viewModel.dismiss
-    }
-    
 }
 
 extension SelectedContactsViewController: Bindable {
     
     func bind() {
-        bindButtonAction()
+        bindButtonCancelAction()
+        bindButtonOkAction()
     }
 }
