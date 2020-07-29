@@ -29,10 +29,12 @@ class StoryTest: QuickSpec {
             it("Gets Contacts ViewController") {
                 
                 let viewModel = ContactsViewModelImplm(useCase: useCase, coordinator: coordinator)
-                let viewController = Scene.contacts(viewModel).viewController()
+                let viewController = Scene.contacts(viewModel).viewController() as? UINavigationController
                 
-                viewController.loadViewIfNeeded()
-                expect(viewController).to(beAKindOf(UINavigationController.self))
+                let finalVC = viewController!.viewControllers.first as! ListContactsViewController
+                
+                finalVC.loadViewIfNeeded()
+                expect(finalVC).to(beAKindOf(ListContactsViewController.self))
             }
         }
     }

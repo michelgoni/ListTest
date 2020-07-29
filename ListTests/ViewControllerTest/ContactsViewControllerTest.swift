@@ -22,12 +22,15 @@ class ContactsViewControllerTest: QuickSpec {
         describe("Testing visual elements in Contacts view controller") {
             
             var sut: ListContactsViewController!
+            var nav: UINavigationController!
             var viewModel: ContactsMockViewModel!
             var tableView: UITableView!
             
             beforeEach {
                 viewModel  = ContactsMockViewModel()
-                sut = Scene.contacts(viewModel).viewController() as? ListContactsViewController
+                nav = Scene.contacts(viewModel).viewController() as? UINavigationController
+                sut = nav.viewControllers.first as? ListContactsViewController
+                
                 sut.loadViewIfNeeded()
                 tableView = sut.tableView
             }
