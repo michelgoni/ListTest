@@ -46,8 +46,6 @@
 		B490E2FF24BB80D000B079C0 /* SelectedContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490E2FE24BB80D000B079C0 /* SelectedContactsViewController.swift */; };
 		B490E30424BB8F3D00B079C0 /* DetailContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490E30324BB8F3D00B079C0 /* DetailContactsViewModel.swift */; };
 		B490E30724BB8F9700B079C0 /* DetailContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490E30624BB8F9700B079C0 /* DetailContact.swift */; };
-		B4A032B524C4B03B00DEA70B /* ContactsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A032B424C4B03B00DEA70B /* ContactsViewControllerTest.swift */; };
-		B4A032B724C4B48C00DEA70B /* ContactsFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A032B624C4B48C00DEA70B /* ContactsFake.swift */; };
 		B4ACAC18249F527E00180834 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAC17249F527E00180834 /* ContactsViewModel.swift */; };
 		B4ACAC1A249F54BE00180834 /* ListContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAC19249F54BE00180834 /* ListContactsViewController.swift */; };
 		B4ACAC1E249F569900180834 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAC1C249F569900180834 /* ContactsTableViewCell.swift */; };
@@ -199,7 +197,6 @@
 			children = (
 				B43F9BD1249F3DD100ACC137 /* Info.plist */,
 				B4A032B324C4AFF600DEA70B /* ViewControllerTest */,
-				B45FF25024C30F5900826F32 /* CoordinatorTest */,
 				B45FF25324C3512F00826F32 /* ViewModelTest */,
 				B45FF25024C30F5900826F32 /* CoordinatorTest */,
 				B462EBA624C1FBD8007C9B9D /* Stubs */,
@@ -786,7 +783,6 @@
 				B45FF25724C35E4700826F32 /* ContactsFake.swift in Sources */,
 				B462EBA524C1FAD9007C9B9D /* ContactResponseTest.swift in Sources */,
 				B45FF24F24C305F200826F32 /* ContactsRepositoryTest.swift in Sources */,
-				B4A032B524C4B03B00DEA70B /* ContactsViewControllerTest.swift in Sources */,
 				B462EBAA24C1FC95007C9B9D /* XCTestCase+.swift in Sources */,
 				B45FF25524C3515100826F32 /* ContactViewModelTest.swift in Sources */,
 			);

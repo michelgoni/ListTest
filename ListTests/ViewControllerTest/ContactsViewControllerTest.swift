@@ -145,10 +145,9 @@ class ContactsViewControllerTest: QuickSpec {
             
             class ContactsMockViewModel: ContactsViewModel {
                
-                
                 var detailContactCalled = false
                 
-                lazy  var getContacts: Action<Void, [Contact]> = { _ in
+                lazy var getContacts: Action<Void, [Contact]> = { _ in
                     Action <Void, [Contact]> {
                         let contact = [Contact(name: "", image: "", isSelected: true)]
                         return .just(ContactsFake.contacts)

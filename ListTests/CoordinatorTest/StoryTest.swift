@@ -32,7 +32,7 @@ class StoryTest: QuickSpec {
                 let viewController = Scene.contacts(viewModel).viewController()
                 
                 viewController.loadViewIfNeeded()
-                expect(viewController).to(beAKindOf(ListContactsViewController.self))
+                expect(viewController).to(beAKindOf(UINavigationController.self))
             }
         }
     }

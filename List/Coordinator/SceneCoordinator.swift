@@ -21,7 +21,11 @@ open class SceneCoordinator: NSObject, SceneCoordinatorType {
         currentViewController = window.rootViewController!
     }
     
-
+    override public init() {
+          self.window = UIWindow()
+          self.window.backgroundColor = UIColor.white
+          self.currentViewController = UIViewController()
+      }
     
     static func actualViewController(for viewController: UIViewController) -> UIViewController {
         if let navigationController = viewController as? UINavigationController {
