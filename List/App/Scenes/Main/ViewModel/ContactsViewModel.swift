@@ -17,8 +17,7 @@ public protocol ContactsViewModel {
     var getContacts: Action<Void, [Contact]> { get }
     var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> { get }
     var selectedContacts: Action<Observable<[Contact]>, Void> { get }
-
-    
+    var resetContacts: CocoaAction { get }
 }
 
 public class ContactsViewModelImplm: ContactsViewModel {
@@ -49,6 +48,7 @@ public class ContactsViewModelImplm: ContactsViewModel {
             var newContacts = [Contact]()
             
             newContacts.append(contentsOf: value.contacts.map { $0.name == value.contact.name ? Contact(name: value.contact.name, image: value.contact.image, isSelected: !$0.isSelected) : $0})
+            
             return .just(newContacts)
         }
         

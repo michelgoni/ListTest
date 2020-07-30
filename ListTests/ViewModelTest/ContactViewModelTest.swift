@@ -77,6 +77,7 @@ class ContactViewModelTest: QuickSpec {
                 let contacts = Observable.of(ContactsFake.contacts)
                 sut.selectedContacts.inputs.onNext(contacts)
                 expect(coordinator.areSelectedContacts).to(beTrue())
+                expect(contacts).notTo(beNil())
             }
             
             it("Transitions to the detail Contacts viewController") {
