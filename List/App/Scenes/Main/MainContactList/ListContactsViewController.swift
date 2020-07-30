@@ -84,13 +84,11 @@ import TransportsUI
     
     
     func bindButton() {
-       let selected =  viewModel.updatedContacts
-            .elements
-            .withLatestFrom(viewModel.updatedContacts.elements)
-            .flatMap { elements -> Observable<Bool> in
-                return .just(!elements.filter({ $0.isSelected}).isEmpty)
+        
+       let selected =  viewModel.updatedContacts.elements.flatMap { elements -> Observable<Bool> in
+            return .just(!elements.filter({ $0.isSelected}).isEmpty)
         }.startWith(false)
-            
+        
         selected.subscribe(onNext: { [weak self] (selected) in
             self?.selectedButton.isEnabled = selected
             self?.selectedButton.backgroundColor = selected ? .primary : .primaryDisabled
