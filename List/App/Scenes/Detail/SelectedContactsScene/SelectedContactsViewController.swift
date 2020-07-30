@@ -14,10 +14,22 @@ class SelectedContactsViewController: BaseViewController {
     
     @IBOutlet weak var okButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTableView()
+        let blurEffect = UIBlurEffect(style: .systemUltraThinMaterialDark)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        blurredEffectView.frame = self.view.bounds
+        self.view.insertSubview(blurredEffectView, belowSubview: tableView)
+        
 
+    }
+    
+    private func configureTableView() {
+        tableView.layer.cornerRadius = 15.0
     }
     
     private func bindButtonCancelAction() {
@@ -26,6 +38,10 @@ class SelectedContactsViewController: BaseViewController {
     private func bindButtonOkAction() {
         okButton.rx.action = viewModel.resetContacts
     }
+    
+    private func bindTableView() {
+        
+    }
 }
 
 extension SelectedContactsViewController: Bindable {
@@ -33,5 +49,6 @@ extension SelectedContactsViewController: Bindable {
     func bind() {
         bindButtonCancelAction()
         bindButtonOkAction()
+        bindTableView()
     }
 }

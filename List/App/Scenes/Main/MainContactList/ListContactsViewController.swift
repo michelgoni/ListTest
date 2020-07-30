@@ -115,8 +115,6 @@ import TransportsUI
              return self.viewModel.updatedContacts.elements.map({ $0.filter{$0.isSelected}})
         }
         self.viewModel.selectedContacts.inputs.onNext(elements)
-        
-        //let selectedContactsViewModel = DetailContacts(contacts: <#T##[Contact]#>)
     }
     
 }
