@@ -10,7 +10,7 @@ import UIKit
 
 class SelectedContactsViewController: BaseViewController {
     
- var viewModel: DetailContactsViewModel!
+    var viewModel: DetailContactsViewModel!
     
     @IBOutlet weak var okButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -25,11 +25,19 @@ class SelectedContactsViewController: BaseViewController {
         blurredEffectView.frame = self.view.bounds
         self.view.insertSubview(blurredEffectView, belowSubview: tableView)
         
-
+        let contactCellNib = UINib(nibName: ContactsTableViewCell.nibName, bundle:nil)
+        tableView.register(contactCellNib, forCellReuseIdentifier: ContactsTableViewCell.identifier)
+        tableView.estimatedRowHeight = 120
+        tableView.rowHeight = UITableView.automaticDimension
+        
     }
     
     private func configureTableView() {
         tableView.layer.cornerRadius = 15.0
+        let contactCellNib = UINib(nibName: ContactsTableViewCell.nibName, bundle:nil)
+        tableView.register(contactCellNib, forCellReuseIdentifier: ContactsTableViewCell.identifier)
+        tableView.estimatedRowHeight = 120
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     private func bindButtonCancelAction() {
@@ -40,7 +48,9 @@ class SelectedContactsViewController: BaseViewController {
     }
     
     private func bindTableView() {
-        
+        viewModel.contacts.subscribe(onNext: { (contacts) in
+            debugPrint(contacts)
+        }).disposed(by: rx.disposeBag)
     }
 }
 
