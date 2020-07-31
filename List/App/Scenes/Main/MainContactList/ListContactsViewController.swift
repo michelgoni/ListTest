@@ -104,15 +104,17 @@ import TransportsUI
         }).disposed(by: rx.disposeBag)
     }
     
-    @IBAction func selectedElementsPressed(_ sender: UIButton) {
+    
+    private func bindButtonAction() {
         
-        let elements = selectedButton.rx
-            .tap
-            .flatMapLatest {
-                
-             return self.viewModel.updatedContacts.elements.map({ $0.filter{$0.isSelected}})
-        }
-        self.viewModel.selectedContacts.inputs.onNext(elements)
+        let contacts = viewModel.updatedContacts
+            .elements
+            .map{$0.filter{$0.isSelected}}
+        
+        selectedButton.rx.tap.withLatestFrom(contacts)
+            .bind(to: viewModel.selectedContacts.inputs)
+            .disposed(by: rx.disposeBag)
+        
     }
     
 }
@@ -125,6 +127,7 @@ extension ListContactsViewController: Bindable {
         bindTitle()
         bindButton()
         bindActivityIndicator()
+        bindButtonAction()
         viewModel.getContacts.execute()
         
     }

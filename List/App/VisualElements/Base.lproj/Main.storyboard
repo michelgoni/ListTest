@@ -50,9 +50,6 @@
                                         <state key="normal">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
-                                        <connections>
-                                            <action selector="selectedElementsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pOE-sn-52N"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

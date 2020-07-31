@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxDataSources
 
 class SelectedContactsViewController: BaseViewController {
     
@@ -48,9 +50,16 @@ class SelectedContactsViewController: BaseViewController {
     }
     
     private func bindTableView() {
-        viewModel.contacts.subscribe(onNext: { (contacts) in
-            debugPrint(contacts)
-        }).disposed(by: rx.disposeBag)
+        
+        Observable.of(viewModel.contacts).bind(to:
+            tableView.rx.items(
+                cellIdentifier: ContactsTableViewCell.identifier,
+                cellType: ContactsTableViewCell.self)
+        ) { _, model, cell in
+            cell.setup(with: model)
+        }
+        .disposed(by: rx.disposeBag)
+       
     }
 }
 
