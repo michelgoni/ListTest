@@ -104,6 +104,16 @@ import TransportsUI
         }).disposed(by: rx.disposeBag)
     }
     
+    private func bindSelectButton() {
+                
+        Observable.merge(viewModel.getContacts.executing)
+            .subscribe(onNext: { [weak self] isLoading in
+                self?.selectedButton.isEnabled = isLoading
+                self?.selectedButton.backgroundColor = isLoading ? .primary : .primaryDisabled
+                self?.selectedButton.setTitle("", for: .normal)
+        }).disposed(by: rx.disposeBag)
+    }
+    
     
     private func bindButtonAction() {
         
@@ -128,6 +138,7 @@ extension ListContactsViewController: Bindable {
         bindButton()
         bindActivityIndicator()
         bindButtonAction()
+        bindSelectButton()
         viewModel.getContacts.execute()
         
     }
