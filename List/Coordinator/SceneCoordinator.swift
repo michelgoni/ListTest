@@ -71,7 +71,7 @@ open class SceneCoordinator: NSObject, SceneCoordinatorType {
     }
     
     @discardableResult
-    func pop(animated: Bool) -> Completable {
+   public func pop(animated: Bool) -> Completable {
         let subject = PublishSubject<Void>()
         if let presenter = currentViewController.presentingViewController {
             // dismiss a modal controller

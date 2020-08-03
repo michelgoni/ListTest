@@ -38,7 +38,9 @@ public class ContactsViewModelImplm: ContactsViewModel {
     
     lazy public var resetContacts: CocoaAction = { this in
         CocoaAction { _ in
-             this.getContacts.execute().asObservable().map{ _ in}
+             this.getContacts.execute()
+                .asObservable()
+                .map{ _ in}
         }
     }(self)
     
