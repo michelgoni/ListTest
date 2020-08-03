@@ -126,11 +126,9 @@ class ContactsViewControllerTest: QuickSpec {
             it("Button text is modified after selecting one contact") {
                 
                 sut.viewModel.updatedContacts.inputs.onNext((contact: ContactsFake.contactSelected, contacts: ContactsFake.contactsSelected))
-                
                 expect(sut.selectedButton.titleLabel?.text) == "1 element selected"
-                
-   
             }
+            
             
             class MockContactCell: ContactsTableViewCell {
                 
@@ -147,9 +145,7 @@ class ContactsViewControllerTest: QuickSpec {
             }
             
             class ContactsMockViewModel: ContactsViewModel {
-               
-                var detailContactCalled = false
-                
+
                 lazy var getContacts: Action<Void, [Contact]> = { _ in
                     Action <Void, [Contact]> {
                         let contact = [Contact(name: "", image: "", isSelected: true)]
@@ -165,9 +161,14 @@ class ContactsViewControllerTest: QuickSpec {
                     
                 }(self)
                 
-                lazy var selectedContacts: Action<Observable<[Contact]>, Void> = { _ in
-                    Action<Observable<[Contact]>, Void> { _ in
-                        self.detailContactCalled = true
+                lazy var selectedContacts: Action<[Contact], Void> = { _ in
+                    Action<[Contact], Void> { _ in
+                        return .empty()
+                    }
+                }(self)
+                
+                lazy var resetContacts: CocoaAction = { _ in
+                    CocoaAction { _ in
                         return .empty()
                     }
                 }(self)

@@ -18,7 +18,7 @@ class ContactViewModelTest: QuickSpec {
 
     override func spec() {
         
-        describe("View model implementation") {
+        describe("Contacts View model implementation") {
             var sut: ContactsViewModel!
             var coordinator: MockCoordinator!
             var useCase: MockContactsUseCase!
@@ -74,15 +74,23 @@ class ContactViewModelTest: QuickSpec {
             
             it("Selects contacts for the Detail Contacts view controller") {
                 
-                let contacts = Observable.of(ContactsFake.contacts)
-                sut.selectedContacts.inputs.onNext(contacts)
+                sut.selectedContacts.inputs.onNext(ContactsFake.contactsSelected)
                 expect(coordinator.areSelectedContacts).to(beTrue())
-                expect(contacts).notTo(beNil())
+            }
+            
+            it("Selects contacts with one element as true") {
+                
+                sut.selectedContacts.inputs.onNext(ContactsFake.contactsSelected)
+                sut.updatedContacts.elements
+                    .map{$0.filter{$0.isSelected}}
+                    .subscribe(onNext: { (contacts) in
+                    expect(contacts).notTo(beNil())
+                }).disposed(by: self.rx.disposeBag)
             }
             
             it("Transitions to the detail Contacts viewController") {
-                let contacts = Observable.of(ContactsFake.contacts)
-                sut.selectedContacts.inputs.onNext(contacts)
+                
+                sut.selectedContacts.inputs.onNext(ContactsFake.contacts)
                 expect(coordinator.sceneTransitionCalled) == .modal
             }
         }
