@@ -55,31 +55,40 @@ class SelectedContactsViewControllerTest: QuickSpec {
                 let cell = sut.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
                 expect(cell).to(beAKindOf(ContactsTableViewCell.self))
             }
+            
+            it("Dismisses properly") {
+                sut.cancelButton.rx.action = viewModel.dismiss
+                XCTAssertTrue(viewModel.dismissIsCalled)
+                
+            }
         }
     }
     
-    class MockSelectedContactsViewModel: DetailContactsViewModel {
-        
-        var contacts = ContactsFake.contactsSelected
-        
-        var coordinator = SceneCoordinator()
-        
-        lazy var resetContacts: CocoaAction = { _ in
-            
-            CocoaAction { _ in
-                return .empty()
-            }
-        }(self)
-        
-        lazy var dismiss: CocoaAction = { _ in
-            CocoaAction { _ in
-                return .empty()
-            }
-        }(self)
-        
-        
-    }
-    
-    
-
 }
+
+class MockSelectedContactsViewModel: DetailContactsViewModel {
+       
+       var contacts = ContactsFake.contactsSelected
+       
+       var coordinator = SceneCoordinator()
+       
+       var dismissIsCalled = false
+       
+       lazy var resetContacts: CocoaAction = { _ in
+           
+           CocoaAction { _ in
+               return .empty()
+           }
+       }(self)
+       
+        var dismiss: CocoaAction {
+        
+             self.dismissIsCalled = true
+           return CocoaAction { _ in
+             
+               return .just(())
+              
+           }
+       }
+       
+   }

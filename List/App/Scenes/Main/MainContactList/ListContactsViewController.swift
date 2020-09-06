@@ -109,7 +109,7 @@ import TransportsUI
         Observable.merge(viewModel.getContacts.executing)
             .subscribe(onNext: { [weak self] isLoading in
                 self?.selectedButton.isEnabled = isLoading
-                self?.selectedButton.backgroundColor = isLoading ? .primary : .primaryDisabled
+                self?.selectedButton.backgroundColor = .primaryDisabled
                 self?.selectedButton.setTitle("", for: .normal)
         }).disposed(by: rx.disposeBag)
     }
