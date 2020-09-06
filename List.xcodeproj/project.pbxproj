@@ -505,8 +505,7 @@
 			children = (
 				B490E2F224BB706700B079C0 /* ActivityIndicator */,
 				B43F9BBE249F3DD000ACC137 /* Main.storyboard */,
-				B4ACAC1C249F569900180834 /* ContactsTableViewCell.swift */,
-				B4ACAC1D249F569900180834 /* ContactsTableViewCell.xib */,
+				B4D61F4D250537B300F2AC20 /* ContactsTableViewCell */,
 			);
 			path = VisualElements;
 			sourceTree = "<group>";
@@ -529,6 +528,15 @@
 				B4EA035F24BEE434009ECBE4 /* SceneTransitionType.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		B4D61F4D250537B300F2AC20 /* ContactsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B4ACAC1C249F569900180834 /* ContactsTableViewCell.swift */,
+				B4ACAC1D249F569900180834 /* ContactsTableViewCell.xib */,
+			);
+			path = ContactsTableViewCell;
 			sourceTree = "<group>";
 		};
 		DB961F24F380403AE6FD7AEC /* Pods */ = {
