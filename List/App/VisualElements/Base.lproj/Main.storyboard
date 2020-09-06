@@ -77,6 +77,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="i3T-IG-8pV"/>
                     <connections>
+                        <outlet property="searchBar" destination="1eN-91-Pyr" id="U3Y-Bm-3nY"/>
                         <outlet property="selectedButton" destination="bV2-iZ-d1u" id="WSQ-X1-cPA"/>
                         <outlet property="tableView" destination="AkY-MS-rgI" id="96C-bv-CLh"/>
                     </connections>

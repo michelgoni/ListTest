@@ -18,6 +18,8 @@ import TransportsUI
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedButton: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     
     // MARK: ViewModel
     var viewModel: ContactsViewModel!
