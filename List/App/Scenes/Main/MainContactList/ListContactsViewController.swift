@@ -21,6 +21,7 @@ import TransportsUI
     
     // MARK: ViewModel
     var viewModel: ContactsViewModel!
+    let disposeBag = DisposeBag()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,13 +84,11 @@ import TransportsUI
     
     
     func bindButton() {
-       let selected =  viewModel.updatedContacts
-            .elements
-            .withLatestFrom(viewModel.updatedContacts.elements)
-            .flatMap { elements -> Observable<Bool> in
-                return .just(!elements.filter({ $0.isSelected}).isEmpty)
+        
+       let selected =  viewModel.updatedContacts.elements.flatMap { elements -> Observable<Bool> in
+            return .just(!elements.filter({ $0.isSelected}).isEmpty)
         }.startWith(false)
-            
+        
         selected.subscribe(onNext: { [weak self] (selected) in
             self?.selectedButton.isEnabled = selected
             self?.selectedButton.backgroundColor = selected ? .primary : .primaryDisabled
@@ -105,14 +104,27 @@ import TransportsUI
         }).disposed(by: rx.disposeBag)
     }
     
-    @IBAction func selectedElementsPressed(_ sender: UIButton) {
+    private func bindSelectButton() {
+                
+        Observable.merge(viewModel.getContacts.executing)
+            .subscribe(onNext: { [weak self] isLoading in
+                self?.selectedButton.isEnabled = isLoading
+                self?.selectedButton.backgroundColor = .primaryDisabled
+                self?.selectedButton.setTitle("", for: .normal)
+        }).disposed(by: rx.disposeBag)
+    }
+    
+    
+    private func bindButtonAction() {
         
-        selectedButton
-            .rx.tap.subscribe(onNext: { _ in
-                debugPrint("tapped")
-            }).disposed(by: rx.disposeBag)
+        let contacts = viewModel.updatedContacts
+            .elements
+            .map{$0.filter{$0.isSelected}}
         
-        //let selectedContactsViewModel = DetailContacts(contacts: <#T##[Contact]#>)
+        selectedButton.rx.tap.withLatestFrom(contacts)
+            .bind(to: viewModel.selectedContacts.inputs)
+            .disposed(by: rx.disposeBag)
+        
     }
     
 }
@@ -125,6 +137,8 @@ extension ListContactsViewController: Bindable {
         bindTitle()
         bindButton()
         bindActivityIndicator()
+        bindButtonAction()
+        bindSelectButton()
         viewModel.getContacts.execute()
         
     }

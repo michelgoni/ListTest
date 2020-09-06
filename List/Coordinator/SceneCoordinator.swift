@@ -21,13 +21,11 @@ open class SceneCoordinator: NSObject, SceneCoordinatorType {
         currentViewController = window.rootViewController!
     }
     
-    public override init() {
-        self.window = UIWindow()
-        self.window.backgroundColor = UIColor.white
-        self.currentViewController = UIViewController()
-    }
-    
-   
+    override public init() {
+          self.window = UIWindow()
+          self.window.backgroundColor = UIColor.white
+          self.currentViewController = UIViewController()
+      }
     
     static func actualViewController(for viewController: UIViewController) -> UIViewController {
         if let navigationController = viewController as? UINavigationController {
@@ -52,6 +50,7 @@ open class SceneCoordinator: NSObject, SceneCoordinatorType {
                 fatalError("Can't push a view controller without a current navigation controller")
             }
             // one-off subscription to be notified when push complete
+            navigationController.delegate = self
             _ = navigationController.rx.delegate
                 .sentMessage(#selector(UINavigationControllerDelegate.navigationController(_:didShow:animated:)))
                 .map { _ in }
@@ -60,6 +59,7 @@ open class SceneCoordinator: NSObject, SceneCoordinatorType {
             currentViewController = SceneCoordinator.actualViewController(for: viewController)
             
         case .modal:
+            viewController.modalPresentationStyle = .fullScreen
             currentViewController.present(viewController, animated: true) {
                 subject.onCompleted()
             }
@@ -71,7 +71,7 @@ open class SceneCoordinator: NSObject, SceneCoordinatorType {
     }
     
     @discardableResult
-    func pop(animated: Bool) -> Completable {
+   public func pop(animated: Bool) -> Completable {
         let subject = PublishSubject<Void>()
         if let presenter = currentViewController.presentingViewController {
             // dismiss a modal controller
@@ -97,5 +97,11 @@ open class SceneCoordinator: NSObject, SceneCoordinatorType {
             .take(1)
             .ignoreElements()
     }
+}
+
+extension SceneCoordinator: UINavigationControllerDelegate {
+    public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+    currentViewController = viewController
+  }
 }
 

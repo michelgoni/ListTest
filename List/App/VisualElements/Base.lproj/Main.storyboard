@@ -50,9 +50,6 @@
                                         <state key="normal">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
-                                        <connections>
-                                            <action selector="selectedElementsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pOE-sn-52N"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -83,21 +80,42 @@
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="138.61607142857142"/>
         </scene>
-        <!--Selected Contacts View Controller-->
+        <!--Selected contacts-->
         <scene sceneID="qjz-7v-0eI">
             <objects>
-                <viewController id="w3I-27-8m5" customClass="SelectedContactsViewController" customModule="List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectedContactsViewController" id="w3I-27-8m5" customClass="SelectedContactsViewController" customModule="List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dwo-3o-WrU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SsK-Ju-0Lg">
+                                <rect key="frame" x="64" y="152" width="286" height="646"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SsK-Ju-0Lg" firstAttribute="leading" secondItem="43S-AO-AR7" secondAttribute="leading" constant="64" id="1pT-Zm-uFv"/>
+                            <constraint firstItem="43S-AO-AR7" firstAttribute="trailing" secondItem="SsK-Ju-0Lg" secondAttribute="trailing" constant="64" id="MKH-AG-UaG"/>
+                            <constraint firstItem="SsK-Ju-0Lg" firstAttribute="top" secondItem="43S-AO-AR7" secondAttribute="top" constant="64" id="g8J-OD-55B"/>
+                            <constraint firstItem="43S-AO-AR7" firstAttribute="bottom" secondItem="SsK-Ju-0Lg" secondAttribute="bottom" constant="64" id="o7S-LL-gib"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="43S-AO-AR7"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Fvq-h0-aXR"/>
+                    <navigationItem key="navigationItem" title="Selected contacts" id="Fvq-h0-aXR">
+                        <barButtonItem key="leftBarButtonItem" title="Ok" id="N3k-Lx-bkg"/>
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="Rb2-W7-wXB"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cancelButton" destination="Rb2-W7-wXB" id="xlV-mr-l9h"/>
+                        <outlet property="okButton" destination="N3k-Lx-bkg" id="g2T-yG-8CJ"/>
+                        <outlet property="tableView" destination="SsK-Ju-0Lg" id="a8D-M9-5pl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="umu-Ta-yDD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1869" y="151"/>
+            <point key="canvasLocation" x="2778.2608695652175" y="150.66964285714286"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZXw-cs-w9B">
@@ -116,6 +134,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gxe-z5-ItH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tIJ-JH-eqS">
+            <objects>
+                <navigationController storyboardIdentifier="FinalList" automaticallyAdjustsScrollViewInsets="NO" id="3gD-2Z-Zzj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FP1-iV-Gjg">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="w3I-27-8m5" kind="relationship" relationship="rootViewController" id="zPL-fF-wDF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7LF-MO-bBq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1868.1159420289857" y="150.66964285714286"/>
         </scene>
     </scenes>
 </document>

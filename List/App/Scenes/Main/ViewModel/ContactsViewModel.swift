@@ -10,15 +10,14 @@ import Foundation
 import RxSwift
 import Action
 import RxCocoa
-import NSObject_Rx
+
 
 public protocol ContactsViewModel {
     
     var getContacts: Action<Void, [Contact]> { get }
     var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> { get }
     var selectedContacts: Action<[Contact], Void> { get }
-    
-    
+    var resetContacts: CocoaAction { get }
 }
 
 public class ContactsViewModelImplm: ContactsViewModel {
@@ -37,23 +36,35 @@ public class ContactsViewModelImplm: ContactsViewModel {
         }
     }(self)
     
+    lazy public var resetContacts: CocoaAction = { this in
+        CocoaAction { _ in
+             this.getContacts.execute()
+                .asObservable()
+                .map{ _ in}
+        }
+    }(self)
+    
     lazy public var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> = { _ in
         
         Action<(contact: Contact, contacts: [Contact]), [Contact]> { value in
             var newContacts = [Contact]()
             
             newContacts.append(contentsOf: value.contacts.map { $0.name == value.contact.name ? Contact(name: value.contact.name, image: value.contact.image, isSelected: !$0.isSelected) : $0})
+            
             return .just(newContacts)
         }
         
     }(self)
     
-    
-    lazy public var selectedContacts: Action<[Contact], Void> = { this in
+    lazy public var selectedContacts: Action<[Contact], Void> = {  this in
         Action<[Contact], Void> { contacts in
             
-            let detailContactsViewModel = DetailContacts(contacts: [Contact(name: "", image: "", isSelected: false)])
-            return this.coordinator.transition(to: .selectedContacts(detailContactsViewModel), type: .push)
+            let detailContactsViewModel = DetailContacts(
+                contacts: contacts,
+                coordinator: this.coordinator,
+                resetContacts: self.resetContacts)
+            
+            return this.coordinator.transition(to: .selectedContacts(detailContactsViewModel), type: .modal)
                 .asObservable()
                 .map {_ in}
         }

@@ -22,12 +22,15 @@ class ContactsViewControllerTest: QuickSpec {
         describe("Testing visual elements in Contacts view controller") {
             
             var sut: ListContactsViewController!
+            var nav: UINavigationController!
             var viewModel: ContactsMockViewModel!
             var tableView: UITableView!
             
             beforeEach {
                 viewModel  = ContactsMockViewModel()
-                sut = Scene.contacts(viewModel).viewController() as? ListContactsViewController
+                nav = Scene.contacts(viewModel).viewController() as? UINavigationController
+                sut = nav.viewControllers.first as? ListContactsViewController
+                
                 sut.loadViewIfNeeded()
                 tableView = sut.tableView
             }
@@ -123,11 +126,9 @@ class ContactsViewControllerTest: QuickSpec {
             it("Button text is modified after selecting one contact") {
                 
                 sut.viewModel.updatedContacts.inputs.onNext((contact: ContactsFake.contactSelected, contacts: ContactsFake.contactsSelected))
-                
                 expect(sut.selectedButton.titleLabel?.text) == "1 element selected"
-                
-   
             }
+            
             
             class MockContactCell: ContactsTableViewCell {
                 
@@ -144,10 +145,8 @@ class ContactsViewControllerTest: QuickSpec {
             }
             
             class ContactsMockViewModel: ContactsViewModel {
-               
-                var detailContactCalled = false
-                
-                lazy  var getContacts: Action<Void, [Contact]> = { _ in
+
+                lazy var getContacts: Action<Void, [Contact]> = { _ in
                     Action <Void, [Contact]> {
                         let contact = [Contact(name: "", image: "", isSelected: true)]
                         return .just(ContactsFake.contacts)
@@ -164,7 +163,12 @@ class ContactsViewControllerTest: QuickSpec {
                 
                 lazy var selectedContacts: Action<[Contact], Void> = { _ in
                     Action<[Contact], Void> { _ in
-                        self.detailContactCalled = true
+                        return .empty()
+                    }
+                }(self)
+                
+                lazy var resetContacts: CocoaAction = { _ in
+                    CocoaAction { _ in
                         return .empty()
                     }
                 }(self)

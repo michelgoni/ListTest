@@ -17,16 +17,18 @@ public extension Scene {
         switch self {
         case .contacts(let viewModel):
             
-            let listNavigation = storyboard.instantiateViewController(withIdentifier: "ListViewController") as! UINavigationController
-            var listViewController = listNavigation.viewControllers.first as! ListContactsViewController
+            let nc = storyboard.instantiateViewController(withIdentifier: "ListViewController") as! UINavigationController
+            var vc = nc.viewControllers.first as! ListContactsViewController
             
-            listViewController.bind(to: viewModel)
-            return listViewController
+            vc.bind(to: viewModel)
+            return nc
         case .selectedContacts(let selectedContacts):
-            let listNavigation = storyboard.instantiateViewController(withIdentifier: "ListViewController") as! UINavigationController
-            var detailContacts = listNavigation.viewControllers.first as! SelectedContactsViewController
-            detailContacts.bind(to: selectedContacts)
-            return detailContacts
+            
+            let nc = storyboard.instantiateViewController(withIdentifier: "FinalList") as! UINavigationController
+            var detailVC = nc.viewControllers.first as! SelectedContactsViewController
+
+            detailVC.bind(to: selectedContacts)
+            return nc
         }
     }
     
