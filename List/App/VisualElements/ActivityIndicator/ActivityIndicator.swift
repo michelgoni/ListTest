@@ -19,7 +19,7 @@ class ActivityIndicatorScreen: UIView, Nibbable {
     
     private let transparency: CGFloat
     
-    init(transparency: CGFloat = 0.8) {
+    init(transparency: CGFloat = 1.0) {
         
         self.transparency = transparency
         

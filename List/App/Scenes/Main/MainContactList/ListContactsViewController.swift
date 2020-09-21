@@ -68,6 +68,8 @@ import TransportsUI
     private func bindSearchBar() {
         searchBar.rx.text
             .orEmpty
+            .filter{$0.count > 2}
+            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .bind(to: viewModel.searchContacts.inputs)
             .disposed(by: rx.disposeBag)
     }

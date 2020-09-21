@@ -65,7 +65,8 @@ public class ContactsViewModelImplm: ContactsViewModel {
                 coordinator: this.coordinator,
                 resetContacts: self.resetContacts)
             
-            return this.coordinator.transition(to: .selectedContacts(detailContactsViewModel), type: .modal)
+            return this.coordinator
+                .transition(to: .selectedContacts(detailContactsViewModel), type: .modal)
                 .asObservable()
                 .map {_ in}
         }
