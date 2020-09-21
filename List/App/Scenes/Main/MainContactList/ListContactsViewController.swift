@@ -63,8 +63,13 @@ import TransportsUI
             .withLatestFrom(combinedData)
             .bind(to: viewModel.updatedContacts.inputs)
             .disposed(by: rx.disposeBag)
-        
-        
+    }
+    
+    private func bindSearchBar() {
+        searchBar.rx.text
+            .orEmpty
+            .bind(to: viewModel.searchContacts.inputs)
+            .disposed(by: rx.disposeBag)
     }
     
     private func bindTitle() {
@@ -136,6 +141,7 @@ extension ListContactsViewController: Bindable {
     func bind() {
         
         bindTableView()
+        bindSearchBar()
         bindTitle()
         bindButton()
         bindActivityIndicator()

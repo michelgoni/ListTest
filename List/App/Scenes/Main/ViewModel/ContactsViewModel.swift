@@ -18,6 +18,7 @@ public protocol ContactsViewModel {
     var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> { get }
     var selectedContacts: Action<[Contact], Void> { get }
     var resetContacts: CocoaAction { get }
+    var searchContacts: Action<String, Void> { get }
 }
 
 public class ContactsViewModelImplm: ContactsViewModel {
@@ -67,6 +68,15 @@ public class ContactsViewModelImplm: ContactsViewModel {
             return this.coordinator.transition(to: .selectedContacts(detailContactsViewModel), type: .modal)
                 .asObservable()
                 .map {_ in}
+        }
+    }(self)
+    
+    
+    lazy public var searchContacts: Action<String, Void> = { this in
+        
+        Action<String, Void> { query in
+            debugPrint(query)
+            return .empty()
         }
     }(self)
 }
