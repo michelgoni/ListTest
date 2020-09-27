@@ -42,7 +42,6 @@ public class ListContactsViewController: BaseViewController {
         
         let data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements)
         
-        
         data.bind(to:
                     tableView.rx.items(
                         cellIdentifier: ContactsTableViewCell.identifier,
@@ -110,16 +109,18 @@ public class ListContactsViewController: BaseViewController {
     
     private func bindActivityIndicator() {
         
-        Observable.merge(viewModel.getContacts.executing)
-            .subscribe(onNext: { [weak self] isLoading in
+        viewModel.getContacts.executing
+            .asDriver(onErrorJustReturn: true)
+            .drive(onNext: { [weak self] isLoading in
                 isLoading ? self?.showLoading() : self?.hideLoading()
             }).disposed(by: rx.disposeBag)
     }
     
     private func bindSelectButton() {
         
-        Observable.merge(viewModel.getContacts.executing)
-            .subscribe(onNext: { [weak self] isLoading in
+        viewModel.getContacts.executing
+            .asDriver(onErrorJustReturn: true)
+            .drive(onNext: { [weak self] isLoading in
                 self?.selectedButton.isEnabled = isLoading
                 self?.selectedButton.backgroundColor = .primaryDisabled
                 self?.selectedButton.setTitle("", for: .normal)
