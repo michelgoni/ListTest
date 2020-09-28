@@ -114,6 +114,11 @@ public class ListContactsViewController: BaseViewController {
             .asDriver(onErrorJustReturn: true)
             .drive(activityIndicator.rx.isAnimating)
             .disposed(by: rx.disposeBag)
+        
+        viewModel.getContacts.executing
+            .asDriver(onErrorJustReturn: true)
+            .drive(tableView.rx.isHidden)
+            .disposed(by: rx.disposeBag)
     }
     
     private func bindSelectButton() {
