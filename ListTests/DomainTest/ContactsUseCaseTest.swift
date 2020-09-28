@@ -40,6 +40,10 @@ class ContactsUseCaseTest: QuickSpec {
     
     
     class ContactsMockRepository: ContactsRepository {
+        func searchContacts(query: String) -> Single<Result<[Contact], ErrorResponse>> {
+            return .just(.success([Contact(name: "", image: "", isSelected: false)]))
+        }
+        
         
         var contactsCall = false
         

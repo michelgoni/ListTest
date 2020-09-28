@@ -124,6 +124,9 @@ class ContactViewModelTest: QuickSpec {
                 
                 .just(.success(contacts))
             }
+            func searchContacts(query: String) -> Single<Result<[Contact], ErrorResponse>> {
+                return .just(.success([Contact(name: "", image: "", isSelected: false)]))
+            }
             
         }
     }

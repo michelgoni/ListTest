@@ -40,7 +40,8 @@ class ContactsTableViewCell: UITableViewCell, UITableViewCellRepresentable {
         if let contactElement = data as? ContactRepresentable, let imageUrl = URL(string: contactElement.image) {
             contactLabel.text = contactElement.name
             accessoryType = contactElement.isSelected ? .checkmark : .none
-            contactImage.kf.setImage(with: imageUrl)
+           contactImage.kf.setImage(with: imageUrl)
+    
 
         }
     }

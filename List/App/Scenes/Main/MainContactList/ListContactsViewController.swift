@@ -19,6 +19,7 @@ public class ListContactsViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     // MARK: ViewModel
@@ -111,9 +112,8 @@ public class ListContactsViewController: BaseViewController {
         
         viewModel.getContacts.executing
             .asDriver(onErrorJustReturn: true)
-            .drive(onNext: { [weak self] isLoading in
-                isLoading ? self?.showLoading() : self?.hideLoading()
-            }).disposed(by: rx.disposeBag)
+            .drive(activityIndicator.rx.isAnimating)
+            .disposed(by: rx.disposeBag)
     }
     
     private func bindSelectButton() {
