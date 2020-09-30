@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 public struct ErrorResponseContainer: Decodable {
     public let error: ErrorResponse
@@ -17,6 +18,10 @@ public struct ErrorResponse: Decodable, Error {
     let internalMessage: String
     
     public static func generic(error: Error? = nil) -> ErrorResponse {
+        if let afError = error as? AFError {
+            debugPrint(afError.errorDescription)
+            
+        }
         return ErrorResponse(internalMessage: error?.localizedDescription ?? "Unknown error")
     }
     

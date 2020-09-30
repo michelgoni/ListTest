@@ -43,6 +43,21 @@ public class ListContactsViewController: BaseViewController {
         
         let data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements)
         
+        viewModel.getContacts.errors.bind { error  in
+            switch error {
+            case .underlyingError(let undelyed):
+                if let casted = undelyed as? ErrorResponse {
+                    debugPrint(casted)
+                }
+            case .notEnabled:
+                break
+            }
+
+        }
+       
+
+    
+
         data.bind(to:
                     tableView.rx.items(
                         cellIdentifier: ContactsTableViewCell.identifier,
@@ -102,7 +117,6 @@ public class ListContactsViewController: BaseViewController {
             return .just(!elements.filter({ $0.isSelected}).isEmpty)
         }.startWith(false)
         .asDriver(onErrorJustReturn: false)
-        
         selected.drive(selectedButton.rx.isEnabled).disposed(by: rx.disposeBag)
         selected.drive {self.selectedButton.backgroundColor = $0 ? .primary : .primaryDisabled}
         .disposed(by: rx.disposeBag)
