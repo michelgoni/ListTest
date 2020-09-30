@@ -145,6 +145,14 @@ class ContactsViewControllerTest: QuickSpec {
             }
             
             class ContactsMockViewModel: ContactsViewModel {
+                
+                
+                lazy var searchContacts: Action<String, Void> = { _ in
+                    Action<String, Void> { this in
+                        return .empty()
+                    }
+                    
+                }(self)
 
                 lazy var getContacts: Action<Void, [Contact]> = { _ in
                     Action <Void, [Contact]> {

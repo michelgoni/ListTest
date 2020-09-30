@@ -11,4 +11,5 @@ import RxSwift
 
 public protocol ContactsApiService {
     func getSuperHeroContacts() -> Single<SuperHeroResponse>
+    func searchContacts(query: String) -> Single<SuperHeroResponse>
 }

@@ -12,6 +12,7 @@ import TransportationApiClient
 
 public class ContactsApiServiceImplm: ContactsApiService {
     
+    
     let apiService: APIClient
     
     public init(apiService: APIClient) {
@@ -41,4 +42,12 @@ public class ContactsApiServiceImplm: ContactsApiService {
         }
     }
     
+    public func searchContacts(query: String) -> Single<SuperHeroResponse> {
+        
+        return Single.create { observer in
+            
+            return Disposables.create()
+        }
+        
+    }
 }

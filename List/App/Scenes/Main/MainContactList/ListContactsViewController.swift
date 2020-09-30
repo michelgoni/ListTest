@@ -14,10 +14,13 @@ import NSObject_Rx
 import RxCocoa
 import TransportsUI
 
- public class ListContactsViewController: BaseViewController {
+public class ListContactsViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedButton: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     
     // MARK: ViewModel
     var viewModel: ContactsViewModel!
@@ -40,11 +43,10 @@ import TransportsUI
         
         let data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements)
         
-        
         data.bind(to:
-            tableView.rx.items(
-                cellIdentifier: ContactsTableViewCell.identifier,
-                cellType: ContactsTableViewCell.self)
+                    tableView.rx.items(
+                        cellIdentifier: ContactsTableViewCell.identifier,
+                        cellType: ContactsTableViewCell.self)
         ) { _, model, cell in
             cell.setup(with: model)
         }
@@ -61,12 +63,21 @@ import TransportsUI
             .withLatestFrom(combinedData)
             .bind(to: viewModel.updatedContacts.inputs)
             .disposed(by: rx.disposeBag)
+    }
+    
+    private func bindSearchBar() {
         
-        
+        searchBar.rx.text
+            .orEmpty
+            .filter{$0.count > 2}
+            .asDriver(onErrorJustReturn: "")
+            .throttle(.milliseconds(500))
+            .drive(viewModel.searchContacts.inputs)
+            .disposed(by: rx.disposeBag)
     }
     
     private func bindTitle() {
-
+        
         var value = ""
         viewModel.updatedContacts.elements.flatMap { contacts -> Observable<String> in
             switch contacts.filter({ $0.isSelected}).count {
@@ -79,39 +90,46 @@ import TransportsUI
             }
             
             return .just(value)
-        }.bind(to: selectedButton.rx.title()).disposed(by: rx.disposeBag)
+        }.asDriver(onErrorJustReturn: "")
+        .drive( selectedButton.rx.title())
+        .disposed(by: rx.disposeBag)
     }
     
     
     func bindButton() {
         
-       let selected =  viewModel.updatedContacts.elements.flatMap { elements -> Observable<Bool> in
+        let selected =  viewModel.updatedContacts.elements.flatMap { elements -> Observable<Bool> in
             return .just(!elements.filter({ $0.isSelected}).isEmpty)
         }.startWith(false)
+        .asDriver(onErrorJustReturn: false)
         
-        selected.subscribe(onNext: { [weak self] (selected) in
-            self?.selectedButton.isEnabled = selected
-            self?.selectedButton.backgroundColor = selected ? .primary : .primaryDisabled
-        }).disposed(by: rx.disposeBag)
-        
+        selected.drive(selectedButton.rx.isEnabled).disposed(by: rx.disposeBag)
+        selected.drive {self.selectedButton.backgroundColor = $0 ? .primary : .primaryDisabled}
+        .disposed(by: rx.disposeBag)
     }
     
     private func bindActivityIndicator() {
-                
-        Observable.merge(viewModel.getContacts.executing)
-            .subscribe(onNext: { [weak self] isLoading in
-            isLoading ? self?.showLoading() : self?.hideLoading()
-        }).disposed(by: rx.disposeBag)
+        
+        viewModel.getContacts.executing
+            .asDriver(onErrorJustReturn: true)
+            .drive(activityIndicator.rx.isAnimating)
+            .disposed(by: rx.disposeBag)
+        
+        viewModel.getContacts.executing
+            .asDriver(onErrorJustReturn: true)
+            .drive(tableView.rx.isHidden)
+            .disposed(by: rx.disposeBag)
     }
     
     private func bindSelectButton() {
-                
-        Observable.merge(viewModel.getContacts.executing)
-            .subscribe(onNext: { [weak self] isLoading in
+        
+        viewModel.getContacts.executing
+            .asDriver(onErrorJustReturn: true)
+            .drive(onNext: { [weak self] isLoading in
                 self?.selectedButton.isEnabled = isLoading
                 self?.selectedButton.backgroundColor = .primaryDisabled
                 self?.selectedButton.setTitle("", for: .normal)
-        }).disposed(by: rx.disposeBag)
+            }).disposed(by: rx.disposeBag)
     }
     
     
@@ -134,6 +152,7 @@ extension ListContactsViewController: Bindable {
     func bind() {
         
         bindTableView()
+        bindSearchBar()
         bindTitle()
         bindButton()
         bindActivityIndicator()

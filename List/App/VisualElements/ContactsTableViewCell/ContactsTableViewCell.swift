@@ -40,14 +40,9 @@ class ContactsTableViewCell: UITableViewCell, UITableViewCellRepresentable {
         if let contactElement = data as? ContactRepresentable, let imageUrl = URL(string: contactElement.image) {
             contactLabel.text = contactElement.name
             accessoryType = contactElement.isSelected ? .checkmark : .none
-            contactImage
-                .kf
-                .rx
-                .setImage(with: ImageResource(downloadURL: imageUrl))
-                .observeOn(MainScheduler.asyncInstance)
-                .subscribe(onSuccess: { (image) in
-                    self.contactImage.image = image
-                }).disposed(by: rx.disposeBag)
+           contactImage.kf.setImage(with: imageUrl)
+    
+
         }
     }
     

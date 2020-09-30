@@ -67,6 +67,8 @@ class ContactsRepositoryTest: QuickSpec {
     class ContactsApiServiceMock: ContactsApiService {
         
         
+        
+        
         var contactsResponse: SuperHeroResponse!
         var badResponse = false
         
@@ -79,6 +81,11 @@ class ContactsRepositoryTest: QuickSpec {
             }
             return .just(contactsResponse)
         }
+        
+        func searchContacts(query: String) -> Single<SuperHeroResponse> {
+            return .just(contactsResponse)
+        }
+       
         
     }
 }
