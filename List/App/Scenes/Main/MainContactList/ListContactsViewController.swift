@@ -102,7 +102,6 @@ public class ListContactsViewController: BaseViewController {
             return .just(!elements.filter({ $0.isSelected}).isEmpty)
         }.startWith(false)
         .asDriver(onErrorJustReturn: false)
-        
         selected.drive(selectedButton.rx.isEnabled).disposed(by: rx.disposeBag)
         selected.drive {self.selectedButton.backgroundColor = $0 ? .primary : .primaryDisabled}
         .disposed(by: rx.disposeBag)
@@ -142,9 +141,24 @@ public class ListContactsViewController: BaseViewController {
         selectedButton.rx.tap.withLatestFrom(contacts)
             .bind(to: viewModel.selectedContacts.inputs)
             .disposed(by: rx.disposeBag)
-        
     }
     
+    private func bindErrors() {
+        
+        viewModel.getContacts.errors
+            .asDriver(onErrorJustReturn: ActionError.underlyingError(ErrorResponse.generic()))
+            .drive { (error) in
+                switch error {
+                case .underlyingError(let undelyed):
+                    if let casted = undelyed as? ErrorResponse {
+                        InfoView.showIn(viewController: self, message: casted.internalMessage)
+                    }
+                    self.tableView.isHidden = true
+                case .notEnabled:
+                    break
+                }
+            }.disposed(by: rx.disposeBag)
+    }
 }
 
 extension ListContactsViewController: Bindable {
@@ -159,6 +173,7 @@ extension ListContactsViewController: Bindable {
         bindButtonAction()
         bindSelectButton()
         viewModel.getContacts.execute()
+        bindErrors()
         
     }
 }

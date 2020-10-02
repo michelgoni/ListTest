@@ -33,7 +33,15 @@ public class ContactsViewModelImplm: ContactsViewModel {
     
     lazy public var getContacts: Action<Void, [Contact]> = { this in
         Action <Void, [Contact]> {
-            this.useCase.getContacts().mapResult()
+         
+            
+
+            
+
+            return this.useCase.getContacts().mapResult()
+           
+
+            
         }
     }(self)
     
