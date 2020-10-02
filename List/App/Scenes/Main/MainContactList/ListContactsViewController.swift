@@ -43,21 +43,6 @@ public class ListContactsViewController: BaseViewController {
         
         let data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements)
         
-        viewModel.getContacts.errors.bind { error  in
-            switch error {
-            case .underlyingError(let undelyed):
-                if let casted = undelyed as? ErrorResponse {
-                    debugPrint(casted)
-                }
-            case .notEnabled:
-                break
-            }
-
-        }
-       
-
-    
-
         data.bind(to:
                     tableView.rx.items(
                         cellIdentifier: ContactsTableViewCell.identifier,
@@ -156,9 +141,22 @@ public class ListContactsViewController: BaseViewController {
         selectedButton.rx.tap.withLatestFrom(contacts)
             .bind(to: viewModel.selectedContacts.inputs)
             .disposed(by: rx.disposeBag)
-        
     }
     
+    private func bindErrors() {
+        
+        viewModel.getContacts.errors.bind { error  in
+            switch error {
+            case .underlyingError(let undelyed):
+                if let casted = undelyed as? ErrorResponse {
+                    InfoView.showIn(viewController: self, message: casted.internalMessage)
+                }
+                self.tableView.isHidden = true
+            case .notEnabled:
+                break
+            }
+        }.disposed(by: rx.disposeBag)
+    }
 }
 
 extension ListContactsViewController: Bindable {
@@ -173,6 +171,7 @@ extension ListContactsViewController: Bindable {
         bindButtonAction()
         bindSelectButton()
         viewModel.getContacts.execute()
+        bindErrors()
         
     }
 }
