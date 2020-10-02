@@ -145,17 +145,19 @@ public class ListContactsViewController: BaseViewController {
     
     private func bindErrors() {
         
-        viewModel.getContacts.errors.bind { error  in
-            switch error {
-            case .underlyingError(let undelyed):
-                if let casted = undelyed as? ErrorResponse {
-                    InfoView.showIn(viewController: self, message: casted.internalMessage)
+        viewModel.getContacts.errors
+            .asDriver(onErrorJustReturn: ActionError.underlyingError(ErrorResponse.generic()))
+            .drive { (error) in
+                switch error {
+                case .underlyingError(let undelyed):
+                    if let casted = undelyed as? ErrorResponse {
+                        InfoView.showIn(viewController: self, message: casted.internalMessage)
+                    }
+                    self.tableView.isHidden = true
+                case .notEnabled:
+                    break
                 }
-                self.tableView.isHidden = true
-            case .notEnabled:
-                break
-            }
-        }.disposed(by: rx.disposeBag)
+            }.disposed(by: rx.disposeBag)
     }
 }
 
