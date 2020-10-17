@@ -29,6 +29,8 @@ public class ListContactsViewController: BaseViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+       
+       
     }
     
     // MARK: - Private
@@ -63,6 +65,7 @@ public class ListContactsViewController: BaseViewController {
             .withLatestFrom(combinedData)
             .bind(to: viewModel.updatedContacts.inputs)
             .disposed(by: rx.disposeBag)
+       
     }
     
     private func bindSearchBar() {
@@ -74,7 +77,33 @@ public class ListContactsViewController: BaseViewController {
             .throttle(.milliseconds(500))
             .drive(viewModel.searchContacts.inputs)
             .disposed(by: rx.disposeBag)
+        
+       
     }
+    
+    private func  bindSearchResults() {
+        tableView.dataSource = nil
+        viewModel.searchContacts
+            .elements
+            .skipWhile{!$0.isEmpty}
+            .bind(to:
+                    tableView.rx.items(
+                        cellIdentifier: ContactsTableViewCell.identifier,
+                        cellType: ContactsTableViewCell.self)
+            ) { _, model, cell in
+                cell.setup(with: model)
+            }
+            .disposed(by: rx.disposeBag)
+        
+        viewModel.searchContacts.executing
+            .asDriver(onErrorJustReturn: true)
+            .drive(activityIndicator.rx.isAnimating)
+            .disposed(by: rx.disposeBag)
+    }
+    
+    
+
+    
     
     private func bindTitle() {
         
@@ -159,6 +188,7 @@ extension ListContactsViewController: Bindable {
         bindButtonAction()
         bindSelectButton()
         viewModel.getContacts.execute()
+        bindSearchResults()
         
     }
 }
