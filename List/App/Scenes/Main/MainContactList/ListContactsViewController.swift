@@ -21,6 +21,7 @@ public class ListContactsViewController: BaseViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var data: Observable<[Contact]>!
     
     // MARK: ViewModel
     var viewModel: ContactsViewModel!
@@ -43,7 +44,7 @@ public class ListContactsViewController: BaseViewController {
     
     private func bindTableView() {
         
-        let data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements)
+        data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements)
         
         data.bind(to:
                     tableView.rx.items(
@@ -82,18 +83,31 @@ public class ListContactsViewController: BaseViewController {
     }
     
     private func  bindSearchResults() {
-        tableView.dataSource = nil
-        viewModel.searchContacts
-            .elements
-            .skipWhile{!$0.isEmpty}
-            .bind(to:
-                    tableView.rx.items(
-                        cellIdentifier: ContactsTableViewCell.identifier,
-                        cellType: ContactsTableViewCell.self)
-            ) { _, model, cell in
-                cell.setup(with: model)
-            }
-            .disposed(by: rx.disposeBag)
+        
+        data = viewModel.searchContacts.elements.skipWhile{!$0.isEmpty}
+        
+        
+        
+//        data.bind(to:
+//                    tableView.rx.items(
+//                        cellIdentifier: ContactsTableViewCell.identifier,
+//                        cellType: ContactsTableViewCell.self)
+//        ) { _, model, cell in
+//            cell.setup(with: model)
+//        }
+//        .disposed(by: rx.disposeBag)
+       
+//        viewModel.searchContacts
+//            .elements
+//            .skipWhile{!$0.isEmpty}
+//            .bind(to:
+//                    tableView.rx.items(
+//                        cellIdentifier: ContactsTableViewCell.identifier,
+//                        cellType: ContactsTableViewCell.self)
+//            ) { _, model, cell in
+//                cell.setup(with: model)
+//            }
+//            .disposed(by: rx.disposeBag)
         
         viewModel.searchContacts.executing
             .asDriver(onErrorJustReturn: true)

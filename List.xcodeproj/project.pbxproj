@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D37DD0B25224A4B003DCA67 /* BaseviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490E2FA24BB71DE00B079C0 /* BaseviewController.swift */; };
+		2D71CDE1253CAE5C008025BE /* searchResults.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D71CDE0253CAE5C008025BE /* searchResults.json */; };
 		2DB223932539FA6800D64C48 /* SuperHeroSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB223922539FA6800D64C48 /* SuperHeroSearchRequest.swift */; };
 		B424742724D8611E0036F25A /* SelectedContactsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B424742624D8611E0036F25A /* SelectedContactsViewModelTest.swift */; };
 		B424742924D8735C0036F25A /* SelectedContactsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B424742824D8735C0036F25A /* SelectedContactsViewControllerTest.swift */; };
@@ -73,6 +74,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D71CDE0253CAE5C008025BE /* searchResults.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = searchResults.json; sourceTree = "<group>"; };
 		2DB223922539FA6800D64C48 /* SuperHeroSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroSearchRequest.swift; sourceTree = "<group>"; };
 		5978BACE524679A939A5FD2E /* Pods_ListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A686FDB7048A19DEA8984673 /* Pods-ListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListTests.release.xcconfig"; path = "Target Support Files/Pods-ListTests/Pods-ListTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 			children = (
 				B462EBA724C1FC68007C9B9D /* contacts.json */,
 				B462EBAB24C20130007C9B9D /* contact.json */,
+				2D71CDE0253CAE5C008025BE /* searchResults.json */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B462EBAC24C20130007C9B9D /* contact.json in Resources */,
+				2D71CDE1253CAE5C008025BE /* searchResults.json in Resources */,
 				B462EBA824C1FC68007C9B9D /* contacts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
