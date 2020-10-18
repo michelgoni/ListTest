@@ -38,7 +38,6 @@ class ContactsRepositoryTest: QuickSpec {
                         expect(contacts).notTo(beNil())
                     default:
                         fail()
-                        
                     }
                 }
                 
@@ -55,7 +54,6 @@ class ContactsRepositoryTest: QuickSpec {
                         fail()
                     }
                 }
-                
             }
             
             describe("Getting search results") {
