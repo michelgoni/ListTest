@@ -26,14 +26,31 @@ class ContactsUseCaseTest: QuickSpec {
                 sut = ContactsUseCaseImplm(repository: contactsMockRepository)
             }
             
-            it("gets Contacts call from respository") {
+            it("gets Contacts call from repository") {
                 _ = try? sut.getContacts().toBlocking().first()
                 expect(contactsMockRepository.contactsCall).to(beTrue())
             }
             
-            it("gets Contacts elements from respository") {
+            it("gets Contacts elements from repository") {
                 let result = try? sut.getContacts().toBlocking().first()
                 expect(result).notTo(beNil(), description: "")
+            }
+            it("gets contacts search call from repository") {
+                 _ = try sut.searchContacts(query: "").toBlocking().first()
+                expect(contactsMockRepository.searchContacts).to(beTrue())
+            }
+            
+            it("gets contacts search result from repository") {
+                let result = try! sut.searchContacts(query: "").toBlocking().first()
+                
+                switch result {
+                case .success(let contacts):
+                    expect(contacts).notTo(beNil())
+                case .failure:
+                    fail()
+                case .none:
+                    fail()
+                }
             }
         }
     }
@@ -41,11 +58,13 @@ class ContactsUseCaseTest: QuickSpec {
     
     class ContactsMockRepository: ContactsRepository {
         func searchContacts(query: String) -> Single<Result<[Contact], ErrorResponse>> {
-            return .just(.success([Contact(name: "", image: "", isSelected: false)]))
+            searchContacts.toggle()
+            return .just(.success([Contact(name: "Hulk", image: "", isSelected: false)]))
         }
         
         
         var contactsCall = false
+        var searchContacts = false
         
         func getContacts() -> Single<Result<[Contact], ErrorResponse>> {
             contactsCall.toggle()
