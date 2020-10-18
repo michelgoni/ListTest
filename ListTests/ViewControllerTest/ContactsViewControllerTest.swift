@@ -128,9 +128,9 @@ class ContactsViewControllerTest: QuickSpec {
                 sut.viewModel.updatedContacts.inputs.onNext((contact: ContactsFake.contactSelected, contacts: ContactsFake.contactsSelected))
                 expect(sut.selectedButton.titleLabel?.text) == "1 element selected"
             }
-            it("gets contacts when a query string is passed") {
+            it("TableView number is rows is working when query string is passed") {
                 sut.viewModel.searchContacts.inputs.onNext("Hulk")
-                
+                expect(tableView.numberOfRows(inSection: 0)).notTo(beNil())
             }
             
             
@@ -150,10 +150,9 @@ class ContactsViewControllerTest: QuickSpec {
             
             class ContactsMockViewModel: ContactsViewModel {
                 
-                
                 lazy var searchContacts: Action<String, [Contact]> = { _ in
                     Action<String, [Contact]> { this in
-                        let contact = [Contact(name: "Hulk", image: "", isSelected: false)]
+                        
                         return .just(ContactsFake.searchContacts)
                     }
                     
@@ -161,7 +160,7 @@ class ContactsViewControllerTest: QuickSpec {
 
                 lazy var getContacts: Action<Void, [Contact]> = { _ in
                     Action <Void, [Contact]> {
-                        let contact = [Contact(name: "", image: "", isSelected: true)]
+                       
                         return .just(ContactsFake.contacts)
                     }
                 }(self)
