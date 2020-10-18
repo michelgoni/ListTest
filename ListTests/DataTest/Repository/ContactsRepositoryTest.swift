@@ -58,6 +58,23 @@ class ContactsRepositoryTest: QuickSpec {
                 
             }
             
+            describe("Getting search results") {
+                it("Gives search response ok result") {
+                    let response: SuperHeroResponse = self.read(file: "searchResults")!
+                    contactsApiServiceMock.contactsResponse = response
+                    
+                    let result = try! sut.searchContacts(query: "").toBlocking().first()
+                    
+                    do {
+                        let value = try result?.get()
+                        expect(value).notTo(beNil())
+                    } catch {
+                        fail()
+                    }
+                    
+                }
+            }
+            
         }
         
         
