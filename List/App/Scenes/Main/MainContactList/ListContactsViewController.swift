@@ -30,8 +30,6 @@ public class ListContactsViewController: BaseViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-       
-       
     }
     
     // MARK: - Private
@@ -45,6 +43,7 @@ public class ListContactsViewController: BaseViewController {
     private func bindTableView() {
         
         data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements, viewModel.searchContacts.elements)
+            .share()
         
         data.bind(to:
                     tableView.rx.items(
@@ -157,6 +156,18 @@ public class ListContactsViewController: BaseViewController {
             .disposed(by: rx.disposeBag)
     }
     
+    private func bindDismissSearchButton() {
+        searchBar.searchTextField.clearButtonMode = .whileEditing
+        searchBar.rx.cancelButtonClicked
+            .subscribe(onNext: { () in
+              
+               
+            })
+            .disposed(by: self.disposeBag)
+
+       
+    }
+    
     private func bindErrors() {
         
         viewModel.getContacts.errors
@@ -186,8 +197,10 @@ extension ListContactsViewController: Bindable {
         bindActivityIndicator()
         bindButtonAction()
         bindSelectButton()
-        viewModel.getContacts.execute()
         bindSearchResults()
+        bindDismissSearchButton()
+        viewModel.getContacts.execute()
+     
         bindErrors()
         
     }
