@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="738"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="1eN-91-Pyr">
+                                <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="1eN-91-Pyr">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
