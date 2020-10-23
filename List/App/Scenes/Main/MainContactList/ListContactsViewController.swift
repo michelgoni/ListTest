@@ -44,7 +44,7 @@ public class ListContactsViewController: BaseViewController {
     
     private func bindTableView() {
         
-        data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements)
+        data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements, viewModel.searchContacts.elements)
         
         data.bind(to:
                     tableView.rx.items(
@@ -82,42 +82,13 @@ public class ListContactsViewController: BaseViewController {
        
     }
     
-    private func  bindSearchResults() {
-        
-        data = viewModel.searchContacts.elements.skipWhile{!$0.isEmpty}
-        
-        
-        
-//        data.bind(to:
-//                    tableView.rx.items(
-//                        cellIdentifier: ContactsTableViewCell.identifier,
-//                        cellType: ContactsTableViewCell.self)
-//        ) { _, model, cell in
-//            cell.setup(with: model)
-//        }
-//        .disposed(by: rx.disposeBag)
-       
-//        viewModel.searchContacts
-//            .elements
-//            .skipWhile{!$0.isEmpty}
-//            .bind(to:
-//                    tableView.rx.items(
-//                        cellIdentifier: ContactsTableViewCell.identifier,
-//                        cellType: ContactsTableViewCell.self)
-//            ) { _, model, cell in
-//                cell.setup(with: model)
-//            }
-//            .disposed(by: rx.disposeBag)
+    private func bindSearchResults() {
         
         viewModel.searchContacts.executing
             .asDriver(onErrorJustReturn: true)
             .drive(activityIndicator.rx.isAnimating)
             .disposed(by: rx.disposeBag)
     }
-    
-    
-
-    
     
     private func bindTitle() {
         
