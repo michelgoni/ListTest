@@ -21,7 +21,6 @@ public class ListContactsViewController: BaseViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var data: Observable<[Contact]>!
     
     // MARK: ViewModel
     var viewModel: ContactsViewModel!
@@ -42,7 +41,7 @@ public class ListContactsViewController: BaseViewController {
     
     private func bindTableView() {
         
-        data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements, viewModel.searchContacts.elements)
+        let data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements, viewModel.searchContacts.elements)
             .share()
         
         data.bind(to:
