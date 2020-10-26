@@ -44,6 +44,15 @@ public class ListContactsViewController: BaseViewController {
         let data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements, viewModel.searchContacts.elements)
             .share()
         
+        
+        let contactData = data.map { (contacts) -> [SectionOfCustomData] in
+            var contactData = [SectionOfCustomData]()
+            SectionOfCustomData(items: contacts)
+            contactData.append(SectionOfCustomData(items: contacts))
+            return contactData
+            
+        }
+        
         data.bind(to:
                     tableView.rx.items(
                         cellIdentifier: ContactsTableViewCell.identifier,
