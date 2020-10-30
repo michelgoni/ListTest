@@ -21,7 +21,8 @@ public class ListContactsViewController: BaseViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    
+   private var data: Observable<[Contact]>?
+   
     // MARK: ViewModel
     var viewModel: ContactsViewModel!
     let disposeBag = DisposeBag()
@@ -41,30 +42,28 @@ public class ListContactsViewController: BaseViewController {
     
     private func bindTableView() {
         
-        let data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements, viewModel.searchContacts.elements)
-            .share()
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionOfCustomData>(
+          configureCell: { dataSource, tableView, indexPath, item in
+            let cell = tableView.dequeueReusableCell(withIdentifier: ContactsTableViewCell.identifier, for: indexPath) as! ContactsTableViewCell
+            cell.setup(with: item)
+            return cell
+        })
         
+         data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements, viewModel.searchContacts.elements)
         
-        let contactData = data.map { (contacts) -> [SectionOfCustomData] in
+        let value = data?.map({ (result) -> [SectionOfCustomData] in
             var contactData = [SectionOfCustomData]()
-            SectionOfCustomData(items: contacts)
-            contactData.append(SectionOfCustomData(items: contacts))
+            contactData.append(SectionOfCustomData(items: result))
             return contactData
+        })
             
-        }
-        
-        data.bind(to:
-                    tableView.rx.items(
-                        cellIdentifier: ContactsTableViewCell.identifier,
-                        cellType: ContactsTableViewCell.self)
-        ) { _, model, cell in
-            cell.setup(with: model)
-        }
-        .disposed(by: rx.disposeBag)
-        
+        value?.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
+    }
+    
+    private func bindSelectedData() {
         let selectedData = tableView.rx.modelSelected(Contact.self).asObservable()
         let combinedData = Observable
-            .combineLatest(data,selectedData)
+            .combineLatest(data!,selectedData)
             .map {(contact: $1, contacts: $0)}
         
         tableView
@@ -73,7 +72,6 @@ public class ListContactsViewController: BaseViewController {
             .withLatestFrom(combinedData)
             .bind(to: viewModel.updatedContacts.inputs)
             .disposed(by: rx.disposeBag)
-       
     }
     
     private func bindSearchBar() {
@@ -86,7 +84,6 @@ public class ListContactsViewController: BaseViewController {
             .drive(viewModel.searchContacts.inputs)
             .disposed(by: rx.disposeBag)
         
-       
     }
     
     private func bindSearchResults() {
@@ -115,7 +112,6 @@ public class ListContactsViewController: BaseViewController {
         .drive( selectedButton.rx.title())
         .disposed(by: rx.disposeBag)
     }
-    
     
     func bindButton() {
         
@@ -153,7 +149,6 @@ public class ListContactsViewController: BaseViewController {
             }).disposed(by: rx.disposeBag)
     }
     
-    
     private func bindButtonAction() {
         
         let contacts = viewModel.updatedContacts
@@ -163,21 +158,17 @@ public class ListContactsViewController: BaseViewController {
         selectedButton.rx.tap.withLatestFrom(contacts)
             .bind(to: viewModel.selectedContacts.inputs)
             .disposed(by: rx.disposeBag)
-        
     }
     
     private func bindDismissSearchButton() {
         searchBar.searchTextField.clearButtonMode = .whileEditing
         searchBar.rx.cancelButtonClicked
             .subscribe(onNext: { () in
-              
+                
                
             })
             .disposed(by: self.disposeBag)
-
-       
     }
-    
 }
 
 extension ListContactsViewController: Bindable {
@@ -185,6 +176,7 @@ extension ListContactsViewController: Bindable {
     func bind() {
         
         bindTableView()
+        bindSelectedData()
         bindSearchBar()
         bindTitle()
         bindButton()
@@ -194,6 +186,5 @@ extension ListContactsViewController: Bindable {
         bindSearchResults()
         bindDismissSearchButton()
         viewModel.getContacts.execute()
-     
     }
 }
