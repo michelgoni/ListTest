@@ -44,7 +44,29 @@ public class ContactsApiServiceImplm: ContactsApiService {
     
     public func searchContacts(query: String) -> Single<SuperHeroResponse> {
         
+        let superHeroSearchRequest = SuperHeroSearchRequest(baseApiParams: BaseApiParams(date: Date(),
+                                                                                   publicApiKey: "ab96482ca6c6b9304f381e5ac433ce59",
+                                                                                   privateKey: "95b8baf2f2882d5ead42665c539b60d2b9741e93"),
+                                                      query: query)
+        
+        
+        
+        
         return Single.create { observer in
+            
+            self.apiService.send(superHeroSearchRequest, success: { (success) in
+                observer(.success(success))
+            }) { (serverError) in
+                var error: ErrorResponse = ErrorResponse.generic()
+                if let clientError = serverError.clientError as? ErrorResponseContainer {
+                    error = clientError.error
+                } else if let rawError = serverError.rawError {
+                    error = ErrorResponse.generic(error: rawError)
+                }
+                
+                observer(.error(error))
+            }
+            
             
             return Disposables.create()
         }

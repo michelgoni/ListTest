@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D0FAF45252786180050FA61 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0FAF43252786170050FA61 /* InfoView.swift */; };
-		2D0FAF46252786180050FA61 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D0FAF44252786170050FA61 /* InfoView.xib */; };
+		2D0FAF46252786180050FA61 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		2D37DD0B25224A4B003DCA67 /* BaseviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490E2FA24BB71DE00B079C0 /* BaseviewController.swift */; };
+		2D71CDE1253CAE5C008025BE /* searchResults.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D71CDE0253CAE5C008025BE /* searchResults.json */; };
+		2D71E347254C9177007ECC14 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D71E345254C9176007ECC14 /* InfoView.swift */; };
+		2D71E348254C9177007ECC14 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D71E346254C9177007ECC14 /* InfoView.xib */; };
+		2DB223932539FA6800D64C48 /* SuperHeroSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB223922539FA6800D64C48 /* SuperHeroSearchRequest.swift */; };
 		B424742724D8611E0036F25A /* SelectedContactsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B424742624D8611E0036F25A /* SelectedContactsViewModelTest.swift */; };
 		B424742924D8735C0036F25A /* SelectedContactsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B424742824D8735C0036F25A /* SelectedContactsViewControllerTest.swift */; };
 		B43F9BB9249F3DD000ACC137 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BB8249F3DD000ACC137 /* AppDelegate.swift */; };
@@ -74,8 +77,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2D0FAF43252786170050FA61 /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
-		2D0FAF44252786170050FA61 /* InfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
+		2D71CDE0253CAE5C008025BE /* searchResults.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = searchResults.json; sourceTree = "<group>"; };
+		2D71E345254C9176007ECC14 /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		2D71E346254C9177007ECC14 /* InfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
+		2DB223922539FA6800D64C48 /* SuperHeroSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroSearchRequest.swift; sourceTree = "<group>"; };
 		5978BACE524679A939A5FD2E /* Pods_ListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A686FDB7048A19DEA8984673 /* Pods-ListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListTests.release.xcconfig"; path = "Target Support Files/Pods-ListTests/Pods-ListTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD6151FA0D71D94FCF86DF88 /* Pods-List.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-List.debug.xcconfig"; path = "Target Support Files/Pods-List/Pods-List.debug.xcconfig"; sourceTree = "<group>"; };
@@ -292,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				B43F9BEE249F454100ACC137 /* SuperHeroRequest.swift */,
+				2DB223922539FA6800D64C48 /* SuperHeroSearchRequest.swift */,
 			);
 			path = ApiRequest;
 			sourceTree = "<group>";
@@ -397,6 +403,7 @@
 			children = (
 				B462EBA724C1FC68007C9B9D /* contacts.json */,
 				B462EBAB24C20130007C9B9D /* contact.json */,
+				2D71CDE0253CAE5C008025BE /* searchResults.json */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -491,8 +498,8 @@
 		B4ACAC1B249F567100180834 /* VisualElements */ = {
 			isa = PBXGroup;
 			children = (
-				2D0FAF43252786170050FA61 /* InfoView.swift */,
-				2D0FAF44252786170050FA61 /* InfoView.xib */,
+				2D71E345254C9176007ECC14 /* InfoView.swift */,
+				2D71E346254C9177007ECC14 /* InfoView.xib */,
 				B43F9BBE249F3DD000ACC137 /* Main.storyboard */,
 				B4D61F4D250537B300F2AC20 /* ContactsTableViewCell */,
 			);
@@ -634,9 +641,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D71E348254C9177007ECC14 /* InfoView.xib in Resources */,
 				B4ACAC1F249F569900180834 /* ContactsTableViewCell.xib in Resources */,
 				B43F9BC5249F3DD100ACC137 /* LaunchScreen.storyboard in Resources */,
-				2D0FAF46252786180050FA61 /* InfoView.xib in Resources */,
+				2D0FAF46252786180050FA61 /* (null) in Resources */,
 				B43F9BC2249F3DD100ACC137 /* Assets.xcassets in Resources */,
 				B43F9BC0249F3DD000ACC137 /* Main.storyboard in Resources */,
 			);
@@ -647,6 +655,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B462EBAC24C20130007C9B9D /* contact.json in Resources */,
+				2D71CDE1253CAE5C008025BE /* searchResults.json in Resources */,
 				B462EBA824C1FC68007C9B9D /* contacts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -752,9 +761,10 @@
 				B490E30424BB8F3D00B079C0 /* DetailContactsViewModel.swift in Sources */,
 				B43F9BEF249F454100ACC137 /* SuperHeroRequest.swift in Sources */,
 				B43F9BFB249F488500ACC137 /* SuperHeroResponse.swift in Sources */,
-				2D0FAF45252786180050FA61 /* InfoView.swift in Sources */,
+				2DB223932539FA6800D64C48 /* SuperHeroSearchRequest.swift in Sources */,
 				B490E2FF24BB80D000B079C0 /* SelectedContactsViewController.swift in Sources */,
 				B43F9BE7249F433A00ACC137 /* ErrorResponseContainer.swift in Sources */,
+				2D71E347254C9177007ECC14 /* InfoView.swift in Sources */,
 				B43F9BFF249F48AA00ACC137 /* Results.swift in Sources */,
 				B4AEABCD24BE0A1E006C0B91 /* Scene+ViewController.swift in Sources */,
 				B4EA035C24BEE370009ECBE4 /* SceneCoordinator.swift in Sources */,

@@ -21,7 +21,8 @@ public class ListContactsViewController: BaseViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    
+   private var data: Observable<[Contact]>?
+   
     // MARK: ViewModel
     var viewModel: ContactsViewModel!
     let disposeBag = DisposeBag()
@@ -41,20 +42,28 @@ public class ListContactsViewController: BaseViewController {
     
     private func bindTableView() {
         
-        let data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements)
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionOfCustomData>(
+          configureCell: { dataSource, tableView, indexPath, item in
+            let cell = tableView.dequeueReusableCell(withIdentifier: ContactsTableViewCell.identifier, for: indexPath) as! ContactsTableViewCell
+            cell.setup(with: item)
+            return cell
+        })
         
-        data.bind(to:
-                    tableView.rx.items(
-                        cellIdentifier: ContactsTableViewCell.identifier,
-                        cellType: ContactsTableViewCell.self)
-        ) { _, model, cell in
-            cell.setup(with: model)
-        }
-        .disposed(by: rx.disposeBag)
+         data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements, viewModel.searchContacts.elements)
         
+        let value = data?.map({ (result) -> [SectionOfCustomData] in
+            var contactData = [SectionOfCustomData]()
+            contactData.append(SectionOfCustomData(items: result))
+            return contactData
+        })
+            
+        value?.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
+    }
+    
+    private func bindSelectedData() {
         let selectedData = tableView.rx.modelSelected(Contact.self).asObservable()
         let combinedData = Observable
-            .combineLatest(data,selectedData)
+            .combineLatest(data!,selectedData)
             .map {(contact: $1, contacts: $0)}
         
         tableView
@@ -73,6 +82,15 @@ public class ListContactsViewController: BaseViewController {
             .asDriver(onErrorJustReturn: "")
             .throttle(.milliseconds(500))
             .drive(viewModel.searchContacts.inputs)
+            .disposed(by: rx.disposeBag)
+        
+    }
+    
+    private func bindSearchResults() {
+        
+        viewModel.searchContacts.executing
+            .asDriver(onErrorJustReturn: true)
+            .drive(activityIndicator.rx.isAnimating)
             .disposed(by: rx.disposeBag)
     }
     
@@ -94,7 +112,6 @@ public class ListContactsViewController: BaseViewController {
         .drive( selectedButton.rx.title())
         .disposed(by: rx.disposeBag)
     }
-    
     
     func bindButton() {
         
@@ -131,7 +148,6 @@ public class ListContactsViewController: BaseViewController {
             }).disposed(by: rx.disposeBag)
     }
     
-    
     private func bindButtonAction() {
         
         let contacts = viewModel.updatedContacts
@@ -141,6 +157,16 @@ public class ListContactsViewController: BaseViewController {
         selectedButton.rx.tap.withLatestFrom(contacts)
             .bind(to: viewModel.selectedContacts.inputs)
             .disposed(by: rx.disposeBag)
+    }
+    
+    private func bindDismissSearchButton() {
+        searchBar.searchTextField.clearButtonMode = .whileEditing
+        searchBar.rx.cancelButtonClicked
+            .subscribe(onNext: { () in
+                self.viewModel.getContacts.execute()
+               
+            })
+            .disposed(by: self.disposeBag)
     }
     
     private func bindErrors() {
@@ -166,13 +192,17 @@ extension ListContactsViewController: Bindable {
     func bind() {
         
         bindTableView()
+        bindSelectedData()
         bindSearchBar()
         bindTitle()
         bindButton()
         bindActivityIndicator()
         bindButtonAction()
         bindSelectButton()
+        bindSearchResults()
+        bindDismissSearchButton()
         viewModel.getContacts.execute()
+     
         bindErrors()
         
     }

@@ -72,6 +72,24 @@ class ContactViewModelTest: QuickSpec {
                 expect(contactName.events) == [.next(10, useCase.names.map{$0})]
             }
             
+            it("Searches for a contact") {
+                
+                let searchResults = scheduler.createObserver([String].self)
+                
+                sut.searchContacts.elements
+                    .map{$0.map{$0.name}}
+                    .bind(to: searchResults)
+                    .disposed(by: disposeBag)
+                
+                scheduler.createHotObservable([.next(10, ("Hulk"))])
+                    .bind(to: sut.searchContacts.inputs)
+                    .disposed(by: disposeBag)
+                
+                scheduler.start()
+                
+                expect(searchResults.events) == [.next(10, useCase.search.map{$0})]
+            }
+            
             it("Selects contacts for the Detail Contacts view controller") {
                 
                 sut.selectedContacts.inputs.onNext(ContactsFake.contactsSelected)
@@ -117,15 +135,22 @@ class ContactViewModelTest: QuickSpec {
         class MockContactsUseCase: ContactsUseCase {
             
             var contacts = ContactsFake.contacts
+            var searchContacts = ContactsFake.searchContacts
             
-            var names: [String] {contacts.map{$0.name}}
+            var names: [String] {
+                contacts.map{$0.name}
+            }
+            
+            var search: [String] {
+                searchContacts.map{$0.name}
+            }
             
             func getContacts() -> Single<Result<[Contact], ErrorResponse>> {
                 
                 .just(.success(contacts))
             }
             func searchContacts(query: String) -> Single<Result<[Contact], ErrorResponse>> {
-                return .just(.success([Contact(name: "", image: "", isSelected: false)]))
+                 .just(.success([Contact(name: "Hulk", image: "", isSelected: false)]))
             }
             
         }
