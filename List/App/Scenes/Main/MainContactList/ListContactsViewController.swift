@@ -163,7 +163,7 @@ public class ListContactsViewController: BaseViewController {
         searchBar.searchTextField.clearButtonMode = .whileEditing
         searchBar.rx.cancelButtonClicked
             .subscribe(onNext: { () in
-                
+                self.viewModel.getContacts.execute()
                
             })
             .disposed(by: self.disposeBag)
