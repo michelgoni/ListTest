@@ -14,6 +14,7 @@ target 'List' do
   pod 'RxCocoa'
   pod 'NSObject+Rx'
   pod 'Action'
+  pod 'RxSwiftExt', '~> 5'
   pod 'RxDataSources', '~> 4.0'
   pod 'RxKingfisher'
   
