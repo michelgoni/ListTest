@@ -62,10 +62,11 @@ public class ListContactsViewController: BaseViewController {
     }
     
     private func bindPaginator() {
-        let bottom = self.tableView.rx
+        self.tableView.rx
             .reachedBottom()
             .map { _ in () }
-        bottom.bind(to: viewModel.getContacts.inputs).disposed(by: rx.disposeBag)
+            .bind(to: viewModel.getContacts.inputs)
+            .disposed(by: rx.disposeBag)
         
     }
     

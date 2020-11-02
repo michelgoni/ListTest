@@ -13,7 +13,7 @@ public class ContactsRepositoryImplm: ContactsRepository {
     
     
     public let contactsApiService: ContactsApiService
-    private let offset = 10
+    private var offset = 0
     
     public init(contactsApiService: ContactsApiService) {
         self.contactsApiService = contactsApiService
