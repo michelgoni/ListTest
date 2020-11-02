@@ -19,11 +19,15 @@ public class ContactsApiServiceImplm: ContactsApiService {
         
         self.apiService = apiService
     }
+
     
     public func getSuperHeroContacts() -> Single<SuperHeroResponse> {
-        let superHerorequest = SuperHeroRequest(baseApiParams: BaseApiParams(date: Date(),
-                                                                             publicApiKey: "ab96482ca6c6b9304f381e5ac433ce59",
-                                                                             privateKey: "95b8baf2f2882d5ead42665c539b60d2b9741e93"))
+        let superHerorequest = SuperHeroRequest(baseApiParams: BaseApiParams(
+                                                    date: Date(),
+                                                    publicApiKey: "ab96482ca6c6b9304f381e5ac433ce59",
+                                                    privateKey: "95b8baf2f2882d5ead42665c539b60d2b9741e93",
+                                                    offSet: 0,
+                                                    limit: 10))
         return Single.create { [unowned self] observer in
             self.apiService.send(superHerorequest, success: { (success) in
                 observer(.success(success))
@@ -46,7 +50,9 @@ public class ContactsApiServiceImplm: ContactsApiService {
         
         let superHeroSearchRequest = SuperHeroSearchRequest(baseApiParams: BaseApiParams(date: Date(),
                                                                                    publicApiKey: "ab96482ca6c6b9304f381e5ac433ce59",
-                                                                                   privateKey: "95b8baf2f2882d5ead42665c539b60d2b9741e93"),
+                                                                                   privateKey: "95b8baf2f2882d5ead42665c539b60d2b9741e93",
+                                                                                   offSet: 0,
+                                                                                   limit: 10),
                                                       query: query)
         
         

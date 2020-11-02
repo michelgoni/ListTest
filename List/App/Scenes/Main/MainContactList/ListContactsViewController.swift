@@ -13,6 +13,7 @@ import Action
 import NSObject_Rx
 import RxCocoa
 import TransportsUI
+import RxSwiftExt
 
 public class ListContactsViewController: BaseViewController {
     
@@ -58,6 +59,14 @@ public class ListContactsViewController: BaseViewController {
         })
             
         value?.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
+    }
+    
+    private func bindPaginator() {
+        let bottom = self.tableView.rx
+            .reachedBottom()
+            .map { _ in () }
+        bottom.bind(to: viewModel.getContacts.inputs).disposed(by: rx.disposeBag)
+        
     }
     
     private func bindSelectedData() {
@@ -202,7 +211,7 @@ extension ListContactsViewController: Bindable {
         bindSearchResults()
         bindDismissSearchButton()
         viewModel.getContacts.execute()
-     
+        bindPaginator()
         bindErrors()
         
     }
