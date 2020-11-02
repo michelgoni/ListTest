@@ -15,6 +15,9 @@ public class ContactsApiServiceImplm: ContactsApiService {
     
     let apiService: APIClient
     private let limit = 10
+    lazy var results: [Results] = {
+        return [Results]()
+    }()
     
     public init(apiService: APIClient) {
         
@@ -22,7 +25,7 @@ public class ContactsApiServiceImplm: ContactsApiService {
     }
 
     
-    public func getSuperHeroContacts(offset: Int) -> Single<SuperHeroResponse> {
+    public func getSuperHeroContacts(offset: Int) -> Single<[Results]> {
         
         let superHeroRequest = SuperHeroRequest(baseApiParams: BaseApiParams(
                                                     date: Date(),
@@ -33,8 +36,10 @@ public class ContactsApiServiceImplm: ContactsApiService {
         
         return Single.create { [unowned self] observer in
             self.apiService.send(superHeroRequest, success: { (success) in
+                self.results.append(contentsOf: success.data.results)
                 
-                observer(.success(success))
+                offset == 10 ?  observer(.success(success.data.results)) :  observer(.success(self.results))
+                observer(.success(success.data.results))
             }) { (serverError) in
                 var error: ErrorResponse = ErrorResponse.generic()
                 if let clientError = serverError.clientError as? ErrorResponseContainer {

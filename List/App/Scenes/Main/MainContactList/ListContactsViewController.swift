@@ -50,7 +50,7 @@ public class ListContactsViewController: BaseViewController {
             return cell
         })
         
-         data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements, viewModel.searchContacts.elements)
+        data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements, viewModel.searchContacts.elements, viewModel.loadNextPageContacts.elements)
         
         let value = data?.map({ (result) -> [SectionOfCustomData] in
             var contactData = [SectionOfCustomData]()
@@ -65,7 +65,7 @@ public class ListContactsViewController: BaseViewController {
         self.tableView.rx
             .reachedBottom()
             .map { _ in () }
-            .bind(to: viewModel.getContacts.inputs)
+            .bind(to: viewModel.loadNextPageContacts.inputs)
             .disposed(by: rx.disposeBag)
         
     }

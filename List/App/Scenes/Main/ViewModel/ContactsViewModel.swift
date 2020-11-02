@@ -15,16 +15,20 @@ import RxCocoa
 public protocol ContactsViewModel {
     
     var getContacts: Action<Void, [Contact]> { get }
+    var loadNextPageContacts: Action<Void, [Contact]> { get }
     var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> { get }
     var selectedContacts: Action<[Contact], Void> { get }
     var resetContacts: CocoaAction { get }
     var searchContacts: Action<String, [Contact]> { get }
+    
+    var offset: Int { get set}
 }
 
 public class ContactsViewModelImplm: ContactsViewModel {
     
     let useCase: ContactsUseCase
     let coordinator: SceneCoordinator
+    public var offset: Int = 0
     
     public init(useCase: ContactsUseCase, coordinator: SceneCoordinator) {
         self.useCase = useCase
@@ -34,7 +38,14 @@ public class ContactsViewModelImplm: ContactsViewModel {
     lazy public var getContacts: Action<Void, [Contact]> = { this in
         Action <Void, [Contact]> {
 
-            return this.useCase.getContacts().mapResult()
+            return this.useCase.getContacts(offset: 10).mapResult()
+        }
+    }(self)
+    
+    lazy public var loadNextPageContacts: Action<Void, [Contact]> = { this in
+        Action <Void, [Contact]> {
+            self.offset += 10
+            return this.useCase.getContacts(offset: self.offset).mapResult()
         }
     }(self)
     

@@ -11,7 +11,7 @@ import RxSwift
 
 public protocol ContactsRepository {
     
-    func getContacts() -> Single<Result<[Contact], ErrorResponse>>
+    func getContacts(offset: Int) -> Single<Result<[Contact], ErrorResponse>>
     func searchContacts(query: String) -> Single<Result<[Contact], ErrorResponse>>
 }
 

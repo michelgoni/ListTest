@@ -13,18 +13,18 @@ public class ContactsRepositoryImplm: ContactsRepository {
     
     
     public let contactsApiService: ContactsApiService
-    private var offset = 0
+   
     
     public init(contactsApiService: ContactsApiService) {
         self.contactsApiService = contactsApiService
     }
     
     // MARK: -ContactsRepository
-    public func getContacts() -> Single<Result<[Contact], ErrorResponse>> {
+    public func getContacts(offset: Int) -> Single<Result<[Contact], ErrorResponse>> {
         
         return self.contactsApiService
             .getSuperHeroContacts(offset: offset)
-            .map { $0.data.results.map(Contact.init)}
+            .map { $0.map(Contact.init)}
             .mapResponse()
     }
     

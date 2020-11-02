@@ -11,7 +11,7 @@ import RxSwift
 
 public protocol ContactsUseCase {
     
-    func getContacts() -> Single<Result<[Contact], ErrorResponse>>
+    func getContacts(offset: Int) -> Single<Result<[Contact], ErrorResponse>>
     func searchContacts(query: String) -> Single<Result<[Contact], ErrorResponse>>
 }
 
@@ -23,8 +23,8 @@ public class ContactsUseCaseImplm: ContactsUseCase {
         self.repository = repository
     }
     
-    public func getContacts() -> Single<Result<[Contact], ErrorResponse>> {
-        repository.getContacts()
+    public func getContacts(offset: Int) -> Single<Result<[Contact], ErrorResponse>> {
+        repository.getContacts(offset: offset)
     }
     
     public func searchContacts(query: String) -> Single<Result<[Contact], ErrorResponse>> {

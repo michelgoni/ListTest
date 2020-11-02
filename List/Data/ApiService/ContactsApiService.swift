@@ -10,6 +10,6 @@ import Foundation
 import RxSwift
 
 public protocol ContactsApiService {
-    func getSuperHeroContacts(offset: Int) -> Single<SuperHeroResponse>
+    func getSuperHeroContacts(offset: Int) -> Single<[Results]>
     func searchContacts(query: String) -> Single<SuperHeroResponse>
 }
