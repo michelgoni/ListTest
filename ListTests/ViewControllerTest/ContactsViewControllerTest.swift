@@ -150,6 +150,11 @@ class ContactsViewControllerTest: QuickSpec {
             
             class ContactsMockViewModel: ContactsViewModel {
                 
+                
+                var offset: Int = 10
+                
+           
+                
                 lazy var searchContacts: Action<String, [Contact]> = { _ in
                     Action<String, [Contact]> { this in
                         
@@ -163,6 +168,14 @@ class ContactsViewControllerTest: QuickSpec {
                        
                         return .just(ContactsFake.contacts)
                     }
+                }(self)
+                
+                lazy var loadNextPageContacts: Action<Void, [Contact]> = { _ in
+                    Action<Void, [Contact]> { this in
+                        
+                        return .just(ContactsFake.searchContacts)
+                    }
+                    
                 }(self)
                 
                 lazy var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> = { _ in
