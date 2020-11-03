@@ -13,6 +13,7 @@ import Action
 import NSObject_Rx
 import RxCocoa
 import TransportsUI
+import RxSwiftExt
 
 public class ListContactsViewController: BaseViewController {
     
@@ -49,7 +50,10 @@ public class ListContactsViewController: BaseViewController {
             return cell
         })
         
-         data = Observable.merge(viewModel.getContacts.elements, viewModel.updatedContacts.elements, viewModel.searchContacts.elements)
+        data = Observable.merge(viewModel.getContacts.elements,
+                                viewModel.updatedContacts.elements,
+                                viewModel.searchContacts.elements,
+                                viewModel.loadNextPageContacts.elements)
         
         let value = data?.map({ (result) -> [SectionOfCustomData] in
             var contactData = [SectionOfCustomData]()
@@ -58,6 +62,15 @@ public class ListContactsViewController: BaseViewController {
         })
             
         value?.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
+    }
+    
+    private func bindPaginator() {
+        self.tableView.rx
+            .reachedBottom()
+            .map { _ in () }
+            .bind(to: viewModel.loadNextPageContacts.inputs)
+            .disposed(by: rx.disposeBag)
+        
     }
     
     private func bindSelectedData() {
@@ -86,13 +99,7 @@ public class ListContactsViewController: BaseViewController {
         
     }
     
-    private func bindSearchResults() {
-        
-        viewModel.searchContacts.executing
-            .asDriver(onErrorJustReturn: true)
-            .drive(activityIndicator.rx.isAnimating)
-            .disposed(by: rx.disposeBag)
-    }
+
     
     private func bindTitle() {
         
@@ -126,12 +133,12 @@ public class ListContactsViewController: BaseViewController {
     
     private func bindActivityIndicator() {
         
-        viewModel.getContacts.executing
+        Observable.merge(viewModel.getContacts.executing, viewModel.loadNextPageContacts.executing, viewModel.searchContacts.executing)
             .asDriver(onErrorJustReturn: true)
             .drive(activityIndicator.rx.isAnimating)
             .disposed(by: rx.disposeBag)
         
-        viewModel.getContacts.executing
+        Observable.merge(viewModel.getContacts.executing)
             .asDriver(onErrorJustReturn: true)
             .drive(tableView.rx.isHidden)
             .disposed(by: rx.disposeBag)
@@ -199,10 +206,9 @@ extension ListContactsViewController: Bindable {
         bindActivityIndicator()
         bindButtonAction()
         bindSelectButton()
-        bindSearchResults()
         bindDismissSearchButton()
         viewModel.getContacts.execute()
-     
+        bindPaginator()
         bindErrors()
         
     }

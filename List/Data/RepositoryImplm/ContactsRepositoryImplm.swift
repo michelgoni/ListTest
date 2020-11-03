@@ -10,27 +10,28 @@ import Foundation
 import RxSwift
 
 public class ContactsRepositoryImplm: ContactsRepository {
-
-
-   public let contactsApiService: ContactsApiService
     
-   public init(contactsApiService: ContactsApiService) {
+    
+    public let contactsApiService: ContactsApiService
+   
+    
+    public init(contactsApiService: ContactsApiService) {
         self.contactsApiService = contactsApiService
     }
     
     // MARK: -ContactsRepository
-   public func getContacts() -> Single<Result<[Contact], ErrorResponse>> {
+    public func getContacts(offset: Int) -> Single<Result<[Contact], ErrorResponse>> {
         
         return self.contactsApiService
-            .getSuperHeroContacts()
-            .map { $0.data.results.map(Contact.init)}
+            .getSuperHeroContacts(offset: offset)
+            .map { $0.map(Contact.init)}
             .mapResponse()
     }
     
     public func searchContacts(query: String) -> Single<Result<[Contact], ErrorResponse>> {
         
         return self.contactsApiService.searchContacts(query: query)
-                    .map { $0.data.results.map(Contact.init)}
-                   .mapResponse()
+            .map { $0.data.results.map(Contact.init)}
+            .mapResponse()
     }
 }
