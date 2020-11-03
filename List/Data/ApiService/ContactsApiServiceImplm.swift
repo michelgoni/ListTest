@@ -36,10 +36,15 @@ public class ContactsApiServiceImplm: ContactsApiService {
         
         return Single.create { [unowned self] observer in
             self.apiService.send(superHeroRequest, success: { (success) in
-                self.results.append(contentsOf: success.data.results)
                 
-                offset == 10 ?  observer(.success(success.data.results)) :  observer(.success(self.results))
-                observer(.success(success.data.results))
+                if offset == 10 {
+                    self.results.append(contentsOf: success.data.results)
+                    observer(.success(success.data.results))
+                } else {
+                    self.results.append(contentsOf: success.data.results)
+                    observer(.success(self.results))
+                }
+
             }) { (serverError) in
                 var error: ErrorResponse = ErrorResponse.generic()
                 if let clientError = serverError.clientError as? ErrorResponseContainer {
