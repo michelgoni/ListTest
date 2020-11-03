@@ -27,12 +27,12 @@ class ContactsUseCaseTest: QuickSpec {
             }
             
             it("gets Contacts call from repository") {
-                _ = try? sut.getContacts().toBlocking().first()
+                _ = try? sut.getContacts(offset: 10).toBlocking().first()
                 expect(contactsMockRepository.contactsCall).to(beTrue())
             }
             
             it("gets Contacts elements from repository") {
-                let result = try? sut.getContacts().toBlocking().first()
+                let result = try? sut.getContacts(offset: 10).toBlocking().first()
                 expect(result).notTo(beNil(), description: "")
             }
             it("gets contacts search call from repository") {
@@ -66,7 +66,7 @@ class ContactsUseCaseTest: QuickSpec {
         var contactsCall = false
         var searchContacts = false
         
-        func getContacts() -> Single<Result<[Contact], ErrorResponse>> {
+        func getContacts(offset: Int) -> Single<Result<[Contact], ErrorResponse>> {
             contactsCall.toggle()
             return .just(.success([Contact(name: "", image: "", isSelected: false)]))
         }

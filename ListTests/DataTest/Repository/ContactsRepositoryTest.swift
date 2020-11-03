@@ -16,7 +16,7 @@ import List
 class ContactsRepositoryTest: QuickSpec {
     
     override func spec() {
-        describe("Implementation of contactRespository") {
+        describe("Implementation of contactRepository") {
             
             var sut: ContactsRepositoryImplm!
             var contactsApiServiceMock: ContactsApiServiceMock!
@@ -30,8 +30,8 @@ class ContactsRepositoryTest: QuickSpec {
                 
                 it("Gives service an OK response") {
                     let response: SuperHeroResponse = self.read(file: "contacts")!
-                    contactsApiServiceMock.contactsResponse = response
-                    let result = try! sut.getContacts().toBlocking().first()
+                    contactsApiServiceMock.resultsResponse = response.data.results
+                    let result = try! sut.getContacts(offset: 10).toBlocking().first()
                     
                     switch result {
                     case .success(let contacts):
@@ -45,7 +45,7 @@ class ContactsRepositoryTest: QuickSpec {
                     let response: SuperHeroResponse = self.read(file: "contacts")!
                     contactsApiServiceMock.contactsResponse = response
                     contactsApiServiceMock.badResponse = true
-                    let result = try! sut.getContacts().toBlocking().first()
+                    let result = try! sut.getContacts(offset: 10).toBlocking().first()
                     
                     switch result {
                     case .failure(let error):
@@ -82,19 +82,18 @@ class ContactsRepositoryTest: QuickSpec {
     class ContactsApiServiceMock: ContactsApiService {
         
         
-        
-        
         var contactsResponse: SuperHeroResponse!
+        var resultsResponse: [Results]!
         var badResponse = false
         
         
         // MARK: - ContactsApiService protocol
-        func getSuperHeroContacts() -> Single<SuperHeroResponse> {
+        func getSuperHeroContacts(offset: Int) -> Single<[Results]> {
             
             if badResponse {
                 return .error(ErrorResponse.generic())
             }
-            return .just(contactsResponse)
+            return .just(resultsResponse)
         }
         
         func searchContacts(query: String) -> Single<SuperHeroResponse> {

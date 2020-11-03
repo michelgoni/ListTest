@@ -31,7 +31,7 @@ class ContactViewModelTest: QuickSpec {
                 coordinator = MockCoordinator()
                 useCase = MockContactsUseCase()
                 sut = ContactsViewModelImplm(useCase: useCase, coordinator: coordinator)
-                
+                sut.offset = 10
                 scheduler = TestScheduler(initialClock: 0)
                 disposeBag = DisposeBag()
             }
@@ -71,6 +71,12 @@ class ContactViewModelTest: QuickSpec {
                 scheduler.start()
                 expect(contactName.events) == [.next(10, useCase.names.map{$0})]
             }
+            
+            it("Increments offset") {
+                sut.loadNextPageContacts.execute()
+                expect(sut.offset) == 20
+            }
+            
             
             it("Searches for a contact") {
                 
@@ -145,7 +151,7 @@ class ContactViewModelTest: QuickSpec {
                 searchContacts.map{$0.name}
             }
             
-            func getContacts() -> Single<Result<[Contact], ErrorResponse>> {
+            func getContacts(offset: Int) -> Single<Result<[Contact], ErrorResponse>> {
                 
                 .just(.success(contacts))
             }
