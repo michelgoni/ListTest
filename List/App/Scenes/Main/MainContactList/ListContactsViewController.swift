@@ -99,13 +99,7 @@ public class ListContactsViewController: BaseViewController {
         
     }
     
-    private func bindSearchResults() {
-        
-        viewModel.searchContacts.executing
-            .asDriver(onErrorJustReturn: true)
-            .drive(activityIndicator.rx.isAnimating)
-            .disposed(by: rx.disposeBag)
-    }
+
     
     private func bindTitle() {
         
@@ -139,12 +133,12 @@ public class ListContactsViewController: BaseViewController {
     
     private func bindActivityIndicator() {
         
-        viewModel.getContacts.executing
+        Observable.merge(viewModel.getContacts.executing, viewModel.loadNextPageContacts.executing, viewModel.searchContacts.executing)
             .asDriver(onErrorJustReturn: true)
             .drive(activityIndicator.rx.isAnimating)
             .disposed(by: rx.disposeBag)
         
-        viewModel.getContacts.executing
+        Observable.merge(viewModel.getContacts.executing)
             .asDriver(onErrorJustReturn: true)
             .drive(tableView.rx.isHidden)
             .disposed(by: rx.disposeBag)
@@ -212,7 +206,6 @@ extension ListContactsViewController: Bindable {
         bindActivityIndicator()
         bindButtonAction()
         bindSelectButton()
-        bindSearchResults()
         bindDismissSearchButton()
         viewModel.getContacts.execute()
         bindPaginator()
