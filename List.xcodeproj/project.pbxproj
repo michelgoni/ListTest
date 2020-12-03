@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2D0FAF46252786180050FA61 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		2D2F232F25795630001F7227 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F232E25795630001F7227 /* ApiError.swift */; };
+		2D2F23352579574D001F7227 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F23342579574D001F7227 /* DomainError.swift */; };
+		2D2F2339257959E6001F7227 /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F2338257959E6001F7227 /* ContactsService.swift */; };
+		2D2F233D25795A93001F7227 /* MoyaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F233C25795A93001F7227 /* MoyaService.swift */; };
 		2D37DD0B25224A4B003DCA67 /* BaseviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490E2FA24BB71DE00B079C0 /* BaseviewController.swift */; };
 		2D71CDE1253CAE5C008025BE /* searchResults.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D71CDE0253CAE5C008025BE /* searchResults.json */; };
 		2D71E347254C9177007ECC14 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D71E345254C9176007ECC14 /* InfoView.swift */; };
@@ -77,6 +81,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D2F232E25795630001F7227 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		2D2F23342579574D001F7227 /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
+		2D2F2338257959E6001F7227 /* ContactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsService.swift; sourceTree = "<group>"; };
+		2D2F233C25795A93001F7227 /* MoyaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaService.swift; sourceTree = "<group>"; };
 		2D71CDE0253CAE5C008025BE /* searchResults.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = searchResults.json; sourceTree = "<group>"; };
 		2D71E345254C9176007ECC14 /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		2D71E346254C9177007ECC14 /* InfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
@@ -164,6 +172,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D2F232D25795618001F7227 /* Moya */ = {
+			isa = PBXGroup;
+			children = (
+				2D2F232E25795630001F7227 /* ApiError.swift */,
+				2D2F233C25795A93001F7227 /* MoyaService.swift */,
+			);
+			path = Moya;
+			sourceTree = "<group>";
+		};
 		B43F9BAC249F3DD000ACC137 = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				B43F9BE6249F433A00ACC137 /* ErrorResponseContainer.swift */,
+				2D2F23342579574D001F7227 /* DomainError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -285,6 +303,7 @@
 		B43F9BEB249F44CE00ACC137 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				2D2F232D25795618001F7227 /* Moya */,
 				B43F9C07249F49BE00ACC137 /* ApiService */,
 				B43F9C04249F492900ACC137 /* RepositoryImplm */,
 				B43F9BF1249F45DA00ACC137 /* Entity */,
@@ -343,6 +362,7 @@
 			children = (
 				B43F9C08249F49D700ACC137 /* ContactsApiService.swift */,
 				B43F9C0A249F4A2800ACC137 /* ContactsApiServiceImplm.swift */,
+				2D2F2338257959E6001F7227 /* ContactsService.swift */,
 			);
 			path = ApiService;
 			sourceTree = "<group>";
@@ -751,6 +771,7 @@
 				B43F9BED249F44FB00ACC137 /* Contact.swift in Sources */,
 				B43F9C0B249F4A2800ACC137 /* ContactsApiServiceImplm.swift in Sources */,
 				B4ACAC22249F584400180834 /* Bindable.swift in Sources */,
+				2D2F233D25795A93001F7227 /* MoyaService.swift in Sources */,
 				B43F9BE4249F430000ACC137 /* SuperHeroApiClient.swift in Sources */,
 				B43F9BFD249F489500ACC137 /* DataClass.swift in Sources */,
 				B43F9BF7249F46D900ACC137 /* ContactsRepository.swift in Sources */,
@@ -759,11 +780,13 @@
 				B490E30724BB8F9700B079C0 /* DetailContact.swift in Sources */,
 				B43F9BE0249F417400ACC137 /* String+Extensions.swift in Sources */,
 				B490E30424BB8F3D00B079C0 /* DetailContactsViewModel.swift in Sources */,
+				2D2F232F25795630001F7227 /* ApiError.swift in Sources */,
 				B43F9BEF249F454100ACC137 /* SuperHeroRequest.swift in Sources */,
 				B43F9BFB249F488500ACC137 /* SuperHeroResponse.swift in Sources */,
 				2DB223932539FA6800D64C48 /* SuperHeroSearchRequest.swift in Sources */,
 				B490E2FF24BB80D000B079C0 /* SelectedContactsViewController.swift in Sources */,
 				B43F9BE7249F433A00ACC137 /* ErrorResponseContainer.swift in Sources */,
+				2D2F2339257959E6001F7227 /* ContactsService.swift in Sources */,
 				2D71E347254C9177007ECC14 /* InfoView.swift in Sources */,
 				B43F9BFF249F48AA00ACC137 /* Results.swift in Sources */,
 				B4AEABCD24BE0A1E006C0B91 /* Scene+ViewController.swift in Sources */,
@@ -771,6 +794,7 @@
 				B43F9C03249F48E400ACC137 /* Extension.swift in Sources */,
 				B43F9C09249F49D700ACC137 /* ContactsApiService.swift in Sources */,
 				B4EA035E24BEE385009ECBE4 /* SceneCoordinatorType.swift in Sources */,
+				2D2F23352579574D001F7227 /* DomainError.swift in Sources */,
 				B4AEABCB24BE0950006C0B91 /* Scene.swift in Sources */,
 				B43F9BB9249F3DD000ACC137 /* AppDelegate.swift in Sources */,
 				B4ACAC24249F586F00180834 /* PrimitiveSequence+Extensions.swift in Sources */,
