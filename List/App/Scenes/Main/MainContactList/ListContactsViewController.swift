@@ -55,6 +55,8 @@ public class ListContactsViewController: BaseViewController {
                                 viewModel.searchContacts.elements,
                                 viewModel.loadNextPageContacts.elements)
         
+        
+        
         let value = data?.map({ (result) -> [SectionOfCustomData] in
             var contactData = [SectionOfCustomData]()
             contactData.append(SectionOfCustomData(items: result))
