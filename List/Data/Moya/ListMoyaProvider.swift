@@ -25,6 +25,6 @@ public class ListMoyaProvider<Target: TargetType>: MoyaProvider<Target> {
     }
     
     func request(_ target: Target) -> Single<Response> {
-        return self.request(target)
+        return self.rx.request(target, callbackQueue: nil)
     }
 }
