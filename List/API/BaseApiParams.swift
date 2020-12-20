@@ -10,7 +10,7 @@ import Foundation
 import CommonCrypto
 import CryptoKit
 
-struct BaseApiParams {
+public struct BaseApiParams {
     let date: Date
     let publicApiKey: String
     let privateKey: String

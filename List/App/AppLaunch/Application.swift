@@ -12,7 +12,7 @@ final class Application {
 
     func start(with window: UIWindow) {
         
-        let contactsApiService = ContactsApiServiceImplm(apiService: SuperHeroApiClient())
+        let contactsApiService = ContactsApiServiceImplm()
         let repository = ContactsRepositoryImplm(contactsApiService: contactsApiService)
         let contactsUsecase = ContactsUseCaseImplm(repository:repository)
         
