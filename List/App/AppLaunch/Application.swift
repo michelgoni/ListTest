@@ -11,15 +11,11 @@ import UIKit
 final class Application {
 
     func start(with window: UIWindow) {
-        
-//        let contactsApiService = ContactsApiServiceImplm()
-//        let repository = ContactsRepositoryImplm(contactsApiService: contactsApiService)
-//        let contactsUsecase = ContactsUseCaseImplm(repository:repository)
-//        
-//        let sceneCoordinator = SceneCoordinator(window: window)
-//        let viewModel = ContactsViewModelImplm(useCase: contactsUsecase, coordinator: sceneCoordinator)
-//        let firstScene = Scene.contacts(viewModel)
-//        sceneCoordinator.transition(to: firstScene, type: .root)
+      
+        let sceneCoordinator = SceneCoordinator(window: window)
+        let viewModel = ContactsViewModelImplm(useCase: DomainContainerDI.shared.contactsUseCase, coordinator: sceneCoordinator)
+        let firstScene = Scene.contacts(viewModel)
+        sceneCoordinator.transition(to: firstScene, type: .root)
 
     }
 }
