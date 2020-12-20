@@ -12,10 +12,9 @@ import Moya
 
 public class ListMoyaProvider<Target: TargetType>: MoyaProvider<Target> {
     
-    private let baseParams: BaseApiParams
-    
-    public init ( baseParams: BaseApiParams) {
-        self.baseParams = baseParams
+
+    public init ( ) {
+        
        
         let plugins: [PluginType] = [
             NetworkLoggerPlugin(configuration:
@@ -23,5 +22,9 @@ public class ListMoyaProvider<Target: TargetType>: MoyaProvider<Target> {
             )
         ]
         super.init(plugins: plugins)
+    }
+    
+    func request(_ target: Target) -> Single<Response> {
+        return self.request(target)
     }
 }

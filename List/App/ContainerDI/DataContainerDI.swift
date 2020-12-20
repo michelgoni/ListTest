@@ -24,7 +24,7 @@ class DataContainerDI {
     
     lazy var contacts: ContactsApiService = {
         return ContactsApiServiceImplm(DataContainerDI.baseUrl,
-                                       with: ListMoyaProvider(baseParams: baseApiParms))
+                                       with: ListMoyaProvider())
     }()
 
 }

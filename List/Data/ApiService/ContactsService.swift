@@ -18,8 +18,8 @@ public enum ContactsServiceAction {
 public class ContactsService: MoyaService<ContactsAction>{}
 
 public enum ContactsAction {
-    case getContacts(params: BaseApiParams)
-    case searchContacts(params: BaseApiParams)
+    case getContacts(params: BaseApiParams, paginatorParms: PaginatorParams)
+    case searchContacts(params: BaseApiParams, query: String)
 }
 
 extension ContactsService: TargetType {
@@ -43,10 +43,12 @@ extension ContactsService: TargetType {
     //MARK:-- Path
     public var path: String {
         switch action {
-        case .getContacts(let params), .searchContacts(let params):
+        case .getContacts(let params, let paginatorParams):
             return
-                ""
-//                "ts&=\(params.timeStamp)&apikey=\(params.publicApiKey)&hash=\(params.hash)&offset=\(String(params.offSet))&limit=\(String(params.limit))"
+                "ts&=\(params.timeStamp)&apikey=\(params.publicApiKey)&hash=\(params.hash)&offset=\(String(paginatorParams.offset))&limit=\(String(paginatorParams.limit))"
+            
+        case .searchContacts(let params, let query):
+           return "name=\(query)&ts&=\(params.timeStamp)&apikey=\(params.publicApiKey)&hash=\(params.hash)"
         }
     }
     
