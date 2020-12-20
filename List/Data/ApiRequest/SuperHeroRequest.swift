@@ -23,7 +23,8 @@ struct SuperHeroRequest: APIRequest {
     }
     
     public var resourcePath: String {
-        return "ts&=\(baseApiParams.timeStamp)&apikey=\(baseApiParams.publicApiKey)&hash=\(baseApiParams.hash)&offset=\(String(baseApiParams.offSet))&limit=\(String(baseApiParams.limit))"
+        ""
+//        return "ts&=\(baseApiParams.timeStamp)&apikey=\(baseApiParams.publicApiKey)&hash=\(baseApiParams.hash)&offset=\(String(baseApiParams.offSet))&limit=\(String(baseApiParams.limit))"
     }
     
     public var body: Parameters? {

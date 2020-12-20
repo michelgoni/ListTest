@@ -11,7 +11,7 @@ import RxSwift
 import Moya
 
 
-public class ContactsApiServiceImplm: ContactsApiService {
+public class ContactsApiServiceImplm: MoyaApiService<ContactsService>, ContactsApiService {
     
     
 //    let apiService: APIClient

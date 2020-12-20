@@ -14,8 +14,6 @@ public struct BaseApiParams {
     let date: Date
     let publicApiKey: String
     let privateKey: String
-    let offSet: Int
-    let limit: Int
     
     var timeStamp: String {
         guard let date = date.toMillis() else {
@@ -26,7 +24,7 @@ public struct BaseApiParams {
     
     var hash: String   {
         return "\(privateKey)\(publicApiKey)".md5
-       }
-  
+    }
+    
 }
 

@@ -10,12 +10,15 @@
 		2D0FAF46252786180050FA61 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		2D2F232F25795630001F7227 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F232E25795630001F7227 /* ApiError.swift */; };
 		2D2F23352579574D001F7227 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F23342579574D001F7227 /* DomainError.swift */; };
-		2D2F2339257959E6001F7227 /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F2338257959E6001F7227 /* ContactsService.swift */; };
 		2D2F233D25795A93001F7227 /* MoyaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F233C25795A93001F7227 /* MoyaService.swift */; };
 		2D37DD0B25224A4B003DCA67 /* BaseviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B490E2FA24BB71DE00B079C0 /* BaseviewController.swift */; };
 		2D71CDE1253CAE5C008025BE /* searchResults.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D71CDE0253CAE5C008025BE /* searchResults.json */; };
 		2D71E347254C9177007ECC14 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D71E345254C9176007ECC14 /* InfoView.swift */; };
 		2D71E348254C9177007ECC14 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D71E346254C9177007ECC14 /* InfoView.xib */; };
+		2D87C69B258FC167006871CC /* MoyaApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C69A258FC167006871CC /* MoyaApiService.swift */; };
+		2D87C69F258FC18A006871CC /* ListMoyaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C69E258FC18A006871CC /* ListMoyaProvider.swift */; };
+		2D87C700258FC563006871CC /* DataContainerDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C6FF258FC563006871CC /* DataContainerDI.swift */; };
+		2D87C707258FC75B006871CC /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F2338257959E6001F7227 /* ContactsService.swift */; };
 		2DB223932539FA6800D64C48 /* SuperHeroSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB223922539FA6800D64C48 /* SuperHeroSearchRequest.swift */; };
 		B424742724D8611E0036F25A /* SelectedContactsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B424742624D8611E0036F25A /* SelectedContactsViewModelTest.swift */; };
 		B424742924D8735C0036F25A /* SelectedContactsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B424742824D8735C0036F25A /* SelectedContactsViewControllerTest.swift */; };
@@ -30,7 +33,6 @@
 		B43F9BE4249F430000ACC137 /* SuperHeroApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BE3249F430000ACC137 /* SuperHeroApiClient.swift */; };
 		B43F9BE7249F433A00ACC137 /* ErrorResponseContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BE6249F433A00ACC137 /* ErrorResponseContainer.swift */; };
 		B43F9BED249F44FB00ACC137 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BEC249F44FB00ACC137 /* Contact.swift */; };
-		B43F9BEF249F454100ACC137 /* SuperHeroRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BEE249F454100ACC137 /* SuperHeroRequest.swift */; };
 		B43F9BF4249F464900ACC137 /* ContactsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BF3249F464900ACC137 /* ContactsUseCase.swift */; };
 		B43F9BF7249F46D900ACC137 /* ContactsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BF6249F46D900ACC137 /* ContactsRepository.swift */; };
 		B43F9BF9249F475F00ACC137 /* ContactsUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BF8249F475F00ACC137 /* ContactsUseCaseTest.swift */; };
@@ -88,6 +90,9 @@
 		2D71CDE0253CAE5C008025BE /* searchResults.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = searchResults.json; sourceTree = "<group>"; };
 		2D71E345254C9176007ECC14 /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		2D71E346254C9177007ECC14 /* InfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
+		2D87C69A258FC167006871CC /* MoyaApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaApiService.swift; sourceTree = "<group>"; };
+		2D87C69E258FC18A006871CC /* ListMoyaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoyaProvider.swift; sourceTree = "<group>"; };
+		2D87C6FF258FC563006871CC /* DataContainerDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainerDI.swift; sourceTree = "<group>"; };
 		2DB223922539FA6800D64C48 /* SuperHeroSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroSearchRequest.swift; sourceTree = "<group>"; };
 		5978BACE524679A939A5FD2E /* Pods_ListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A686FDB7048A19DEA8984673 /* Pods-ListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListTests.release.xcconfig"; path = "Target Support Files/Pods-ListTests/Pods-ListTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -177,8 +182,18 @@
 			children = (
 				2D2F232E25795630001F7227 /* ApiError.swift */,
 				2D2F233C25795A93001F7227 /* MoyaService.swift */,
+				2D87C69A258FC167006871CC /* MoyaApiService.swift */,
+				2D87C69E258FC18A006871CC /* ListMoyaProvider.swift */,
 			);
 			path = Moya;
+			sourceTree = "<group>";
+		};
+		2D87C6FE258FC334006871CC /* ContainerDI */ = {
+			isa = PBXGroup;
+			children = (
+				2D87C6FF258FC563006871CC /* DataContainerDI.swift */,
+			);
+			path = ContainerDI;
 			sourceTree = "<group>";
 		};
 		B43F9BAC249F3DD000ACC137 = {
@@ -245,6 +260,7 @@
 		B43F9BDB249F40EA00ACC137 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				2D87C6FE258FC334006871CC /* ContainerDI */,
 				B4ACAC1B249F567100180834 /* VisualElements */,
 				B4ACAC20249F582D00180834 /* Protocols */,
 				B4ACAC15249F512D00180834 /* AppLaunch */,
@@ -776,17 +792,18 @@
 				B43F9BFD249F489500ACC137 /* DataClass.swift in Sources */,
 				B43F9BF7249F46D900ACC137 /* ContactsRepository.swift in Sources */,
 				B43F9C06249F49A200ACC137 /* ContactsRepositoryImplm.swift in Sources */,
+				2D87C707258FC75B006871CC /* ContactsService.swift in Sources */,
 				2D37DD0B25224A4B003DCA67 /* BaseviewController.swift in Sources */,
 				B490E30724BB8F9700B079C0 /* DetailContact.swift in Sources */,
 				B43F9BE0249F417400ACC137 /* String+Extensions.swift in Sources */,
 				B490E30424BB8F3D00B079C0 /* DetailContactsViewModel.swift in Sources */,
+				2D87C69F258FC18A006871CC /* ListMoyaProvider.swift in Sources */,
 				2D2F232F25795630001F7227 /* ApiError.swift in Sources */,
-				B43F9BEF249F454100ACC137 /* SuperHeroRequest.swift in Sources */,
 				B43F9BFB249F488500ACC137 /* SuperHeroResponse.swift in Sources */,
+				2D87C69B258FC167006871CC /* MoyaApiService.swift in Sources */,
 				2DB223932539FA6800D64C48 /* SuperHeroSearchRequest.swift in Sources */,
 				B490E2FF24BB80D000B079C0 /* SelectedContactsViewController.swift in Sources */,
 				B43F9BE7249F433A00ACC137 /* ErrorResponseContainer.swift in Sources */,
-				2D2F2339257959E6001F7227 /* ContactsService.swift in Sources */,
 				2D71E347254C9177007ECC14 /* InfoView.swift in Sources */,
 				B43F9BFF249F48AA00ACC137 /* Results.swift in Sources */,
 				B4AEABCD24BE0A1E006C0B91 /* Scene+ViewController.swift in Sources */,
@@ -797,6 +814,7 @@
 				2D2F23352579574D001F7227 /* DomainError.swift in Sources */,
 				B4AEABCB24BE0950006C0B91 /* Scene.swift in Sources */,
 				B43F9BB9249F3DD000ACC137 /* AppDelegate.swift in Sources */,
+				2D87C700258FC563006871CC /* DataContainerDI.swift in Sources */,
 				B4ACAC24249F586F00180834 /* PrimitiveSequence+Extensions.swift in Sources */,
 				B43F9C0F249F4BD900ACC137 /* Application.swift in Sources */,
 				B43F9BBB249F3DD000ACC137 /* SceneDelegate.swift in Sources */,

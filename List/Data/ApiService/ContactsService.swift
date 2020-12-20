@@ -44,7 +44,9 @@ extension ContactsService: TargetType {
     public var path: String {
         switch action {
         case .getContacts(let params), .searchContacts(let params):
-            return "ts&=\(params.timeStamp)&apikey=\(params.publicApiKey)&hash=\(params.hash)&offset=\(String(params.offSet))&limit=\(String(params.limit))"
+            return
+                ""
+//                "ts&=\(params.timeStamp)&apikey=\(params.publicApiKey)&hash=\(params.hash)&offset=\(String(params.offSet))&limit=\(String(params.limit))"
         }
     }
     
