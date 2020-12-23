@@ -28,7 +28,7 @@ extension ContactsService: TargetType {
     public var baseURL: URL {
         switch action {
         case .getContacts, .searchContacts:
-            return URL(string: url + "/v1/public/characters?")!
+            return URL(string: url + "/v1/public")!
         }
     }
     
@@ -43,9 +43,10 @@ extension ContactsService: TargetType {
     //MARK:-- Path
     public var path: String {
         switch action {
-        case .getContacts(let params, let paginatorParams):
+        case .getContacts:
             return
-                "ts&=\(params.timeStamp)&apikey=\(params.publicApiKey)&hash=\(params.hash)&offset=\(String(paginatorParams.offset))&limit=\(String(paginatorParams.limit))"
+                "characters"
+//                "ts&=\(params.timeStamp)&apikey=\(params.publicApiKey)&hash=\(params.hash)&offset=\(String(paginatorParams.offset))&limit=\(String(paginatorParams.limit))"
             
         case .searchContacts(let params, let query):
            return "name=\(query)&ts&=\(params.timeStamp)&apikey=\(params.publicApiKey)&hash=\(params.hash)"
@@ -54,7 +55,9 @@ extension ContactsService: TargetType {
     
     public var task: Task {
         switch action {
-        case .getContacts, .searchContacts:
+        case .getContacts(let params, let paginatorParams):
+            return .requestParameters(parameters: ["ts": params.timeStamp, "apikey": params.publicApiKey, "hash": params.hash], encoding: URLEncoding.default)
+        case .searchContacts:
             return .requestPlain
         
         }
