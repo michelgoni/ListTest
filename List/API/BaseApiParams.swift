@@ -19,12 +19,11 @@ public struct BaseApiParams {
         guard let date = date.toMillis() else {
             return ""
         }
-        return "\(date)"
+        return "\(date.description)"
     }
     
     var hash: String   {
-        return "\(privateKey)\(publicApiKey)".md5
+        return "\(timeStamp)\(privateKey)\(publicApiKey)".md5
     }
-    
 }
 

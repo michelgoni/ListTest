@@ -46,7 +46,7 @@ extension ContactsService: TargetType {
         case .getContacts:
             return
                 "characters"
-//                "ts&=\(params.timeStamp)&apikey=\(params.publicApiKey)&hash=\(params.hash)&offset=\(String(paginatorParams.offset))&limit=\(String(paginatorParams.limit))"
+
             
         case .searchContacts(let params, let query):
            return "name=\(query)&ts&=\(params.timeStamp)&apikey=\(params.publicApiKey)&hash=\(params.hash)"
@@ -56,7 +56,12 @@ extension ContactsService: TargetType {
     public var task: Task {
         switch action {
         case .getContacts(let params, let paginatorParams):
-            return .requestParameters(parameters: ["ts": params.timeStamp, "apikey": params.publicApiKey, "hash": params.hash], encoding: URLEncoding.default)
+            return .requestParameters(parameters: ["ts": params.timeStamp,
+                                                   "apikey": params.publicApiKey,
+                                                   "hash": params.hash,
+                                                   "offset": String(paginatorParams.offset),
+                                                   "limit":  String(paginatorParams.limit)],
+                                      encoding: URLEncoding.default)
         case .searchContacts:
             return .requestPlain
         

@@ -19,9 +19,9 @@ public class ContactsApiServiceImplm: MoyaApiService<ContactsService>, ContactsA
 
 
     
-    public func getSuperHeroContacts(offset: Int) -> Single<[Results]> {
-        
-        provider
+    public func getSuperHeroContacts(offset: Int) -> Single<SuperHeroResponse> {
+       
+       return  provider
             .request(
                 ContactsService(baseUrl,
                                 action: .getContacts(params: params,
