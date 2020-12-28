@@ -12,6 +12,7 @@ import RxSwift
 public class ContactsRepositoryImplm: ContactsRepository {
     
     public let contactsApiService: ContactsApiService
+    private var value =  [Contact]()
    
     public init(contactsApiService: ContactsApiService) {
         self.contactsApiService = contactsApiService
@@ -22,7 +23,15 @@ public class ContactsRepositoryImplm: ContactsRepository {
         
          contactsApiService
             .getSuperHeroContacts(offset: offset)
-            .map { $0.data.results.map(Contact.init)}
+            .map {
+                if offset == 10 {
+                    self.value.append(contentsOf: $0.data.results.map(Contact.init))
+                    return $0.data.results.map(Contact.init)
+                }else {
+                    self.value.append(contentsOf: $0.data.results.map(Contact.init))
+                    return self.value
+                }
+            }
             .mapResponse()
     }
     
