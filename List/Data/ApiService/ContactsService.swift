@@ -43,13 +43,9 @@ extension ContactsService: TargetType {
     //MARK:-- Path
     public var path: String {
         switch action {
-        case .getContacts:
+        case .getContacts, .searchContacts:
             return
                 "characters"
-
-            
-        case .searchContacts(let params, let query):
-           return "name=\(query)&ts&=\(params.timeStamp)&apikey=\(params.publicApiKey)&hash=\(params.hash)"
         }
     }
     
@@ -62,9 +58,15 @@ extension ContactsService: TargetType {
                                                    "offset": String(paginatorParams.offset),
                                                    "limit":  String(paginatorParams.limit)],
                                       encoding: URLEncoding.default)
-        case .searchContacts:
-            return .requestPlain
-        
+            
+        case .searchContacts(let params, let query):
+            
+            return .requestParameters(parameters: ["name": query,
+                                                   "ts": params.timeStamp,
+                                                   "apikey": params.publicApiKey,
+                                                   "hash": params.hash],
+                                      encoding: URLEncoding.default)
+            
         }
     }
     

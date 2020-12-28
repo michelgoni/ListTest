@@ -24,7 +24,6 @@ public class ContactsUseCaseImplm: ContactsUseCase {
     }
     
     public func getContacts(offset: Int) -> Single<Result<[Contact], ErrorResponse>> {
-    
          repository.getContacts(offset: offset)
     }
     
