@@ -25,7 +25,7 @@ public class ContactsApiServiceImplm: MoyaApiService<ContactsService>, ContactsA
             .request(
                 ContactsService(baseUrl,
                                 action: .getContacts(params: params,
-                                                     paginatorParms: PaginatorParams(offset: 0,
+                                                     paginatorParms: PaginatorParams(offset: offset,
                                                                                      limit: 10)))
             ).mapApiError()
     }
