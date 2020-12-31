@@ -30,7 +30,7 @@ class ContactsRepositoryTest: QuickSpec {
                 
                 it("Gives service an OK response") {
                     let response: SuperHeroResponse = self.read(file: "contacts")!
-                    contactsApiServiceMock.resultsResponse = response.data.results
+                    contactsApiServiceMock.contactsResponse = response
                     let result = try! sut.getContacts(offset: 10).toBlocking().first()
                     
                     switch result {
@@ -80,20 +80,17 @@ class ContactsRepositoryTest: QuickSpec {
     
     
     class ContactsApiServiceMock: ContactsApiService {
-        
-        
+       
         var contactsResponse: SuperHeroResponse!
-        var resultsResponse: [Results]!
         var badResponse = false
         
-        
         // MARK: - ContactsApiService protocol
-        func getSuperHeroContacts(offset: Int) -> Single<[Results]> {
+        func getSuperHeroContacts(offset: Int) -> Single<SuperHeroResponse>  {
             
             if badResponse {
                 return .error(ErrorResponse.generic())
             }
-            return .just(resultsResponse)
+            return .just(contactsResponse)
         }
         
         func searchContacts(query: String) -> Single<SuperHeroResponse> {

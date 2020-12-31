@@ -70,7 +70,6 @@ public class ListContactsViewController: BaseViewController {
             .map { _ in () }
             .bind(to: viewModel.loadNextPageContacts.inputs)
             .disposed(by: rx.disposeBag)
-        
     }
     
     private func bindSelectedData() {
@@ -96,11 +95,8 @@ public class ListContactsViewController: BaseViewController {
             .throttle(.milliseconds(500))
             .drive(viewModel.searchContacts.inputs)
             .disposed(by: rx.disposeBag)
-        
     }
-    
 
-    
     private func bindTitle() {
         
         var value = ""

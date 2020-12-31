@@ -7,6 +7,11 @@ PODS:
   - Kingfisher (5.14.0):
     - Kingfisher/Core (= 5.14.0)
   - Kingfisher/Core (5.14.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
+    - Moya/Core
+    - RxSwift (~> 5.0)
   - Nimble (8.1.1)
   - "NSObject+Rx (5.1.0)":
     - RxSwift (~> 5.1)
@@ -43,6 +48,7 @@ PODS:
 
 DEPENDENCIES:
   - Action
+  - Moya/RxSwift
   - Nimble
   - "NSObject+Rx"
   - Quick
@@ -62,6 +68,7 @@ SPEC REPOS:
     - Alamofire
     - Differentiator
     - Kingfisher
+    - Moya
     - Nimble
     - "NSObject+Rx"
     - Quick
@@ -82,6 +89,7 @@ SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   Kingfisher: 7b64389a43139c903ec434788344c288217c792d
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   Nimble: 5f8a2fb6fa343a7242dfdd9d42f7267419d464b2
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   Quick: 6d9559f40647bc4d510103842ef2fdd882d753e2
@@ -96,6 +104,6 @@ SPEC CHECKSUMS:
   TransportationApiClient: d9704e331b15d5aa24b37aec8d94b40b5ae022b0
   TransportsUI: bede78da1cc2420e3f359c4f46809f7f582a2333
 
-PODFILE CHECKSUM: fcad3df96612b91430d4b0f386221b7e20982278
+PODFILE CHECKSUM: fa539a0e8568ef3f301baa88176975675506fb7b
 
 COCOAPODS: 1.10.0

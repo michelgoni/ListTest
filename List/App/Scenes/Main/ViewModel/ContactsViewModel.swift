@@ -38,14 +38,18 @@ public class ContactsViewModelImplm: ContactsViewModel {
     lazy public var getContacts: Action<Void, [Contact]> = { this in
         Action <Void, [Contact]> {
 
-            return this.useCase.getContacts(offset: self.offset).mapResult()
+            return this.useCase
+                .getContacts(offset: self.offset)
+                .mapResult()
         }
     }(self)
     
     lazy public var loadNextPageContacts: Action<Void, [Contact]> = { this in
         Action <Void, [Contact]> {
             self.offset += 10
-            return this.useCase.getContacts(offset: self.offset).mapResult()
+            return this.useCase
+                .getContacts(offset: self.offset)
+                .mapResult()
         }
     }(self)
     

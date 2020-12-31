@@ -24,7 +24,7 @@ public class ContactsUseCaseImplm: ContactsUseCase {
     }
     
     public func getContacts(offset: Int) -> Single<Result<[Contact], ErrorResponse>> {
-        repository.getContacts(offset: offset)
+         repository.getContacts(offset: offset)
     }
     
     public func searchContacts(query: String) -> Single<Result<[Contact], ErrorResponse>> {
