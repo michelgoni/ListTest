@@ -5,9 +5,11 @@ on:
   push:
     branches:
       - develop
+      - feature/*
   pull_request:
     branches:
       - develop
+      - feature/*
 jobs:
   Run_workspace_Tests:
     runs-on: macOS-latest
