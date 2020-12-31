@@ -2,18 +2,23 @@ name: Swift
 
 on:
   push:
-    branches: [ develop ]
+    branches: 
+      - develop
+      - feature/*
   pull_request:
-    branches: [ develop ]
+     - develop
+     - feature/*
 
 jobs:
-  build:
 
+  build:
+    name: Build
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run:  swift test -v -c release
+    - name: Checkout project
+       uses: actions/checkout@v2
+    - name: Build application
+      run: |
+        set -o pipefail && xcodebuild clean -scheme $SCHEME -destination "platform=iOS Simulator,name=$DEVICE" -derivedDataPath $DERIVED_DATA_PATH build-for-testing | xcpretty --color --simple
+ 
