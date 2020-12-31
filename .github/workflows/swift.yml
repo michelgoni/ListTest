@@ -1,13 +1,13 @@
 name: Swift
 
-on:
+on: 
   push:
-    branches:    
+    branches:
       - develop
-name: Build
+
 jobs:
-  test:
-    name: Build
+  build:
+
     runs-on: macOS-latest
     strategy:
         matrix:
