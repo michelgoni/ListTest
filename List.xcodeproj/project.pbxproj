@@ -22,7 +22,6 @@
 		2D87C70B258FC9C1006871CC /* PaginatorParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C70A258FC9C1006871CC /* PaginatorParams.swift */; };
 		2D87C70F258FCF28006871CC /* Moya+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C70E258FCF28006871CC /* Moya+.swift */; };
 		2D87C717258FD127006871CC /* DomainContainerDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C716258FD127006871CC /* DomainContainerDI.swift */; };
-		2DB223932539FA6800D64C48 /* SuperHeroSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB223922539FA6800D64C48 /* SuperHeroSearchRequest.swift */; };
 		B424742724D8611E0036F25A /* SelectedContactsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B424742624D8611E0036F25A /* SelectedContactsViewModelTest.swift */; };
 		B424742924D8735C0036F25A /* SelectedContactsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B424742824D8735C0036F25A /* SelectedContactsViewControllerTest.swift */; };
 		B43F9BB9249F3DD000ACC137 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BB8249F3DD000ACC137 /* AppDelegate.swift */; };
@@ -99,7 +98,6 @@
 		2D87C70A258FC9C1006871CC /* PaginatorParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatorParams.swift; sourceTree = "<group>"; };
 		2D87C70E258FCF28006871CC /* Moya+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+.swift"; sourceTree = "<group>"; };
 		2D87C716258FD127006871CC /* DomainContainerDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainContainerDI.swift; sourceTree = "<group>"; };
-		2DB223922539FA6800D64C48 /* SuperHeroSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroSearchRequest.swift; sourceTree = "<group>"; };
 		5978BACE524679A939A5FD2E /* Pods_ListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A686FDB7048A19DEA8984673 /* Pods-ListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListTests.release.xcconfig"; path = "Target Support Files/Pods-ListTests/Pods-ListTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD6151FA0D71D94FCF86DF88 /* Pods-List.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-List.debug.xcconfig"; path = "Target Support Files/Pods-List/Pods-List.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 		B43F9BE3249F430000ACC137 /* SuperHeroApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroApiClient.swift; sourceTree = "<group>"; };
 		B43F9BE6249F433A00ACC137 /* ErrorResponseContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponseContainer.swift; sourceTree = "<group>"; };
 		B43F9BEC249F44FB00ACC137 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
-		B43F9BEE249F454100ACC137 /* SuperHeroRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroRequest.swift; sourceTree = "<group>"; };
 		B43F9BF3249F464900ACC137 /* ContactsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsUseCase.swift; sourceTree = "<group>"; };
 		B43F9BF6249F46D900ACC137 /* ContactsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRepository.swift; sourceTree = "<group>"; };
 		B43F9BF8249F475F00ACC137 /* ContactsUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsUseCaseTest.swift; sourceTree = "<group>"; };
@@ -332,18 +329,8 @@
 				B43F9C07249F49BE00ACC137 /* ApiService */,
 				B43F9C04249F492900ACC137 /* RepositoryImplm */,
 				B43F9BF1249F45DA00ACC137 /* Entity */,
-				B43F9BF0249F45D000ACC137 /* ApiRequest */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		B43F9BF0249F45D000ACC137 /* ApiRequest */ = {
-			isa = PBXGroup;
-			children = (
-				B43F9BEE249F454100ACC137 /* SuperHeroRequest.swift */,
-				2DB223922539FA6800D64C48 /* SuperHeroSearchRequest.swift */,
-			);
-			path = ApiRequest;
 			sourceTree = "<group>";
 		};
 		B43F9BF1249F45DA00ACC137 /* Entity */ = {
@@ -811,7 +798,6 @@
 				B43F9BFB249F488500ACC137 /* SuperHeroResponse.swift in Sources */,
 				2D87C69B258FC167006871CC /* MoyaApiService.swift in Sources */,
 				2D87C70F258FCF28006871CC /* Moya+.swift in Sources */,
-				2DB223932539FA6800D64C48 /* SuperHeroSearchRequest.swift in Sources */,
 				B490E2FF24BB80D000B079C0 /* SelectedContactsViewController.swift in Sources */,
 				B43F9BE7249F433A00ACC137 /* ErrorResponseContainer.swift in Sources */,
 				2D71E347254C9177007ECC14 /* InfoView.swift in Sources */,
