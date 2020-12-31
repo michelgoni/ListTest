@@ -21,7 +21,8 @@ class StoryTest: QuickSpec {
         
         beforeEach {
             coordinator = SceneCoordinator()
-            repository = ContactsRepositoryImplm(contactsApiService: ContactsApiServiceImplm(apiService: APIClient()))
+            repository = ContactsRepositoryImplm( contactsApiService: ContactsApiServiceImplm("",
+                                                                                              with: ListMoyaProvider()))
             useCase = ContactsUseCaseImplm(repository: repository)
         }
         
