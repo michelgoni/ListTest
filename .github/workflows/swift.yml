@@ -1,16 +1,22 @@
 name: Swift
 
-on: 
+on:
   push:
-    branches:
+    branches:    
       - develop
-
+name: Build
 jobs:
-  build:
-
+  test:
+    name: Build
     runs-on: macOS-latest
-    
+    strategy:
+        matrix:
+          destination: ['platform=iOS Simulator,OS=13.5,name=iPhone X']
     steps:
-    - uses: actions/checkout@v1
-    - name: Start xcodebuild test
-      run: xcodebuild clean test -project List.xcodeproj -destination "platform=iOS Simulator,name=iPhone 11 Pro"
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run: |
+          xcodebuild clean build -project List.xcodeproj -scheme List -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+        env: 
+         destination: ${{ matrix.destination }}
