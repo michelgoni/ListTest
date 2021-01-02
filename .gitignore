@@ -12,3 +12,4 @@
 /fastlane
 /vendor
 >>>>>>> update gitgnore
+/List.xcodeproj/xcshareddata
