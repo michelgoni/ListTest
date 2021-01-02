@@ -16,3 +16,8 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Pods
   - FinniversKit
   - "*/*/*.generated.swift" # dependent on file hierarchy, no fix as of yet
+<<<<<<< HEAD
+=======
+  swiftlint.config_file = '.swiftlint.yml'
+swiftlint.lint_files inline_mode: true
+>>>>>>> added swiftLint  document
