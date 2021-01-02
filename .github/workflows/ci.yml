@@ -1,8 +1,13 @@
 name: CI
 on:
+  push:
+    branches:
+      - develop
+      - feature/*
   pull_request:
     branches:
       - develop
+      - feature/*
 jobs:
   validate-and-test:
     runs-on: macOS-latest
