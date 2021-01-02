@@ -24,6 +24,7 @@
 		2D87C717258FD127006871CC /* DomainContainerDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C716258FD127006871CC /* DomainContainerDI.swift */; };
 		2DA0C22125A0DA5100173507 /* Mintfile in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C22025A0DA5100173507 /* Mintfile */; };
 		2DA0C22525A0DC6D00173507 /* bootstrap.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C22425A0DC6D00173507 /* bootstrap.sh */; };
+		2DA0C22925A0F25500173507 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C22825A0F25500173507 /* swiftlint.yml */; };
 		B424742724D8611E0036F25A /* SelectedContactsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B424742624D8611E0036F25A /* SelectedContactsViewModelTest.swift */; };
 		B424742924D8735C0036F25A /* SelectedContactsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B424742824D8735C0036F25A /* SelectedContactsViewControllerTest.swift */; };
 		B43F9BB9249F3DD000ACC137 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BB8249F3DD000ACC137 /* AppDelegate.swift */; };
@@ -102,6 +103,7 @@
 		2D87C716258FD127006871CC /* DomainContainerDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainContainerDI.swift; sourceTree = "<group>"; };
 		2DA0C22025A0DA5100173507 /* Mintfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Mintfile; sourceTree = "<group>"; };
 		2DA0C22425A0DC6D00173507 /* bootstrap.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = bootstrap.sh; sourceTree = "<group>"; };
+		2DA0C22825A0F25500173507 /* swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
 		5978BACE524679A939A5FD2E /* Pods_ListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A686FDB7048A19DEA8984673 /* Pods-ListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListTests.release.xcconfig"; path = "Target Support Files/Pods-ListTests/Pods-ListTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD6151FA0D71D94FCF86DF88 /* Pods-List.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-List.debug.xcconfig"; path = "Target Support Files/Pods-List/Pods-List.debug.xcconfig"; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 		B43F9BAC249F3DD000ACC137 = {
 			isa = PBXGroup;
 			children = (
+				2DA0C22825A0F25500173507 /* swiftlint.yml */,
 				2DA0C22425A0DC6D00173507 /* bootstrap.sh */,
 				2DA0C22025A0DA5100173507 /* Mintfile */,
 				B43F9BB7249F3DD000ACC137 /* List */,
@@ -683,6 +686,7 @@
 				2DA0C22125A0DA5100173507 /* Mintfile in Resources */,
 				B4ACAC1F249F569900180834 /* ContactsTableViewCell.xib in Resources */,
 				2DA0C22525A0DC6D00173507 /* bootstrap.sh in Resources */,
+				2DA0C22925A0F25500173507 /* swiftlint.yml in Resources */,
 				B43F9BC5249F3DD100ACC137 /* LaunchScreen.storyboard in Resources */,
 				2D0FAF46252786180050FA61 /* (null) in Resources */,
 				B43F9BC2249F3DD100ACC137 /* Assets.xcassets in Resources */,
