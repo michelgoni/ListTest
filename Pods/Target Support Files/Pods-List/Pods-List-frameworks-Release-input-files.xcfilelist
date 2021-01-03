@@ -11,5 +11,4 @@ ${BUILT_PRODUCTS_DIR}/RxKingfisher/RxKingfisher.framework
 ${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
 ${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
 ${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework
-${BUILT_PRODUCTS_DIR}/TransportationApiClient/TransportationApiClient.framework
 ${BUILT_PRODUCTS_DIR}/TransportsUI/TransportsUI.framework
