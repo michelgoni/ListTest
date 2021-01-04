@@ -20,6 +20,8 @@ jobs:
           args: --strict
       - name: GitHub Action for SwiftLint (Only files changed in the PR)
         uses: norio-nomura/action-swiftlint@3.2.1
+        with:
+           args: --force-exclude
         env:
           DIFF_BASE: ${{ github.base_ref }}
       - name: GitHub Action for SwiftLint (Different working directory)
