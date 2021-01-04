@@ -1,0 +1,13 @@
+current directory: /Users/michelgoni/Documents/List/vendor/bundle/ruby/2.7.0/gems/json-2.5.1/ext/json
+/Users/michelgoni/.rvm/rubies/ruby-2.7.0/bin/ruby -I /Users/michelgoni/.rvm/rubies/ruby-2.7.0/lib/ruby/2.7.0 -r ./siteconf20210102-8040-fhsvx8.rb extconf.rb
+creating Makefile
+
+current directory: /Users/michelgoni/Documents/List/vendor/bundle/ruby/2.7.0/gems/json-2.5.1/ext/json
+make "DESTDIR=" clean
+
+current directory: /Users/michelgoni/Documents/List/vendor/bundle/ruby/2.7.0/gems/json-2.5.1/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/michelgoni/Documents/List/vendor/bundle/ruby/2.7.0/gems/json-2.5.1/ext/json
+make "DESTDIR=" install
