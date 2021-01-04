@@ -17,7 +17,5 @@ jobs:
       run: sudo xcode-select -switch /Applications/Xcode_12.3.app && /usr/bin/xcodebuild -version
     - name: Run unit tests
       run: xcodebuild test -scheme List -workspace List.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 11,OS=14.3' | xcpretty && exit ${PIPESTATUS[0]}
-    - uses: norio-nomura/action-swiftlint@3.2.1
-    - name: GitHub Action for SwiftLint
    
 
