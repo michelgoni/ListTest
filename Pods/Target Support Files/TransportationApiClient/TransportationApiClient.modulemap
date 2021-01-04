@@ -1,6 +1,0 @@
-framework module TransportationApiClient {
-  umbrella header "TransportationApiClient-umbrella.h"
-
-  export *
-  module * { export * }
-}

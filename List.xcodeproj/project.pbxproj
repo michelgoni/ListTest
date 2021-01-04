@@ -22,8 +22,6 @@
 		2D87C70B258FC9C1006871CC /* PaginatorParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C70A258FC9C1006871CC /* PaginatorParams.swift */; };
 		2D87C70F258FCF28006871CC /* Moya+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C70E258FCF28006871CC /* Moya+.swift */; };
 		2D87C717258FD127006871CC /* DomainContainerDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C716258FD127006871CC /* DomainContainerDI.swift */; };
-		2DA0C22125A0DA5100173507 /* Mintfile in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C22025A0DA5100173507 /* Mintfile */; };
-		2DA0C22525A0DC6D00173507 /* bootstrap.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C22425A0DC6D00173507 /* bootstrap.sh */; };
 		2DA0C22925A0F25500173507 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C22825A0F25500173507 /* swiftlint.yml */; };
 		B424742724D8611E0036F25A /* SelectedContactsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B424742624D8611E0036F25A /* SelectedContactsViewModelTest.swift */; };
 		B424742924D8735C0036F25A /* SelectedContactsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B424742824D8735C0036F25A /* SelectedContactsViewControllerTest.swift */; };
@@ -35,7 +33,6 @@
 		B43F9BDD249F414B00ACC137 /* BaseApiParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BDC249F414B00ACC137 /* BaseApiParams.swift */; };
 		B43F9BE0249F417400ACC137 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BDF249F417400ACC137 /* String+Extensions.swift */; };
 		B43F9BE2249F419500ACC137 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BE1249F419500ACC137 /* Date+Extensions.swift */; };
-		B43F9BE4249F430000ACC137 /* SuperHeroApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BE3249F430000ACC137 /* SuperHeroApiClient.swift */; };
 		B43F9BE7249F433A00ACC137 /* ErrorResponseContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BE6249F433A00ACC137 /* ErrorResponseContainer.swift */; };
 		B43F9BED249F44FB00ACC137 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BEC249F44FB00ACC137 /* Contact.swift */; };
 		B43F9BF4249F464900ACC137 /* ContactsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BF3249F464900ACC137 /* ContactsUseCase.swift */; };
@@ -101,8 +98,6 @@
 		2D87C70A258FC9C1006871CC /* PaginatorParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatorParams.swift; sourceTree = "<group>"; };
 		2D87C70E258FCF28006871CC /* Moya+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+.swift"; sourceTree = "<group>"; };
 		2D87C716258FD127006871CC /* DomainContainerDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainContainerDI.swift; sourceTree = "<group>"; };
-		2DA0C22025A0DA5100173507 /* Mintfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Mintfile; sourceTree = "<group>"; };
-		2DA0C22425A0DC6D00173507 /* bootstrap.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = bootstrap.sh; sourceTree = "<group>"; };
 		2DA0C22825A0F25500173507 /* swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
 		5978BACE524679A939A5FD2E /* Pods_ListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A686FDB7048A19DEA8984673 /* Pods-ListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListTests.release.xcconfig"; path = "Target Support Files/Pods-ListTests/Pods-ListTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,7 +116,6 @@
 		B43F9BDC249F414B00ACC137 /* BaseApiParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiParams.swift; sourceTree = "<group>"; };
 		B43F9BDF249F417400ACC137 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		B43F9BE1249F419500ACC137 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
-		B43F9BE3249F430000ACC137 /* SuperHeroApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroApiClient.swift; sourceTree = "<group>"; };
 		B43F9BE6249F433A00ACC137 /* ErrorResponseContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponseContainer.swift; sourceTree = "<group>"; };
 		B43F9BEC249F44FB00ACC137 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		B43F9BF3249F464900ACC137 /* ContactsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsUseCase.swift; sourceTree = "<group>"; };
@@ -210,8 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				2DA0C22825A0F25500173507 /* swiftlint.yml */,
-				2DA0C22425A0DC6D00173507 /* bootstrap.sh */,
-				2DA0C22025A0DA5100173507 /* Mintfile */,
 				B43F9BB7249F3DD000ACC137 /* List */,
 				B43F9BCE249F3DD100ACC137 /* ListTests */,
 				B43F9BB6249F3DD000ACC137 /* Products */,
@@ -265,7 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				B43F9BDC249F414B00ACC137 /* BaseApiParams.swift */,
-				B43F9BE3249F430000ACC137 /* SuperHeroApiClient.swift */,
 				2D87C70A258FC9C1006871CC /* PaginatorParams.swift */,
 			);
 			path = API;
@@ -683,9 +674,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D71E348254C9177007ECC14 /* InfoView.xib in Resources */,
-				2DA0C22125A0DA5100173507 /* Mintfile in Resources */,
 				B4ACAC1F249F569900180834 /* ContactsTableViewCell.xib in Resources */,
-				2DA0C22525A0DC6D00173507 /* bootstrap.sh in Resources */,
 				2DA0C22925A0F25500173507 /* swiftlint.yml in Resources */,
 				B43F9BC5249F3DD100ACC137 /* LaunchScreen.storyboard in Resources */,
 				2D0FAF46252786180050FA61 /* (null) in Resources */,
@@ -796,7 +785,6 @@
 				B43F9C0B249F4A2800ACC137 /* ContactsApiServiceImplm.swift in Sources */,
 				B4ACAC22249F584400180834 /* Bindable.swift in Sources */,
 				2D2F233D25795A93001F7227 /* MoyaService.swift in Sources */,
-				B43F9BE4249F430000ACC137 /* SuperHeroApiClient.swift in Sources */,
 				B43F9BFD249F489500ACC137 /* DataClass.swift in Sources */,
 				B43F9BF7249F46D900ACC137 /* ContactsRepository.swift in Sources */,
 				B43F9C06249F49A200ACC137 /* ContactsRepositoryImplm.swift in Sources */,

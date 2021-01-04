@@ -8,7 +8,6 @@ target 'List' do
   use_frameworks!
   
   # Pods for List
-  pod 'TransportationApiClient', '0.1.3'
   pod 'TransportsUI'
   pod 'RxSwift'
   pod 'RxCocoa'
