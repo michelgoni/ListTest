@@ -22,8 +22,6 @@
 		2D87C70B258FC9C1006871CC /* PaginatorParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C70A258FC9C1006871CC /* PaginatorParams.swift */; };
 		2D87C70F258FCF28006871CC /* Moya+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C70E258FCF28006871CC /* Moya+.swift */; };
 		2D87C717258FD127006871CC /* DomainContainerDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C716258FD127006871CC /* DomainContainerDI.swift */; };
-		2DA0C22125A0DA5100173507 /* Mintfile in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C22025A0DA5100173507 /* Mintfile */; };
-		2DA0C22525A0DC6D00173507 /* bootstrap.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C22425A0DC6D00173507 /* bootstrap.sh */; };
 		2DA0C22925A0F25500173507 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C22825A0F25500173507 /* swiftlint.yml */; };
 		B424742724D8611E0036F25A /* SelectedContactsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B424742624D8611E0036F25A /* SelectedContactsViewModelTest.swift */; };
 		B424742924D8735C0036F25A /* SelectedContactsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B424742824D8735C0036F25A /* SelectedContactsViewControllerTest.swift */; };
@@ -100,8 +98,6 @@
 		2D87C70A258FC9C1006871CC /* PaginatorParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatorParams.swift; sourceTree = "<group>"; };
 		2D87C70E258FCF28006871CC /* Moya+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+.swift"; sourceTree = "<group>"; };
 		2D87C716258FD127006871CC /* DomainContainerDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainContainerDI.swift; sourceTree = "<group>"; };
-		2DA0C22025A0DA5100173507 /* Mintfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Mintfile; sourceTree = "<group>"; };
-		2DA0C22425A0DC6D00173507 /* bootstrap.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = bootstrap.sh; sourceTree = "<group>"; };
 		2DA0C22825A0F25500173507 /* swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
 		5978BACE524679A939A5FD2E /* Pods_ListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A686FDB7048A19DEA8984673 /* Pods-ListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListTests.release.xcconfig"; path = "Target Support Files/Pods-ListTests/Pods-ListTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -208,8 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				2DA0C22825A0F25500173507 /* swiftlint.yml */,
-				2DA0C22425A0DC6D00173507 /* bootstrap.sh */,
-				2DA0C22025A0DA5100173507 /* Mintfile */,
 				B43F9BB7249F3DD000ACC137 /* List */,
 				B43F9BCE249F3DD100ACC137 /* ListTests */,
 				B43F9BB6249F3DD000ACC137 /* Products */,
@@ -680,9 +674,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D71E348254C9177007ECC14 /* InfoView.xib in Resources */,
-				2DA0C22125A0DA5100173507 /* Mintfile in Resources */,
 				B4ACAC1F249F569900180834 /* ContactsTableViewCell.xib in Resources */,
-				2DA0C22525A0DC6D00173507 /* bootstrap.sh in Resources */,
 				2DA0C22925A0F25500173507 /* swiftlint.yml in Resources */,
 				B43F9BC5249F3DD100ACC137 /* LaunchScreen.storyboard in Resources */,
 				2D0FAF46252786180050FA61 /* (null) in Resources */,
