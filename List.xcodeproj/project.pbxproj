@@ -33,7 +33,6 @@
 		B43F9BDD249F414B00ACC137 /* BaseApiParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BDC249F414B00ACC137 /* BaseApiParams.swift */; };
 		B43F9BE0249F417400ACC137 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BDF249F417400ACC137 /* String+Extensions.swift */; };
 		B43F9BE2249F419500ACC137 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BE1249F419500ACC137 /* Date+Extensions.swift */; };
-		B43F9BE7249F433A00ACC137 /* ErrorResponseContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BE6249F433A00ACC137 /* ErrorResponseContainer.swift */; };
 		B43F9BED249F44FB00ACC137 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BEC249F44FB00ACC137 /* Contact.swift */; };
 		B43F9BF4249F464900ACC137 /* ContactsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BF3249F464900ACC137 /* ContactsUseCase.swift */; };
 		B43F9BF7249F46D900ACC137 /* ContactsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BF6249F46D900ACC137 /* ContactsRepository.swift */; };
@@ -799,7 +798,6 @@
 				2D87C69B258FC167006871CC /* MoyaApiService.swift in Sources */,
 				2D87C70F258FCF28006871CC /* Moya+.swift in Sources */,
 				B490E2FF24BB80D000B079C0 /* SelectedContactsViewController.swift in Sources */,
-				B43F9BE7249F433A00ACC137 /* ErrorResponseContainer.swift in Sources */,
 				2D71E347254C9177007ECC14 /* InfoView.swift in Sources */,
 				B43F9BFF249F48AA00ACC137 /* Results.swift in Sources */,
 				B4AEABCD24BE0A1E006C0B91 /* Scene+ViewController.swift in Sources */,

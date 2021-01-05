@@ -16,7 +16,7 @@ extension PrimitiveSequence where Trait == SingleTrait {
         self.flatMap { result in
             
             switch result {
-            case let result as Swift.Result<T, ErrorResponse>:
+            case let result as Swift.Result<T, DomainError>:
                 switch result {
                 case .success(let value):
                     return .just(value)
@@ -33,14 +33,14 @@ extension PrimitiveSequence where Trait == SingleTrait {
         
     }
     
-    func mapResponse() -> Single<Result<Element, ErrorResponse>> {
+    func mapResponse() -> Single<Result<Element, DomainError>> {
         
         self.map { .success($0) }
             .catchError { error in
-                if let apiError = error as? ErrorResponse {
-                    return .just(.failure(apiError))
+                if let apiError = error as? ApiError {
+                    return .just(.failure(apiError.domainError))
                 }
-                return .just(.failure(ErrorResponse.generic()))
+                return .just(.failure(.requestFailed))
         }
     }
     

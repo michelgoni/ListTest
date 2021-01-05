@@ -151,11 +151,11 @@ class ContactViewModelTest: QuickSpec {
                 searchContacts.map{$0.name}
             }
             
-            func getContacts(offset: Int) -> Single<Result<[Contact], ErrorResponse>> {
+            func getContacts(offset: Int) -> Single<Result<[Contact], DomainError>> {
                 
                 .just(.success(contacts))
             }
-            func searchContacts(query: String) -> Single<Result<[Contact], ErrorResponse>> {
+            func searchContacts(query: String) -> Single<Result<[Contact], DomainError>> {
                  .just(.success([Contact(name: "Hulk", image: "", isSelected: false)]))
             }
             

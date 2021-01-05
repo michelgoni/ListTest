@@ -49,7 +49,7 @@ class ContactsRepositoryTest: QuickSpec {
                     
                     switch result {
                     case .failure(let error):
-                        expect(error).to(beAKindOf(ErrorResponse.self))
+                        expect(error).to(beAKindOf(DomainError.self))
                     default:
                         fail()
                     }
@@ -88,7 +88,7 @@ class ContactsRepositoryTest: QuickSpec {
         func getSuperHeroContacts(offset: Int) -> Single<SuperHeroResponse>  {
             
             if badResponse {
-                return .error(ErrorResponse.generic())
+                return .error(ApiError.requestFailed)
             }
             return .just(contactsResponse)
         }
