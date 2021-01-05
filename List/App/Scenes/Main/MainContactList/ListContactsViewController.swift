@@ -175,12 +175,12 @@ public class ListContactsViewController: BaseViewController {
     private func bindErrors() {
         
         viewModel.getContacts.errors
-            .asDriver(onErrorJustReturn: ActionError.underlyingError(ErrorResponse.generic()))
+            .asDriver(onErrorJustReturn: ActionError.underlyingError(DomainError.requestFailed))
             .drive { (error) in
                 switch error {
                 case .underlyingError(let undelyed):
-                    if let casted = undelyed as? ErrorResponse {
-                        InfoView.showIn(viewController: self, message: casted.internalMessage)
+                    if let casted = undelyed as? DomainError {
+                        InfoView.showIn(viewController: self, message: casted.getError())
                     }
                     self.tableView.isHidden = true
                 case .notEnabled:

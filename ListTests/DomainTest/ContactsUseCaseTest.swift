@@ -57,7 +57,7 @@ class ContactsUseCaseTest: QuickSpec {
     
     
     class ContactsMockRepository: ContactsRepository {
-        func searchContacts(query: String) -> Single<Result<[Contact], ErrorResponse>> {
+        func searchContacts(query: String) -> Single<Result<[Contact], DomainError>> {
             searchContacts.toggle()
             return .just(.success([Contact(name: "Hulk", image: "", isSelected: false)]))
         }
@@ -66,7 +66,7 @@ class ContactsUseCaseTest: QuickSpec {
         var contactsCall = false
         var searchContacts = false
         
-        func getContacts(offset: Int) -> Single<Result<[Contact], ErrorResponse>> {
+        func getContacts(offset: Int) -> Single<Result<[Contact], DomainError>> {
             contactsCall.toggle()
             return .just(.success([Contact(name: "", image: "", isSelected: false)]))
         }

@@ -13,4 +13,15 @@ public enum DomainError: Error {
     case requestFailed
     case customError(_ text: String)
     case unknown
+    
+    func getError() -> String {
+        switch self {
+        case .requestFailed:
+           return "request failed"
+        case .unknown:
+            return "Unknown error"
+        case .customError(let text):
+            return text
+        }
+    }
 }

@@ -19,7 +19,7 @@ public class ContactsRepositoryImplm: ContactsRepository {
     }
     
     // MARK: -ContactsRepository
-    public func getContacts(offset: Int) -> Single<Result<[Contact], ErrorResponse>> {
+    public func getContacts(offset: Int) -> Single<Result<[Contact], DomainError>> {
         
          contactsApiService
             .getSuperHeroContacts(offset: offset)
@@ -35,7 +35,7 @@ public class ContactsRepositoryImplm: ContactsRepository {
             .mapResponse()
     }
     
-    public func searchContacts(query: String) -> Single<Result<[Contact], ErrorResponse>> {
+    public func searchContacts(query: String) -> Single<Result<[Contact], DomainError>> {
         
         contactsApiService.searchContacts(query: query)
             .map { $0.data.results.map(Contact.init)}
