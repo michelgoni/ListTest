@@ -14,7 +14,7 @@ import Moya
 public class ContactsApiServiceImplm: MoyaApiService<ContactsService>, ContactsApiService {
     
     private var params = BaseApiParams(date: Date(),
-                                       publicApiKey: "ab96482ca6c6b9304f381e5ac433ce59",
+                                       publicApiKey: "ab96482ca6c6b9304f381e5ac433ce5999",
                                        privateKey: "95b8baf2f2882d5ead42665c539b60d2b9741e93")
 
 
