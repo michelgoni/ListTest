@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import Moya
 
 extension PrimitiveSequence where Trait == SingleTrait {
     
@@ -37,11 +38,16 @@ extension PrimitiveSequence where Trait == SingleTrait {
         
         self.map { .success($0) }
             .catchError { error in
-                if let apiError = error as? ApiError {
-                    return .just(.failure(apiError.domainError))
+                if let apiError = error as? MoyaError {
+                    guard let response = apiError.response else { return .just(.failure(DomainError.customError(apiError.localizedDescription))) }
+                    let value = try response.data.decoded() as ListError
+                    return .just(.failure(DomainError.customError(value.message)))
+                } else {
+                    return .just(.failure(.requestFailed))
                 }
-                return .just(.failure(.requestFailed))
         }
     }
     
 }
+
+
