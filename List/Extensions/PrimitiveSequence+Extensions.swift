@@ -40,17 +40,14 @@ extension PrimitiveSequence where Trait == SingleTrait {
             .catchError { error in
                 if let apiError = error as? MoyaError {
                     guard let response = apiError.response else { return .just(.failure(DomainError.customError(apiError.localizedDescription))) }
-                    do {
-                        let value = try JSONDecoder().decode(ListError.self, from: response.data)
-                        return .just(.failure(DomainError.customError(value.message)))
-                    } catch {
-                        return .just(.failure(DomainError.requestFailed))
-                    }
-                  
+                    let value = try response.data.decoded() as ListError
+                    return .just(.failure(DomainError.customError(value.message)))
+                } else {
+                    return .just(.failure(.requestFailed))
                 }
-                return .just(.failure(.requestFailed))
         }
     }
     
-    
 }
+
+
