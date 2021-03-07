@@ -8,6 +8,7 @@
 
 import Foundation
 import List
+import DomainLayer
 
 struct ContactsFake {
     

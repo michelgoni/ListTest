@@ -12,6 +12,8 @@ import RxSwift
 import RxCocoa
 import Quick
 import Nimble
+import DomainLayer
+
 @testable import List
 
 class ContactViewModelTest: QuickSpec {

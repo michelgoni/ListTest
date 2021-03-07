@@ -10,6 +10,7 @@ import XCTest
 import Quick
 import Nimble
 import List
+import DomainLayer
 
 
 class StoryTest: QuickSpec {

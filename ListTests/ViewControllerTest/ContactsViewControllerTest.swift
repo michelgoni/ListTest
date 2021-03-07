@@ -14,6 +14,7 @@ import RxSwift
 import RxCocoa
 import Action
 import RxTest
+import DomainLayer
 
 class ContactsViewControllerTest: QuickSpec {
     
