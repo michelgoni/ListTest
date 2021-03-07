@@ -11,6 +11,7 @@ import List
 import RxSwift
 import Quick
 import Nimble
+import DomainLayer
 
 class ContactResponseTest: QuickSpec {
 

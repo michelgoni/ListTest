@@ -7,11 +7,13 @@
 //
 
 import XCTest
-import List
 import RxSwift
 import RxBlocking
 import Quick
 import Nimble
+import DomainLayer
+
+@testable import List
 
 class ContactsUseCaseTest: QuickSpec {
 

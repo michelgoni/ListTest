@@ -12,6 +12,7 @@ import RxBlocking
 import Quick
 import Nimble
 import List
+import DomainLayer
 
 class ContactsRepositoryTest: QuickSpec {
     
