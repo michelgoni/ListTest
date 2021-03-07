@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import DomainLayer
 
 public enum ApiError: Error {
     case requestFailed

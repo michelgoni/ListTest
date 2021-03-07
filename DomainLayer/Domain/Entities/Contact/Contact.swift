@@ -7,25 +7,9 @@
 //
 
 import Foundation
-import RxDataSources
-
-public struct SectionOfCustomData {
-  
-    public var items: [Item]
-}
-
-extension SectionOfCustomData: SectionModelType {
-    
-    public typealias Item = Contact
-
-    public init(original: SectionOfCustomData, items: [Item]) {
-    self = original
-    self.items = items
-  }
-}
 
 
-protocol ContactRepresentable {
+public protocol ContactRepresentable {
     var name: String {get}
     var image: String {get}
     var isSelected: Bool {get}

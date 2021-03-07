@@ -11,6 +11,7 @@ import RxSwift
 import Action
 import NSObject_Rx
 import RxCocoa
+import DomainLayer
 
 public protocol DetailContactsViewModel {
     var contacts: [Contact] { get }
