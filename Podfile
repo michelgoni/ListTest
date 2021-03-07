@@ -26,5 +26,12 @@ target 'List' do
     pod 'Nimble'
     pod 'RxTest'
   end
-  
 end
+
+target 'DomainLayer' do
+  use_frameworks!
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Moya/RxSwift'
+end
+

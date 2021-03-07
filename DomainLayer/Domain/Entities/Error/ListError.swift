@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct ListError: Codable {
-    var code: String
-    var message: String
+public struct ListError: Codable {
+    public var code: String
+    public var message: String
 }
 

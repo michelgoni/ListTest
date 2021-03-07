@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import DomainLayer
 
 public struct Results: Codable {
     public let id: Int

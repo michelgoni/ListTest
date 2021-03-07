@@ -10,6 +10,7 @@ import UIKit
 import RxKingfisher
 import Kingfisher
 import RxSwift
+import DomainLayer
 
 protocol UITableViewCellRepresentable: UITableViewCell {
     func setup(with data: Any)
