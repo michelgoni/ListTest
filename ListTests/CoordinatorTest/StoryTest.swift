@@ -11,6 +11,7 @@ import Quick
 import Nimble
 import List
 import DomainLayer
+import DataLayer
 
 
 class StoryTest: QuickSpec {

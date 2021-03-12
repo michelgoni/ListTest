@@ -10,10 +10,16 @@ import Foundation
 import CommonCrypto
 import CryptoKit
 
-public struct BaseApiParams {
+public class BaseApiParams {
     let date: Date
     let publicApiKey: String
     let privateKey: String
+    
+    public init(date: Date,publicApiKey: String, privateKey: String ) {
+        self.date = date
+        self.publicApiKey = publicApiKey
+        self.privateKey = privateKey
+    }
     
     var timeStamp: String {
         guard let date = date.toMillis() else {
