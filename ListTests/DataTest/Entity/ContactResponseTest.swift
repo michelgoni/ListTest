@@ -12,6 +12,7 @@ import RxSwift
 import Quick
 import Nimble
 import DomainLayer
+import DataLayer
 
 class ContactResponseTest: QuickSpec {
 

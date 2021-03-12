@@ -13,7 +13,7 @@ import DomainLayer
 
 extension PrimitiveSequence where Trait == SingleTrait {
     
-    func mapResult<T>() -> Observable<T> {
+    public func mapResult<T>() -> Observable<T> {
         
         self.flatMap { result in
             
@@ -35,7 +35,7 @@ extension PrimitiveSequence where Trait == SingleTrait {
         
     }
     
-    func mapResponse() -> Single<Result<Element, DomainError>> {
+    public func mapResponse() -> Single<Result<Element, DomainError>> {
         
         self.map { .success($0) }
             .catchError { error in

@@ -13,7 +13,7 @@ extension Reactive where Base: MoyaProviderType {}
 
 extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
     
-    func mapApiError<D: Decodable>() -> Single<D> {
+   public func mapApiError<D: Decodable>() -> Single<D> {
         
         self.map(D.self)
             .catchError { error in

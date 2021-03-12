@@ -12,6 +12,7 @@ import RxBlocking
 import Quick
 import Nimble
 import DomainLayer
+import DataLayer
 @testable import List
 
 class ApiErrorTest: QuickSpec {

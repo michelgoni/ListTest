@@ -32,6 +32,12 @@ target 'DomainLayer' do
   use_frameworks!
   pod 'RxSwift'
   pod 'RxCocoa'
+end
+
+target 'DataLayer' do
+  use_frameworks!
+  pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'Moya/RxSwift'
 end
 

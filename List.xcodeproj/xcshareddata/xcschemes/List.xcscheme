@@ -48,6 +48,16 @@
                ReferencedContainer = "container:List.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2D8C201C25FBDC03002B0219"
+               BuildableName = "DataLayerTests.xctest"
+               BlueprintName = "DataLayerTests"
+               ReferencedContainer = "container:List.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
