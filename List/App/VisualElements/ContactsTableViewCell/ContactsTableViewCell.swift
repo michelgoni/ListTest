@@ -24,11 +24,9 @@ class ContactsTableViewCell: UITableViewCell, UITableViewCellRepresentable {
     @IBOutlet weak var contactImage: UIImageView!
     @IBOutlet weak var contactLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         configureView()
-        
     }
     
     private func configureView() {
@@ -42,11 +40,6 @@ class ContactsTableViewCell: UITableViewCell, UITableViewCellRepresentable {
             contactLabel.text = contactElement.name
             accessoryType = contactElement.isSelected ? .checkmark : .none
            contactImage.kf.setImage(with: imageUrl)
-    
-
         }
     }
-    
 }
-
-

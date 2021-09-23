@@ -10,9 +10,7 @@ import UIKit
 
 protocol Bindable {
   associatedtype ViewModelType
-  
   var viewModel: ViewModelType! { get set }
-
   func bind()
 }
 

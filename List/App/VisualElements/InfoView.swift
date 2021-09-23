@@ -91,9 +91,7 @@ class InfoView: UIView {
 
   @objc func fadeOut() {
 
-    // [1] Counter balance previous perfom:with:afterDelay
     NSObject.cancelPreviousPerformRequests(withTarget: self)
-
     UIView.animate(withDuration: 0.33, animations: {
       self.alpha = 0.0
     }, completion: { _ in

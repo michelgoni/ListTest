@@ -22,10 +22,10 @@ open class SceneCoordinator: NSObject, SceneCoordinatorType {
     }
     
     override public init() {
-          self.window = UIWindow()
-          self.window.backgroundColor = UIColor.white
-          self.currentViewController = UIViewController()
-      }
+        self.window = UIWindow()
+        self.window.backgroundColor = UIColor.white
+        self.currentViewController = UIViewController()
+    }
     
     static func actualViewController(for viewController: UIViewController) -> UIViewController {
         if let navigationController = viewController as? UINavigationController {
@@ -71,7 +71,7 @@ open class SceneCoordinator: NSObject, SceneCoordinatorType {
     }
     
     @discardableResult
-   public func pop(animated: Bool) -> Completable {
+    public func pop(animated: Bool) -> Completable {
         let subject = PublishSubject<Void>()
         if let presenter = currentViewController.presentingViewController {
             // dismiss a modal controller
@@ -101,7 +101,6 @@ open class SceneCoordinator: NSObject, SceneCoordinatorType {
 
 extension SceneCoordinator: UINavigationControllerDelegate {
     public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-    currentViewController = viewController
-  }
+        currentViewController = viewController
+    }
 }
-

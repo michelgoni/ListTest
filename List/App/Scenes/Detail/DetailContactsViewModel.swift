@@ -47,8 +47,4 @@ public class DetailContacts: DetailContactsViewModel {
                 .map{_ in}
         }
     }(self)
-    
-    
-    
-
 }
