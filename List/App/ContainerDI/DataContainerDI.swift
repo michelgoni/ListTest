@@ -27,5 +27,4 @@ class DataContainerDI {
         return ContactsApiServiceImplm(DataContainerDI.baseUrl,
                                        with: ListMoyaProvider())
     }()
-
 }

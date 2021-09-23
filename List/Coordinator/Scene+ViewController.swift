@@ -26,10 +26,8 @@ public extension Scene {
             
             let nc = storyboard.instantiateViewController(withIdentifier: "FinalList") as! UINavigationController
             var detailVC = nc.viewControllers.first as! SelectedContactsViewController
-
             detailVC.bind(to: selectedContacts)
             return nc
         }
     }
-    
 }

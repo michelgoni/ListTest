@@ -9,9 +9,7 @@
 import Foundation
 import UIKit
 
-
 public class BaseViewController: UIViewController {
-    
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -21,7 +19,6 @@ public class BaseViewController: UIViewController {
     }
     
     // MARK: BaseViewProtocol
-    
     func showTitle(title: String) {
         self.title = title
     }

@@ -20,11 +20,24 @@ target 'List' do
   
   target 'ListTests' do
     inherit! :search_paths
+    post_install do |installer|
+        installer.pods_project.targets.each do |target|
+            if target.name == "Nimble"
+                target.build_configurations.each do |config|
+                    xcconfig_path = config.base_configuration_reference.real_path
+                    xcconfig = File.read(xcconfig_path)
+                    new_xcconfig = xcconfig.sub('lswiftXCTest', 'lXCTestSwiftSupport')
+                    File.open(xcconfig_path, "w") { |file| file << new_xcconfig }
+                end
+            end
+        end
+    end
     # Pods for testing
     pod 'RxBlocking'
     pod 'Quick'
     pod 'Nimble'
     pod 'RxTest'
+    
   end
 end
 

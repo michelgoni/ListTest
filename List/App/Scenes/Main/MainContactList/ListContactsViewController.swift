@@ -16,15 +16,15 @@ import TransportsUI
 import RxSwiftExt
 import DomainLayer
 
-public class ListContactsViewController: BaseViewController {
+public final class ListContactsViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-   private var data: Observable<[Contact]>?
-   
+    private var data: Observable<[Contact]>?
+    
     // MARK: ViewModel
     var viewModel: ContactsViewModel!
     let disposeBag = DisposeBag()
@@ -45,11 +45,11 @@ public class ListContactsViewController: BaseViewController {
     private func bindTableView() {
         
         let dataSource = RxTableViewSectionedReloadDataSource<SectionOfCustomData>(
-          configureCell: { dataSource, tableView, indexPath, item in
-            let cell = tableView.dequeueReusableCell(withIdentifier: ContactsTableViewCell.identifier, for: indexPath) as! ContactsTableViewCell
-            cell.setup(with: item)
-            return cell
-        })
+            configureCell: { dataSource, tableView, indexPath, item in
+                let cell = tableView.dequeueReusableCell(withIdentifier: ContactsTableViewCell.identifier, for: indexPath) as! ContactsTableViewCell
+                cell.setup(with: item)
+                return cell
+            })
         
         data = Observable.merge(viewModel.getContacts.elements,
                                 viewModel.updatedContacts.elements,
@@ -61,8 +61,10 @@ public class ListContactsViewController: BaseViewController {
             contactData.append(SectionOfCustomData(items: result))
             return contactData
         })
-            
-        value?.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
+        
+        value?.bind(to: tableView.rx
+                        .items(dataSource: dataSource))
+            .disposed(by: rx.disposeBag)
     }
     
     private func bindPaginator() {
@@ -74,9 +76,10 @@ public class ListContactsViewController: BaseViewController {
     }
     
     private func bindSelectedData() {
+        guard let data = data else {return}
         let selectedData = tableView.rx.modelSelected(Contact.self).asObservable()
         let combinedData = Observable
-            .combineLatest(data!,selectedData)
+            .combineLatest(data,selectedData)
             .map {(contact: $1, contacts: $0)}
         
         tableView
@@ -97,7 +100,7 @@ public class ListContactsViewController: BaseViewController {
             .drive(viewModel.searchContacts.inputs)
             .disposed(by: rx.disposeBag)
     }
-
+    
     private func bindTitle() {
         
         var value = ""
@@ -125,12 +128,15 @@ public class ListContactsViewController: BaseViewController {
         .asDriver(onErrorJustReturn: false)
         selected.drive(selectedButton.rx.isEnabled).disposed(by: rx.disposeBag)
         selected.drive {self.selectedButton.backgroundColor = $0 ? .primary : .primaryDisabled}
-        .disposed(by: rx.disposeBag)
+            .disposed(by: rx.disposeBag)
     }
     
     private func bindActivityIndicator() {
         
-        Observable.merge(viewModel.getContacts.executing, viewModel.loadNextPageContacts.executing, viewModel.searchContacts.executing)
+        Observable.merge(
+            viewModel.getContacts.executing,
+            viewModel.loadNextPageContacts.executing,
+            viewModel.searchContacts.executing)
             .asDriver(onErrorJustReturn: true)
             .drive(activityIndicator.rx.isAnimating)
             .disposed(by: rx.disposeBag)
@@ -168,7 +174,6 @@ public class ListContactsViewController: BaseViewController {
         searchBar.rx.cancelButtonClicked
             .subscribe(onNext: { () in
                 self.viewModel.getContacts.execute()
-               
             })
             .disposed(by: self.disposeBag)
     }
