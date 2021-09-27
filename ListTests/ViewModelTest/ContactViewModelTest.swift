@@ -51,7 +51,7 @@ class ContactViewModelTest: QuickSpec {
                     .bind(to: selectedElement)
                     .disposed(by: disposeBag)
 
-                scheduler.createColdObservable([.next(10, (contact: ContactsFake.contactSelected, contacts: ContactsFake.contacts))])
+                scheduler.createHotObservable([.next(10, (contact: ContactsFake.contactSelected, contacts: ContactsFake.contacts))])
                     .bind(to: sut.updatedContacts.inputs)
                     .disposed(by: disposeBag)
                 
@@ -66,7 +66,7 @@ class ContactViewModelTest: QuickSpec {
                     .bind(to: contactName)
                     .disposed(by: disposeBag)
                 
-                scheduler.createHotObservable([.next(10, ())])
+                scheduler.createColdObservable([.next(10, ())])
                     .bind(to: sut.getContacts.inputs)
                     .disposed(by: disposeBag)
                 
