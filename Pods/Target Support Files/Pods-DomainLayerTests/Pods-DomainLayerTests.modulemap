@@ -1,0 +1,6 @@
+framework module Pods_DomainLayerTests {
+  umbrella header "Pods-DomainLayerTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
