@@ -62,3 +62,11 @@ target 'DataLayer' do
   pod 'Moya/RxSwift'
 end
 
+target 'DataLayerTests' do
+  use_frameworks!
+  pod 'RxBlocking'
+  pod 'Quick'
+  pod 'Nimble'
+  pod 'RxTest'
+end
+
