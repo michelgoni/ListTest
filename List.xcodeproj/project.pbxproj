@@ -45,7 +45,6 @@
 		2DBAD00325B0C3C7004CB8F9 /* ApiErrorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBAD00225B0C3C7004CB8F9 /* ApiErrorTest.swift */; };
 		2DBAD00725B0C4D8004CB8F9 /* ErrorResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DBAD00625B0C4D8004CB8F9 /* ErrorResponse.json */; };
 		2DCE0F0825F52A38004C8868 /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCE0EFF25F52A38004C8868 /* DomainLayer.framework */; };
-		2DCE0F1125F52A38004C8868 /* DomainLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DCE0F0125F52A38004C8868 /* DomainLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2DCE0F1425F52A38004C8868 /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCE0EFF25F52A38004C8868 /* DomainLayer.framework */; };
 		2DCE0F1525F52A38004C8868 /* DomainLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCE0EFF25F52A38004C8868 /* DomainLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2DCE0F2325F52AC7004C8868 /* ContactsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BF6249F46D900ACC137 /* ContactsRepository.swift */; };
@@ -202,7 +201,6 @@
 		2DBAD00625B0C4D8004CB8F9 /* ErrorResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ErrorResponse.json; sourceTree = "<group>"; };
 		2DBAD00A25B0C557004CB8F9 /* ListError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListError.swift; sourceTree = "<group>"; };
 		2DCE0EFF25F52A38004C8868 /* DomainLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DomainLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DCE0F0125F52A38004C8868 /* DomainLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DomainLayer.h; sourceTree = "<group>"; };
 		2DCE0F0225F52A38004C8868 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DCE0F0725F52A38004C8868 /* DomainLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomainLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DCE0F0E25F52A38004C8868 /* DomainLayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainLayerTests.swift; sourceTree = "<group>"; };
@@ -381,7 +379,6 @@
 			isa = PBXGroup;
 			children = (
 				B43F9BE5249F432A00ACC137 /* Domain */,
-				2DCE0F0125F52A38004C8868 /* DomainLayer.h */,
 				2DCE0F0225F52A38004C8868 /* Info.plist */,
 			);
 			path = DomainLayer;
@@ -806,7 +803,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCE0F1125F52A38004C8868 /* DomainLayer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
