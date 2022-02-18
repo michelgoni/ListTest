@@ -15,49 +15,112 @@ import Nimble
 @testable import DomainLayer
 
 class ContactsUseCaseTest: QuickSpec {
-
+    
+    var sut: ContactsUseCase!
+    fileprivate var contactsMockRepository: ContactsStubRepository!
+    
     override func spec() {
-        describe("Contacts UseCase implementation test") {
-            var sut: ContactsUseCaseImplm!
-            var contactsMockRepository: ContactsMockRepository!
+        beforeEach {
+            self.sut = self.makeSut()
+        }
+        
+        describe("In the Contacts Use Case") {
             
-            beforeEach {
-                
-                contactsMockRepository = ContactsMockRepository()
-                sut = ContactsUseCaseImplm(repository: contactsMockRepository)
-            }
-            
-            it("gets Contacts call from repository") {
-                _ = try? sut.getContacts(offset: 10).toBlocking().first()
-                expect(contactsMockRepository.contactsCall).to(beTrue())
-            }
-            
-            it("gets Contacts elements from repository") {
-                let result = try? sut.getContacts(offset: 10).toBlocking().first()
-                expect(result).notTo(beNil(), description: "")
-            }
-            it("gets contacts search call from repository") {
-                 _ = try sut.searchContacts(query: "").toBlocking().first()
-                expect(contactsMockRepository.searchContacts).to(beTrue())
-            }
-            
-            it("gets contacts search result from repository") {
-                let result = try! sut.searchContacts(query: "").toBlocking().first()
-                
-                switch result {
-                case .success(let contacts):
-                    expect(contacts).notTo(beNil())
-                case .failure:
-                    fail()
-                case .none:
-                    fail()
+            context("Contacts call") {
+               
+                it("is called from repository") {
+                    _ = try? self.sut.getContacts(offset: 10).toBlocking().first()
+                    expect(self.contactsMockRepository.contactsCall).to(beTrue())
                 }
             }
         }
+        
+        describe("In the Contacts Use Case") {
+            
+            context("Contacts call") {
+               
+                it("is only once called") {
+                    let result = try? self.sut.getContacts(offset: 10).toBlocking().first()
+                    expect([result].count).to(be(1))
+                }
+            }
+        }
+        
+        describe("In the Contacts Use Case") {
+            
+            context("Contacts call") {
+               
+                it("gets elements from repository") {
+                    let result = try? self.sut.getContacts(offset: 10).toBlocking().first()
+                    expect(result).notTo(beNil(), description: "")
+                }
+            }
+        }
+        
+        describe("In the Contacts Use Case") {
+            
+            context("Search call") {
+               
+                it("is called from repository") {
+                    _ = try self.sut.searchContacts(query: "").toBlocking().first()
+                    expect(self.contactsMockRepository.searchContacts).to(beTrue())
+                }
+            }
+        }
+        
+        
+        describe("In the Contacts Use Case") {
+            
+            context("Search call") {
+               
+                it("gets elements from repository") {
+                    let result = try! self.sut.searchContacts(query: "").toBlocking().first()
+                    
+                    switch result {
+                    case .success(let contacts):
+                        expect(contacts).notTo(beNil())
+                    case .failure:
+                        fail()
+                    case .none:
+                        fail()
+                    }
+                }
+            }
+        }
+        
+        describe("In the Contacts Use Case") {
+            
+            context("Search call") {
+               
+                it("gis only once called") {
+                    let result = try! self.sut.searchContacts(query: "").toBlocking().first()
+                    
+                    switch result {
+                    case .success(let contacts):
+                        expect([contacts].count).to(be(1))
+                    case .failure:
+                        fail()
+                    case .none:
+                        fail()
+                    }
+                }
+            }
+        }
+        
+        afterEach {
+            self.sut = nil
+        }
+    }
+    
+    private func makeSut() -> ContactsUseCase {
+        
+        contactsMockRepository = ContactsStubRepository()
+        sut = ContactsUseCaseImplm(repository: contactsMockRepository)
+        return sut
     }
 }
 
-private  class ContactsMockRepository: ContactsRepository {
+private class ContactsStubRepository: ContactsRepository {
     func searchContacts(query: String) -> Single<Result<[Contact], DomainError>> {
         searchContacts.toggle()
         return .just(.success([Contact(name: "Hulk", image: "", isSelected: false)]))

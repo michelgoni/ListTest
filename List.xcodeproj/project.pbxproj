@@ -41,7 +41,6 @@
 		2D8C207B25FBDCC0002B0219 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BE1249F419500ACC137 /* Date+Extensions.swift */; };
 		2D8C207C25FBDCC0002B0219 /* Moya+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C70E258FCF28006871CC /* Moya+.swift */; };
 		2D8C207D25FBDCC0002B0219 /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBACFF525B0C2EF004CB8F9 /* Data+.swift */; };
-		2DA0C22925A0F25500173507 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C22825A0F25500173507 /* swiftlint.yml */; };
 		2DBAD00325B0C3C7004CB8F9 /* ApiErrorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBAD00225B0C3C7004CB8F9 /* ApiErrorTest.swift */; };
 		2DBAD00725B0C4D8004CB8F9 /* ErrorResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DBAD00625B0C4D8004CB8F9 /* ErrorResponse.json */; };
 		2DCE0F0825F52A38004C8868 /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCE0EFF25F52A38004C8868 /* DomainLayer.framework */; };
@@ -195,7 +194,6 @@
 		2D8C201D25FBDC03002B0219 /* DataLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D8C202425FBDC03002B0219 /* DataLayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLayerTests.swift; sourceTree = "<group>"; };
 		2D8C202625FBDC03002B0219 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2DA0C22825A0F25500173507 /* swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
 		2DBACFF525B0C2EF004CB8F9 /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		2DBAD00225B0C3C7004CB8F9 /* ApiErrorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorTest.swift; sourceTree = "<group>"; };
 		2DBAD00625B0C4D8004CB8F9 /* ErrorResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ErrorResponse.json; sourceTree = "<group>"; };
@@ -396,7 +394,6 @@
 		B43F9BAC249F3DD000ACC137 = {
 			isa = PBXGroup;
 			children = (
-				2DA0C22825A0F25500173507 /* swiftlint.yml */,
 				B43F9BB7249F3DD000ACC137 /* List */,
 				B43F9BCE249F3DD100ACC137 /* ListTests */,
 				2DCE0F0025F52A38004C8868 /* DomainLayer */,
@@ -1023,7 +1020,6 @@
 			files = (
 				2D71E348254C9177007ECC14 /* InfoView.xib in Resources */,
 				B4ACAC1F249F569900180834 /* ContactsTableViewCell.xib in Resources */,
-				2DA0C22925A0F25500173507 /* swiftlint.yml in Resources */,
 				B43F9BC5249F3DD100ACC137 /* LaunchScreen.storyboard in Resources */,
 				2D0FAF46252786180050FA61 /* (null) in Resources */,
 				B43F9BC2249F3DD100ACC137 /* Assets.xcassets in Resources */,
