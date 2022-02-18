@@ -41,7 +41,6 @@
 		2D8C207B25FBDCC0002B0219 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BE1249F419500ACC137 /* Date+Extensions.swift */; };
 		2D8C207C25FBDCC0002B0219 /* Moya+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C70E258FCF28006871CC /* Moya+.swift */; };
 		2D8C207D25FBDCC0002B0219 /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBACFF525B0C2EF004CB8F9 /* Data+.swift */; };
-		2DBAD00325B0C3C7004CB8F9 /* ApiErrorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBAD00225B0C3C7004CB8F9 /* ApiErrorTest.swift */; };
 		2DBAD00725B0C4D8004CB8F9 /* ErrorResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DBAD00625B0C4D8004CB8F9 /* ErrorResponse.json */; };
 		2DCE0F0825F52A38004C8868 /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCE0EFF25F52A38004C8868 /* DomainLayer.framework */; };
 		2DCE0F1425F52A38004C8868 /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCE0EFF25F52A38004C8868 /* DomainLayer.framework */; };
@@ -70,6 +69,7 @@
 		B445797A27C00EEB004D4F91 /* emptyResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = B445797927C00EEB004D4F91 /* emptyResponse.json */; };
 		B445797C27C01024004D4F91 /* ContactResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B462EBA424C1FAD9007C9B9D /* ContactResponseTest.swift */; };
 		B445797D27C01119004D4F91 /* contact.json in Resources */ = {isa = PBXBuildFile; fileRef = B462EBAB24C20130007C9B9D /* contact.json */; };
+		B445797E27C01488004D4F91 /* ApiErrorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBAD00225B0C3C7004CB8F9 /* ApiErrorTest.swift */; };
 		B45FF25224C30F7F00826F32 /* StoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45FF25124C30F7F00826F32 /* StoryTest.swift */; };
 		B45FF25524C3515100826F32 /* ContactViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45FF25424C3515100826F32 /* ContactViewModelTest.swift */; };
 		B462EBA824C1FC68007C9B9D /* contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = B462EBA724C1FC68007C9B9D /* contacts.json */; };
@@ -367,19 +367,12 @@
 		2D8C202325FBDC03002B0219 /* DataLayerTests */ = {
 			isa = PBXGroup;
 			children = (
+				2DBAD00225B0C3C7004CB8F9 /* ApiErrorTest.swift */,
 				B462EBA424C1FAD9007C9B9D /* ContactResponseTest.swift */,
 				2D8C202425FBDC03002B0219 /* ContactsRepositoryTest.swift */,
 				2D8C202625FBDC03002B0219 /* Info.plist */,
 			);
 			path = DataLayerTests;
-			sourceTree = "<group>";
-		};
-		2DBACFF925B0C392004CB8F9 /* ApiError */ = {
-			isa = PBXGroup;
-			children = (
-				2DBAD00225B0C3C7004CB8F9 /* ApiErrorTest.swift */,
-			);
-			path = ApiError;
 			sourceTree = "<group>";
 		};
 		2DCE0F0025F52A38004C8868 /* DomainLayer */ = {
@@ -448,7 +441,6 @@
 				B45FF25324C3512F00826F32 /* ViewModelTest */,
 				B45FF25024C30F5900826F32 /* CoordinatorTest */,
 				B462EBA624C1FBD8007C9B9D /* Stubs */,
-				B43F9C0D249F4B6800ACC137 /* DataTest */,
 			);
 			path = ListTests;
 			sourceTree = "<group>";
@@ -580,14 +572,6 @@
 				2D2F2338257959E6001F7227 /* ContactsService.swift */,
 			);
 			path = ApiService;
-			sourceTree = "<group>";
-		};
-		B43F9C0D249F4B6800ACC137 /* DataTest */ = {
-			isa = PBXGroup;
-			children = (
-				2DBACFF925B0C392004CB8F9 /* ApiError */,
-			);
-			path = DataTest;
 			sourceTree = "<group>";
 		};
 		B45FF25024C30F5900826F32 /* CoordinatorTest */ = {
@@ -1276,6 +1260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B445797827C00B48004D4F91 /* XCTestCase+.swift in Sources */,
+				B445797E27C01488004D4F91 /* ApiErrorTest.swift in Sources */,
 				2D8C202525FBDC03002B0219 /* ContactsRepositoryTest.swift in Sources */,
 				B445797C27C01024004D4F91 /* ContactResponseTest.swift in Sources */,
 			);
@@ -1336,7 +1321,6 @@
 				B424742724D8611E0036F25A /* SelectedContactsViewModelTest.swift in Sources */,
 				B424742924D8735C0036F25A /* SelectedContactsViewControllerTest.swift in Sources */,
 				B462EBAA24C1FC95007C9B9D /* XCTestCase+.swift in Sources */,
-				2DBAD00325B0C3C7004CB8F9 /* ApiErrorTest.swift in Sources */,
 				B4796BD027BFD9F8009F6626 /* ContactsFake.swift in Sources */,
 				B45FF25524C3515100826F32 /* ContactViewModelTest.swift in Sources */,
 			);
