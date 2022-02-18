@@ -47,6 +47,14 @@ target 'DomainLayer' do
   pod 'RxCocoa'
 end
 
+target 'DomainLayerTests' do
+  use_frameworks!
+  pod 'RxBlocking'
+  pod 'Quick'
+  pod 'Nimble'
+  pod 'RxTest'
+end
+
 target 'DataLayer' do
   use_frameworks!
   pod 'RxSwift'
