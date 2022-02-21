@@ -15,80 +15,109 @@ import Action
 @testable import List
 
 class SelectedContactsViewControllerTest: QuickSpec {
-
+    var testElements: (sut: SelectedContactsViewController, mockViewModel: MockSelectedContactsViewModel)!
+    
     override func spec() {
-        describe("Selected contacts viewController test implementation") {
-            var sut: SelectedContactsViewController!
-            var nav: UINavigationController!
-            var viewModel: MockSelectedContactsViewModel!
-            var tableView: UITableView!
+        
+        beforeEach {
+            self.testElements = self.makeSut()
+        }
+        
+        describe("In the SelectedViewcontroller") {
             
-            beforeEach {
-                viewModel = MockSelectedContactsViewModel()
-                nav = Scene.selectedContacts(viewModel).viewController() as? UINavigationController
-                sut = nav.viewControllers.first as? SelectedContactsViewController
-                sut.loadViewIfNeeded()
-                tableView = sut.tableView
+            context("When a contact is selected") {
+                it("the tableView is not nil") {
+                    expect(self.testElements.sut.tableView).notTo(beNil())
+                }
             }
             
-            it("Doesn´t load nil Table View for selected contacts") {
-                expect(sut.tableView).notTo(beNil())
+        }
+        describe("In the SelectedViewcontroller") {
+            
+            context("after viewDidLoad") {
+                it("the tableView is not nil") {
+                    let tableViewisSubview = self.testElements.sut.tableView.isDescendant(of: self.testElements.sut.view)
+                    expect(tableViewisSubview).notTo(beNil())
+                }
             }
             
-            it("Doesn´t load nil Table View after viewDidLoad") {
-                let tableViewisSubview = sut.tableView.isDescendant(of: sut.view)
-                expect(tableViewisSubview).notTo(beNil())
-            }
+        }
+        
+        describe("In the SelectedViewcontroller") {
             
-            it("Works tableView number of rows is working") {
-                let _ = viewModel.contacts
-                expect(sut.tableView.numberOfRows(inSection: 0)) == 2
-            }
-            
-            it("Works TableView number of sections") {
-                expect(sut.tableView.numberOfSections) == 1
-            }
-            
-            it("returns a custom cell") {
-                let _ = viewModel.contacts
-                
-                let cell = sut.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
-                expect(cell).to(beAKindOf(ContactsTableViewCell.self))
-            }
-            
-            it("Dismisses properly") {
-                sut.cancelButton.rx.action = viewModel.dismiss
-                XCTAssertTrue(viewModel.dismissIsCalled)
-                
+            context("after viewDidLoad is invoked") {
+                it("load number of rows") {
+                    let _ = self.testElements.mockViewModel.contacts
+                    expect(self.testElements.sut.tableView.numberOfRows(inSection: 0)) == 2
+                }
             }
         }
+        
+        describe("In the SelectedViewcontroller") {
+            
+            context("after viewDidLoad is invoked") {
+                it("Woad number of sections") {
+                    expect(self.testElements.sut.tableView.numberOfSections) == 1
+                }
+            }
+        }
+        
+        describe("In the SelectedViewcontroller") {
+
+            context("after the selected contacts are retrieved") {
+                it("returns a custom cell") {
+                    let _ = self.testElements.mockViewModel.contacts
+                    let cell = self.testElements.sut.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
+                    expect(cell).to(beAKindOf(ContactsTableViewCell.self))
+                }
+            }
+        }
+        
+        describe("In the SelectedViewcontroller") {
+            
+            context("after the selected ontacts are retrieved") {
+                it("Dismisses properly") {
+                    self.testElements.sut.cancelButton.rx.action = self.testElements.sut.viewModel.dismiss
+                    XCTAssertTrue(self.testElements.mockViewModel.dismissIsCalled == true)
+                    
+                }
+            }
+        }
+        
+        afterEach {
+            self.testElements = nil
+        }
+    }
+    
+    private func makeSut() -> (sut: SelectedContactsViewController, mockViewModel: MockSelectedContactsViewModel) {
+        let viewModel = MockSelectedContactsViewModel()
+        let nav = Scene.selectedContacts(viewModel).viewController() as! UINavigationController
+        let sut = nav.viewControllers.first as! SelectedContactsViewController
+        sut.loadViewIfNeeded()
+        return (sut, viewModel)
+        
     }
     
 }
 
 class MockSelectedContactsViewModel: DetailContactsViewModel {
-       
-       var contacts = ContactsFake.contactsSelected
-       
-       var coordinator = SceneCoordinator()
-       
-       var dismissIsCalled = false
-       
-       lazy var resetContacts: CocoaAction = { _ in
-           
-           CocoaAction { _ in
-               return .empty()
-           }
-       }(self)
-       
-        var dismiss: CocoaAction {
+    
+    var contacts = ContactsFake.contactsSelected
+    var coordinator = SceneCoordinator()
+    var dismissIsCalled = false
+    
+    lazy var resetContacts: CocoaAction = { _ in
+        CocoaAction {
+            .empty()
+        }
+    }(self)
+    
+    var dismiss: CocoaAction {
         
-             self.dismissIsCalled = true
-           return CocoaAction { _ in
-             
-               return .just(())
-              
-           }
-       }
-       
-   }
+        self.dismissIsCalled = true
+        return CocoaAction {
+            
+            .just(())
+        }
+    }
+}
