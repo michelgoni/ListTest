@@ -7,7 +7,6 @@
 //
 
 import XCTest
-
 import RxSwift
 import RxCocoa
 import Quick
@@ -16,49 +15,71 @@ import Action
 @testable import List
 
 class SelectedContactsViewModelTest: QuickSpec {
-
-    override func spec() {
-        describe("Selected contacts view model test implementation") {
-            var sut: DetailContactsViewModel!
-            var coordinator: MockCoordinator!
-            let resetContacts: CocoaAction = { _ in
-                CocoaAction { _ in
-                    return .empty()
-                }
-            }(self)
-            
-            beforeEach {
-                coordinator = MockCoordinator()
-                
-                sut = DetailContacts(contacts: ContactsFake.contactsSelected,
-                                     coordinator: coordinator,
-                                     resetContacts: resetContacts)
-            }
-            
-            it("Get contats from previous selection") {
-                expect(sut.contacts).notTo(beNil())
-            }
-        }
-    }
     
-    class MockCoordinator: SceneCoordinator {
+    var testingElements: (sut: DetailContactsViewModel, coordinator: DetailMockCoordinator)!
+    
+    override func spec() {
         
-        var isPopCalled = false
-        var sceneTransitionCalled: SceneTransitionType?
+        beforeEach {
+            self.testingElements = self.makeSut()
+        }
         
-        override func transition(to scene: Scene, type: SceneTransitionType) -> Completable {
-            
-            switch scene {
+        describe("When the selected viewmodel implementation") {
+            context("is instiantiated") {
+                it("gets contacts from previous selection") {
+                    expect(self.testingElements.sut.contacts).notTo(beNil())
+                }
                 
-            case .contacts:
-                isPopCalled = true
-                
-            case .selectedContacts:
-               break
             }
-            sceneTransitionCalled = type
-            return .empty()
+        }
+        
+        describe("When the selected viewmodel implementation") {
+            context("is instiantiated") {
+                it("at least there must be one element selected") {
+                    expect(self.testingElements.sut.contacts.first?.isSelected).to(beTrue())
+                }
+            }
+        }
+        
+        afterEach {
+            self.testingElements = nil
         }
     }
+  
+    private func makeSut() -> (sut: DetailContactsViewModel, coordinator: DetailMockCoordinator) {
+        
+        let resetContacts: CocoaAction = { _ in
+            CocoaAction { _ in
+                return .empty()
+            }
+        }(self)
+        
+        let coordinator = DetailMockCoordinator()
+        
+        let sut = DetailContacts(contacts: ContactsFake.contactsSelected,
+                             coordinator: coordinator,
+                             resetContacts: resetContacts)
+        
+        return (sut, coordinator)
+    }
+}
 
+class DetailMockCoordinator: SceneCoordinator {
+    
+    var isPopCalled = false
+    var sceneTransitionCalled: SceneTransitionType?
+    
+    override func transition(to scene: Scene, type: SceneTransitionType) -> Completable {
+        
+        switch scene {
+            
+        case .contacts:
+            isPopCalled = true
+            
+        case .selectedContacts:
+           break
+        }
+        sceneTransitionCalled = type
+        return .empty()
+    }
 }
