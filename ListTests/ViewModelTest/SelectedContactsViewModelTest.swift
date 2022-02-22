@@ -24,16 +24,15 @@ class SelectedContactsViewModelTest: QuickSpec {
             self.testingElements = self.makeSut()
         }
         
-        describe("When the selected viewmodel implementation") {
+        describe("When the selected viewModel implementation") {
             context("is instiantiated") {
                 it("gets contacts from previous selection") {
                     expect(self.testingElements.sut.contacts).notTo(beNil())
                 }
-                
             }
         }
         
-        describe("When the selected viewmodel implementation") {
+        describe("When the selected viewModel implementation") {
             context("is instiantiated") {
                 it("at least there must be one element selected") {
                     expect(self.testingElements.sut.contacts.first?.isSelected).to(beTrue())
