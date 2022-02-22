@@ -23,14 +23,13 @@ class ContactViewModelTest: QuickSpec {
     
     override func spec() {
         
-        
         beforeEach {
             self.testingElements = self.makeSut()
             self.rxTestingElements = self.makeRxTestingElements()
         }
         
-        describe("The Contacts View model implementation") {
-            context("for testing purpose") {
+        describe("The sut") {
+            context("when it loads") {
                 it("gets initial Contacts for testing purpose") {
                     expect(ContactsFake.contacts).notTo(beNil())
                 }
@@ -39,7 +38,7 @@ class ContactViewModelTest: QuickSpec {
         
         describe("The Contacts View model implementation") {
             context("when the get contacts action is invoked") {
-                it("receives contacts for the tableview to be pupulated") {
+                it("recives contacts for the tableview to be pupulated") {
                     let contactName = self.rxTestingElements.scheduler.createObserver([String].self)
                     
                     self.testingElements.sut.getContacts.elements.map { $0.map{$0.name}}
@@ -108,10 +107,9 @@ class ContactViewModelTest: QuickSpec {
             }
         }
         
-        
         describe("In the Contacts View model implementation") {
-            context("when a contact is selected in  ListViewController") {
-                it("selects contacts for the Detail Contacts view controller") {
+            context("when a contact is selected in the ListViewController") {
+                it("selects contacts for launching the Detail Contacts viewController") {
                     
                     self.testingElements.sut.selectedContacts.inputs.onNext(ContactsFake.contactsSelected)
                     expect(self.testingElements.coordinator.areSelectedContacts).to(beTrue())
@@ -147,7 +145,6 @@ class ContactViewModelTest: QuickSpec {
             self.testingElements = nil
             self.rxTestingElements = nil
         }
-        
     }
     
     private func makeSut() -> (sut: ContactsViewModel, coordinator: MockCoordinator, useCase: MockContactsUseCase){

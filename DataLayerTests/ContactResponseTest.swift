@@ -25,8 +25,8 @@ class ContactResponseTest: QuickSpec {
         }
         
         describe("The Contacts Response element") {
-            context("When the api called has a 200 response") {
-                it("Contains Data and Results inside contactResponse") {
+            context("when the api called has a 200 response") {
+                it("contains Data and Results inside contactResponse") {
                     expect(self.sut.contactResponse.data).notTo(beNil())
                     expect(self.sut.contactResponse.data.results).notTo(beNil())
                 }
@@ -34,8 +34,8 @@ class ContactResponseTest: QuickSpec {
         }
         
         describe("The Contacts Response element") {
-            context("When the api called has a 200 response") {
-                it("Maps from response to Contacts class is working") {
+            context("when the api called has a 200 response") {
+                it("maps from response to Contacts class is working") {
                     let contacts = self.sut.contactsResponse.data.results.map(Contact.init)
                     expect(contacts).notTo(beNil())
                 }
@@ -54,9 +54,9 @@ class ContactResponseTest: QuickSpec {
         }
         
         describe("The Contacts Response element") {
-            context("When the api serves a malformatted json file") {
+            context("when the api serves a malformatted json file") {
                 
-                it("Decodable doesn´t decode not valid Json file") {
+                it("doesn´t decode a not valid Json file") {
                     let json = """
                                    {
                                        "ddfd": "1.0"
@@ -71,21 +71,20 @@ class ContactResponseTest: QuickSpec {
         }
         
         describe("The Contacts Response element") {
-            context("When the api called has a 200 response") {
+            context("when the api called has a 200 response, the transformed response") {
                 
-                it("The transformed response works with equatable") {
+                it("should work with equatable") {
                     let contact1 = Observable.of(self.sut.contactsResponse.data.results.map(Contact.init).first!)
                     let contact2 = Observable.of(self.sut.contactResponse.data.results.map(Contact.init).first!)
                     _ = Observable.combineLatest(contact1, contact2) {expect($0 == $1).to(beTrue())}
-                    
                 }
             }
         }
         
         describe("The Contacts Response element") {
-            context("When the api called has a 200 response") {
+            context("when the api called has a 200 response") {
                 
-                it("Gets image path properly") {
+                it("gets image path properly") {
                     let fakeImagePath = "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg"
                     expect(self.sut.contactsResponse.data.results.first!.thumbnail.imageUrl) == fakeImagePath
                 }
@@ -93,12 +92,11 @@ class ContactResponseTest: QuickSpec {
         }
      
         describe("The Contacts Response element") {
-            context("When the api called has a 200 response") {
+            context("when the api called has a 200 response") {
                 
-                it("Gets thumbnail extension properly") {
+                it("gets thumbnail extension properly") {
                     let thumbnailExtension = self.sut.contactsResponse.data.results.first!.thumbnail.thumbnailExtension.getExtension()
                     expect(thumbnailExtension).to(be("jpg"))
-                    
                 }
             }
         }
@@ -112,7 +110,6 @@ class ContactResponseTest: QuickSpec {
         
         let contactsResponse: SuperHeroResponse! = self.read(file: "contacts")
         let contactResponse: SuperHeroResponse! = self.read(file: "contact")
-        
         return (contactsResponse, contactResponse)
     }
 }

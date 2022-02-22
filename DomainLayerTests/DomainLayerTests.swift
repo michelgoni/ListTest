@@ -26,7 +26,7 @@ class ContactsUseCaseTest: QuickSpec {
         
         describe("In the Contacts Use Case") {
             
-            context("Contacts call") {
+            context("the contacts call") {
                
                 it("is called from repository") {
                     _ = try? self.sut.getContacts(offset: 10).toBlocking().first()
@@ -37,7 +37,7 @@ class ContactsUseCaseTest: QuickSpec {
         
         describe("In the Contacts Use Case") {
             
-            context("Contacts call") {
+            context("the contacts call") {
                
                 it("is only once called") {
                     let result = try? self.sut.getContacts(offset: 10).toBlocking().first()
@@ -48,7 +48,7 @@ class ContactsUseCaseTest: QuickSpec {
         
         describe("In the Contacts Use Case") {
             
-            context("Contacts call") {
+            context("the contacts call") {
                
                 it("gets elements from repository") {
                     let result = try? self.sut.getContacts(offset: 10).toBlocking().first()
@@ -59,7 +59,7 @@ class ContactsUseCaseTest: QuickSpec {
         
         describe("In the Contacts Use Case") {
             
-            context("Search call") {
+            context("the search call") {
                
                 it("is called from repository") {
                     _ = try self.sut.searchContacts(query: "").toBlocking().first()
@@ -71,7 +71,7 @@ class ContactsUseCaseTest: QuickSpec {
         
         describe("In the Contacts Use Case") {
             
-            context("Search call") {
+            context("the search call") {
                
                 it("gets elements from repository") {
                     let result = try! self.sut.searchContacts(query: "").toBlocking().first()
@@ -90,7 +90,7 @@ class ContactsUseCaseTest: QuickSpec {
         
         describe("In the Contacts Use Case") {
             
-            context("Search call") {
+            context("the search call") {
                
                 it("gis only once called") {
                     let result = try! self.sut.searchContacts(query: "").toBlocking().first()
