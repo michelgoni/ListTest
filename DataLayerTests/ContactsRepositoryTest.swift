@@ -25,8 +25,8 @@ class ContactsRepositoryTest: QuickSpec {
         }
         
         describe("The implementation of contactRepository") {
-            context("When gets contacts") {
-                it("Gives service an OK response") {
+            context("when gets contacts") {
+                it("gives service an OK response") {
                     let response: SuperHeroResponse = self.read(file: "contacts")!
                     self.contactsApiServiceSpy.contactsResponse = response
                     let result = try! self.sut.getContacts(offset: 10).toBlocking().first()
@@ -42,7 +42,7 @@ class ContactsRepositoryTest: QuickSpec {
         }
         
         describe("The implementation of contactRepository") {
-            context("When it gets contacts") {
+            context("when it gets contacts") {
                 it("is only once called") {
                     let response: SuperHeroResponse = self.read(file: "contacts")!
                     self.contactsApiServiceSpy.contactsResponse = response
@@ -59,8 +59,8 @@ class ContactsRepositoryTest: QuickSpec {
         }
         
         describe("The implementation of contactRepository") {
-            context("When it gets an server error response") {
-                it("Gives service a KO response") {
+            context("when it gets an server error response") {
+                it("gives service a KO response") {
                     let response: SuperHeroResponse = self.read(file: "contacts")!
                     self.contactsApiServiceSpy.contactsResponse = response
                     self.contactsApiServiceSpy.badResponse = true
@@ -77,8 +77,8 @@ class ContactsRepositoryTest: QuickSpec {
         }
         
         describe("The implementation of contactRepository") {
-            context("When it doesn´t get any contacts") {
-                it("the service gives an empty response") {
+            context("when it doesn´t get any contacts") {
+                it("gets and empty response") {
                     let response: SuperHeroResponse = self.read(file: "emptyResponse")!
                     self.contactsApiServiceSpy.contactsResponse = response
                     let result = try! self.sut.getContacts(offset: 10).toBlocking().first()
@@ -95,7 +95,7 @@ class ContactsRepositoryTest: QuickSpec {
         
         describe("The implementation of contactRepository") {
             context("When it makes a search call") {
-                it("Gives search response ok result") {
+                it("it gives an ok result") {
                     let response: SuperHeroResponse = self.read(file: "searchResults")!
                     self.contactsApiServiceSpy.contactsResponse = response
                     

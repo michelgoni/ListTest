@@ -23,8 +23,8 @@ class StoryTest: QuickSpec {
             self.testElement = self.makeSut()
         }
         
-        describe("The coordinator implementation") {
-            context("after view is loaded") {
+        describe("In the coordinator implementation") {
+            context("after the view is loaded") {
                 it("retrieves a ListContactsViewController") {
                     
                     let viewModel = MockViewModel(mockContactsUseCase: self.testElement.mockContactsUseCase,

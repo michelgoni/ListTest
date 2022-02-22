@@ -20,7 +20,6 @@ public protocol ContactsViewModel {
     var selectedContacts: Action<[Contact], Void> { get }
     var resetContacts: CocoaAction { get }
     var searchContacts: Action<String, [Contact]> { get }
-    
     var offset: Int { get set}
 }
 

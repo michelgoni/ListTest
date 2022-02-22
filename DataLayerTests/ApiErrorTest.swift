@@ -24,8 +24,8 @@ class ApiErrorTest: QuickSpec {
         }
         
         describe("The Api implementation") {
-            context("When receives a Moya error") {
-                it("decodes it properly") {
+            context("when receives a Moya error") {
+                it(" decodes it properly") {
                     
                     let listError = try self.moyaError.decoded() as ListError
                     expect(listError.code) == "InvalidCredentials"
@@ -34,7 +34,7 @@ class ApiErrorTest: QuickSpec {
         }
         
         describe("The Api implementation") {
-            context("When receives a Moya error") {
+            context("when receives a Moya error") {
                 it("decodes it properly in a Domain error") {
                     
                     let listError = try self.moyaError.decoded() as ListError
@@ -44,7 +44,7 @@ class ApiErrorTest: QuickSpec {
         }
         
         describe("The Api implementation") {
-            context("When receives a custom error") {
+            context("when receives a custom error") {
                 it("fails with a proper custom error and message") {
                    
                     let listError = try self.moyaError.decoded() as ListError
@@ -59,7 +59,7 @@ class ApiErrorTest: QuickSpec {
         }
         
         describe("The Api implementation") {
-            context("When the request fails") {
+            context("when the request fails") {
                 it("fails with request fail error") {
                     self.sut = DomainError.requestFailed
                     switch self.sut {
@@ -71,7 +71,7 @@ class ApiErrorTest: QuickSpec {
         }
         
         describe("The Api implementation") {
-            context("When the request fails with a 500 server error") {
+            context("when the request fails with a 500 server error") {
                 it("fails with unknown failure") {
                     self.sut = DomainError.unknown
                     switch self.sut {
