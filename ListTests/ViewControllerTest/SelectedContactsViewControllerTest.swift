@@ -15,6 +15,7 @@ import Action
 @testable import List
 
 class SelectedContactsViewControllerTest: QuickSpec {
+    
     var testElements: (sut: SelectedContactsViewController, mockViewModel: MockSelectedContactsViewModel)!
     
     override func spec() {
@@ -30,23 +31,22 @@ class SelectedContactsViewControllerTest: QuickSpec {
                     expect(self.testElements.sut.tableView).notTo(beNil())
                 }
             }
-            
-        }
-        describe("In the SelectedViewcontroller") {
-            
-            context("after viewDidLoad") {
-                it("the tableView is not nil") {
-                    let tableViewisSubview = self.testElements.sut.tableView.isDescendant(of: self.testElements.sut.view)
-                    expect(tableViewisSubview).notTo(beNil())
-                }
-            }
-            
         }
         
         describe("In the SelectedViewcontroller") {
             
             context("after viewDidLoad is invoked") {
-                it("load number of rows") {
+                it("the tableView is not nil") {
+                    let tableViewisSubview = self.testElements.sut.tableView.isDescendant(of: self.testElements.sut.view)
+                    expect(tableViewisSubview).notTo(beNil())
+                }
+            }
+        }
+        
+        describe("In the SelectedViewcontroller") {
+            
+            context("after viewDidLoad is invoked") {
+                it("loads a proper number of rows") {
                     let _ = self.testElements.mockViewModel.contacts
                     expect(self.testElements.sut.tableView.numberOfRows(inSection: 0)) == 2
                 }
@@ -56,7 +56,7 @@ class SelectedContactsViewControllerTest: QuickSpec {
         describe("In the SelectedViewcontroller") {
             
             context("after viewDidLoad is invoked") {
-                it("Woad number of sections") {
+                it("loads a proper number of sections") {
                     expect(self.testElements.sut.tableView.numberOfSections) == 1
                 }
             }
@@ -75,11 +75,10 @@ class SelectedContactsViewControllerTest: QuickSpec {
         
         describe("In the SelectedViewcontroller") {
             
-            context("after the selected ontacts are retrieved") {
-                it("Dismisses properly") {
+            context("after the selected contacts are retrieved") {
+                it("is being properly dismissed") {
                     self.testElements.sut.cancelButton.rx.action = self.testElements.sut.viewModel.dismiss
-                    XCTAssertTrue(self.testElements.mockViewModel.dismissIsCalled == true)
-                    
+                    expect(self.testElements.mockViewModel.dismissIsCalled == true).to(beTrue())
                 }
             }
         }
@@ -95,9 +94,7 @@ class SelectedContactsViewControllerTest: QuickSpec {
         let sut = nav.viewControllers.first as! SelectedContactsViewController
         sut.loadViewIfNeeded()
         return (sut, viewModel)
-        
     }
-    
 }
 
 class MockSelectedContactsViewModel: DetailContactsViewModel {
