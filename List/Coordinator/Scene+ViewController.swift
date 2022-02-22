@@ -20,17 +20,13 @@ public extension Scene {
             guard let nc = storyboard.instantiateViewController(withIdentifier: "ListViewController") as? UINavigationController,
                     var vc = nc.viewControllers.first as? ListContactsViewController else {
                  fatalError("There should be a Storyboard with the name ListViewController or a ListContactsViewController")}
-            
-            
             vc.bind(to: viewModel)
             return nc
-        case .selectedContacts(let selectedContacts):
             
+        case .selectedContacts(let selectedContacts):
             guard let nc = storyboard.instantiateViewController(withIdentifier: "FinalList") as? UINavigationController,
                     var detailVC = nc.viewControllers.first as? SelectedContactsViewController else {
                 fatalError("There should be a Storyboard with the name FinalList or a ListContactsViewController")}
-            
-           
             detailVC.bind(to: selectedContacts)
             return nc
         }
