@@ -63,7 +63,8 @@ class ApiErrorTest: QuickSpec {
                 it("fails with request fail error") {
                     self.sut = DomainError.requestFailed
                     switch self.sut {
-                    case .requestFailed: assert(true)
+                    case .requestFailed:
+                        assert(true)
                     default: fail()
                     }
                 }

@@ -25,7 +25,7 @@ class ContactResponseTest: QuickSpec {
         }
         
         describe("The Contacts Response element") {
-            context("when the api called has a 200 response") {
+            context("when the api call has a 200 response") {
                 it("contains Data and Results inside contactResponse") {
                     expect(self.sut.contactResponse.data).notTo(beNil())
                     expect(self.sut.contactResponse.data.results).notTo(beNil())
@@ -34,8 +34,8 @@ class ContactResponseTest: QuickSpec {
         }
         
         describe("The Contacts Response element") {
-            context("when the api called has a 200 response") {
-                it("maps from response to Contacts class is working") {
+            context("when the api call has a 200 response") {
+                it("maps properly from SuperHeroResponse to Contacts class") {
                     let contacts = self.sut.contactsResponse.data.results.map(Contact.init)
                     expect(contacts).notTo(beNil())
                 }
@@ -43,7 +43,7 @@ class ContactResponseTest: QuickSpec {
         }
         
         describe("The Contacts Response element") {
-            context("When the api called has a 200 response") {
+            context("When the api call has a 200 response") {
                 
                 it("has expected data") {
                     let contact = self.sut.contactsResponse.data.results.map(Contact.init).first!
