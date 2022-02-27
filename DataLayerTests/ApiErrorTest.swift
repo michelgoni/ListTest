@@ -37,8 +37,8 @@ class ApiErrorTest: QuickSpec {
             context("when receives a Moya error") {
                 it("decodes it properly in a Domain error") {
                     
-                    let listError = try self.moyaError.decoded() as ListError
-                    expect(listError.code) == "InvalidCredentials"
+                    let listError: ListError = try self.moyaError.decoded()
+                    expect(listError).to(beAKindOf(ListError.self))
                 }
             }
         }
@@ -63,7 +63,8 @@ class ApiErrorTest: QuickSpec {
                 it("fails with request fail error") {
                     self.sut = DomainError.requestFailed
                     switch self.sut {
-                    case .requestFailed: assert(true)
+                    case .requestFailed:
+                        assert(true)
                     default: fail()
                     }
                 }

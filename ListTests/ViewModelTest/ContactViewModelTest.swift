@@ -56,7 +56,7 @@ class ContactViewModelTest: QuickSpec {
         }
         
         describe("In the Contacts View model implementation") {
-            context("when a contact is selected from the ListViewCOntroller") {
+            context("when a contact is selected from the ListViewController") {
                 it("updates selected contact value") {
                     
                     let selectedElement = self.rxTestingElements.scheduler.createObserver([Bool].self)
@@ -66,7 +66,7 @@ class ContactViewModelTest: QuickSpec {
                         .bind(to: selectedElement)
                         .disposed(by: self.rxTestingElements.disposeBag)
                     
-                    self.rxTestingElements.scheduler.createHotObservable([.next(10, (contact: ContactsFake.contactSelected, contacts: ContactsFake.contacts))])
+                    self.rxTestingElements.scheduler.createColdObservable([.next(10, (contact: ContactsFake.contactSelected, contacts: ContactsFake.contacts))])
                         .bind(to: self.testingElements.sut.updatedContacts.inputs)
                         .disposed(by: self.rxTestingElements.disposeBag)
                     
@@ -96,7 +96,7 @@ class ContactViewModelTest: QuickSpec {
                         .bind(to: searchResults)
                         .disposed(by: self.rxTestingElements.disposeBag)
                     
-                    self.rxTestingElements.scheduler.createHotObservable([.next(10, ("Hulk"))])
+                    self.rxTestingElements.scheduler.createColdObservable([.next(10, ("Hulk"))])
                         .bind(to: self.testingElements.sut.searchContacts.inputs)
                         .disposed(by: self.rxTestingElements.disposeBag)
                     
