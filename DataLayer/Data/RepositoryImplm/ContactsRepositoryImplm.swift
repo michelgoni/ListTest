@@ -28,8 +28,6 @@ public class ContactsRepositoryImplm: ContactsRepository {
                 self.value.append(contentsOf: $0.data.results.map(Contact.init))
                 return self.value
             }.mapResponse()
-        
-         
     }
     
     public func searchContacts(query: String) -> Single<Result<[Contact], DomainError>> {
