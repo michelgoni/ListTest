@@ -12,7 +12,6 @@ import Action
 import NSObject_Rx
 import RxCocoa
 import TransportsUI
-import RxSwiftExt
 import DomainLayer
 
 public final class ListContactsViewController: BaseViewController {

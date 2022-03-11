@@ -1,10 +1,11 @@
 //
-//  UIScrollView+reachedBottom.swift
-//  RxSwiftExt
+//  ScrollView+.swift
+//  List
 //
-//  Created by Anton Nazarov on 09/05/2019.
-//  Copyright © 2019 RxSwift Community. All rights reserved.
+//  Created by Miguel Goñi on 11/3/22.
+//  Copyright © 2022 Miguel Goñi. All rights reserved.
 //
+
 
 #if os(iOS)
 import UIKit

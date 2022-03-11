@@ -13,7 +13,6 @@ target 'List' do
   pod 'RxCocoa'
   pod 'NSObject+Rx'
   pod 'Action'
-  pod 'RxSwiftExt', '~> 5'
   
   target 'ListTests' do
     inherit! :search_paths
