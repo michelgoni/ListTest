@@ -19,7 +19,8 @@ public class ContactsApiServiceImplm: ContactsApiService {
     public init(){}
     
     public func getSuperHeroContacts(offset: Int) -> Single<SuperHeroResponse> {
-        let value = buildRequest( pathComponent: "characters", params: params, query: .getContacts(params: params, offset: offset))
+        let value = buildRequest(params: params,
+                                  query: .getContacts(params: params, offset: offset))
             .map {
                 try JSONDecoder().decode(SuperHeroResponse.self, from: $0)
             }.asSingle()
@@ -28,8 +29,7 @@ public class ContactsApiServiceImplm: ContactsApiService {
     
     public func searchContacts(query: String) -> Single<SuperHeroResponse> {
         
-        let value = buildRequest(pathComponent: "characters",
-                                 params: params,
+        let value = buildRequest(params: params,
                                  query: .searchContacs(params: params,
                                                        query: query))
             .map {
@@ -38,40 +38,9 @@ public class ContactsApiServiceImplm: ContactsApiService {
         return value
     }
     
-    private func buildRequest(pathComponent: String, params: BaseApiParams, query: Query) -> Observable<Data> {
-        let baseurl = URL(string: "http://gateway.marvel.com/v1/public")
-        let url = baseurl!.appendingPathComponent(pathComponent)
-        var request = URLRequest(url: url)
-        let urlComponents = NSURLComponents(url: url, resolvingAgainstBaseURL: true)!
-        
-        urlComponents.queryItems = query.queryItems
-        request.url = urlComponents.url!
-        request.httpMethod = "GET"
-        return URLSession.shared.rx.data(request: request)
+    private func buildRequest(params: BaseApiParams, query: Query) -> Observable<Data> {
+
+        return URLSession.shared.rx.data(request: query.request)
     }
 }
 
-enum Query {
-    
-    case getContacts(params: BaseApiParams, offset: Int)
-    case searchContacs(params: BaseApiParams, query: String)
-    
-    var queryItems:  [URLQueryItem] {
-        switch self {
-        case .getContacts(params: let params, offset: let offset):
-            let keyQueryItem = URLQueryItem(name: "apikey", value: params.publicApiKey)
-            let hash = URLQueryItem(name: "hash", value: params.hash)
-            let timeStamp = URLQueryItem(name: "ts", value: params.timeStamp)
-            let limit = URLQueryItem(name: "limit", value: String(10))
-            let offset = URLQueryItem(name: "offset", value: String(offset))
-            return [keyQueryItem, hash, timeStamp, limit, offset]
-            
-        case .searchContacs(params: let params, query: let query):
-            let query = URLQueryItem(name: "name", value: query)
-            let timeStamp = URLQueryItem(name: "ts", value: params.timeStamp)
-            let keyQueryItem = URLQueryItem(name: "apikey", value: params.publicApiKey)
-            let hash = URLQueryItem(name: "hash", value: params.hash)
-            return [query, timeStamp, keyQueryItem, hash]
-        }
-    }
-}
