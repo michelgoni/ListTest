@@ -2,9 +2,6 @@ PODS:
   - Action (4.1.0):
     - RxCocoa (~> 5.0)
     - RxSwift (~> 5.0)
-  - Kingfisher (5.14.0):
-    - Kingfisher/Core (= 5.14.0)
-  - Kingfisher/Core (5.14.0)
   - Nimble (8.1.1)
   - "NSObject+Rx (5.1.0)":
     - RxSwift (~> 5.1)
@@ -13,10 +10,6 @@ PODS:
     - RxSwift (~> 5)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxKingfisher (1.0.0):
-    - Kingfisher (~> 5)
-    - RxCocoa (~> 5)
     - RxSwift (~> 5)
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
@@ -40,7 +33,6 @@ DEPENDENCIES:
   - Quick
   - RxBlocking
   - RxCocoa
-  - RxKingfisher
   - RxSwift
   - RxSwiftExt (~> 5)
   - RxTest
@@ -49,13 +41,11 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Action
-    - Kingfisher
     - Nimble
     - "NSObject+Rx"
     - Quick
     - RxBlocking
     - RxCocoa
-    - RxKingfisher
     - RxRelay
     - RxSwift
     - RxSwiftExt
@@ -65,19 +55,17 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Action: 79e6c5dc91e13eea045ab6744b3e5609086671aa
-  Kingfisher: 7b64389a43139c903ec434788344c288217c792d
   Nimble: 5f8a2fb6fa343a7242dfdd9d42f7267419d464b2
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   Quick: 6d9559f40647bc4d510103842ef2fdd882d753e2
   RxBlocking: 5f700a78cad61ce253ebd37c9a39b5ccc76477b4
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
-  RxKingfisher: 0f07678aca3e6a20143dfba67ec2d2c70d443a9a
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   RxSwiftExt: 4ca80336f43c28f11a2825cdd2fc61dd6c044697
   RxTest: 711632d5644dffbeb62c936a521b5b008a1e1faa
   TransportsUI: bede78da1cc2420e3f359c4f46809f7f582a2333
 
-PODFILE CHECKSUM: 9adae379bd4a1279e4808d8932dfcfb909a4bc89
+PODFILE CHECKSUM: fc1fb0dc8d4ca5bd92c1f608a1d17c235d5892ce
 
 COCOAPODS: 1.11.2
