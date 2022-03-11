@@ -211,7 +211,7 @@
 		AD6151FA0D71D94FCF86DF88 /* Pods-List.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-List.debug.xcconfig"; path = "Target Support Files/Pods-List/Pods-List.debug.xcconfig"; sourceTree = "<group>"; };
 		B2ADF38689CE4DDC732EC511 /* Pods_DomainLayerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DomainLayerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4073C3027DBA02F004EE6A8 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		B4073C3227DBA05C004EE6A8 /* ConfigFile.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigFile.xcconfig; sourceTree = "<group>"; };
+		B4073C3527DBA800004EE6A8 /* ConfigFile.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigFile.xcconfig; sourceTree = "<group>"; };
 		B424742624D8611E0036F25A /* SelectedContactsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedContactsViewModelTest.swift; sourceTree = "<group>"; };
 		B424742824D8735C0036F25A /* SelectedContactsViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedContactsViewControllerTest.swift; sourceTree = "<group>"; };
 		B43C6CF627DB2EF800B38E76 /* UIImageview+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageview+.swift"; sourceTree = "<group>"; };
@@ -415,7 +415,7 @@
 				B43F9BC1249F3DD100ACC137 /* Assets.xcassets */,
 				B43F9BC3249F3DD100ACC137 /* LaunchScreen.storyboard */,
 				B43F9BC6249F3DD100ACC137 /* Info.plist */,
-				B4073C3227DBA05C004EE6A8 /* ConfigFile.xcconfig */,
+				B4073C3527DBA800004EE6A8 /* ConfigFile.xcconfig */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -1585,7 +1585,7 @@
 		};
 		B43F9BD2249F3DD100ACC137 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4073C3227DBA05C004EE6A8 /* ConfigFile.xcconfig */;
+			baseConfigurationReference = B4073C3527DBA800004EE6A8 /* ConfigFile.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1646,7 +1646,7 @@
 		};
 		B43F9BD3249F3DD100ACC137 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4073C3227DBA05C004EE6A8 /* ConfigFile.xcconfig */;
+			baseConfigurationReference = B4073C3527DBA800004EE6A8 /* ConfigFile.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
