@@ -16,7 +16,6 @@ target 'List' do
   pod 'RxSwiftExt', '~> 5'
   pod 'RxDataSources', '~> 4.0'
   pod 'RxKingfisher'
-  pod 'Moya/RxSwift'
   
   target 'ListTests' do
     inherit! :search_paths

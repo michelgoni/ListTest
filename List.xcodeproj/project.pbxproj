@@ -177,16 +177,11 @@
 		0403D018AADE894FBC6C5E2C /* Pods-DataLayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayerTests.release.xcconfig"; path = "Target Support Files/Pods-DataLayerTests/Pods-DataLayerTests.release.xcconfig"; sourceTree = "<group>"; };
 		2D2F232E25795630001F7227 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		2D2F23342579574D001F7227 /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
-		2D2F2338257959E6001F7227 /* ContactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsService.swift; sourceTree = "<group>"; };
-		2D2F233C25795A93001F7227 /* MoyaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaService.swift; sourceTree = "<group>"; };
 		2D71CDE0253CAE5C008025BE /* searchResults.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = searchResults.json; sourceTree = "<group>"; };
 		2D71E345254C9176007ECC14 /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		2D71E346254C9177007ECC14 /* InfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
-		2D87C69A258FC167006871CC /* MoyaApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaApiService.swift; sourceTree = "<group>"; };
-		2D87C69E258FC18A006871CC /* ListMoyaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoyaProvider.swift; sourceTree = "<group>"; };
 		2D87C6FF258FC563006871CC /* DataContainerDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainerDI.swift; sourceTree = "<group>"; };
 		2D87C70A258FC9C1006871CC /* PaginatorParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatorParams.swift; sourceTree = "<group>"; };
-		2D87C70E258FCF28006871CC /* Moya+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+.swift"; sourceTree = "<group>"; };
 		2D87C716258FD127006871CC /* DomainContainerDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainContainerDI.swift; sourceTree = "<group>"; };
 		2D8C201525FBDC03002B0219 /* DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D8C201725FBDC03002B0219 /* DataLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataLayer.h; sourceTree = "<group>"; };
@@ -329,17 +324,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2D2F232D25795618001F7227 /* Moya */ = {
-			isa = PBXGroup;
-			children = (
-				2D2F232E25795630001F7227 /* ApiError.swift */,
-				2D2F233C25795A93001F7227 /* MoyaService.swift */,
-				2D87C69A258FC167006871CC /* MoyaApiService.swift */,
-				2D87C69E258FC18A006871CC /* ListMoyaProvider.swift */,
-			);
-			path = Moya;
-			sourceTree = "<group>";
-		};
 		2D87C6FE258FC334006871CC /* ContainerDI */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,6 +427,7 @@
 		B43F9BDA249F40CF00ACC137 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				2D2F232E25795630001F7227 /* ApiError.swift */,
 				B43F9BDC249F414B00ACC137 /* BaseApiParams.swift */,
 				2D87C70A258FC9C1006871CC /* PaginatorParams.swift */,
 			);
@@ -468,7 +453,6 @@
 				B43F9BDF249F417400ACC137 /* String+Extensions.swift */,
 				B43F9BE1249F419500ACC137 /* Date+Extensions.swift */,
 				B4ACAC23249F586F00180834 /* PrimitiveSequence+Extensions.swift */,
-				2D87C70E258FCF28006871CC /* Moya+.swift */,
 				2DBACFF525B0C2EF004CB8F9 /* Data+.swift */,
 			);
 			path = Extensions;
@@ -515,7 +499,6 @@
 			children = (
 				B43F9BDE249F416600ACC137 /* Extensions */,
 				B43F9BDA249F40CF00ACC137 /* API */,
-				2D2F232D25795618001F7227 /* Moya */,
 				B43F9C07249F49BE00ACC137 /* ApiService */,
 				B43F9C04249F492900ACC137 /* RepositoryImplm */,
 				B43F9BF1249F45DA00ACC137 /* Entity */,
@@ -564,7 +547,6 @@
 			children = (
 				B43F9C08249F49D700ACC137 /* ContactsApiService.swift */,
 				B43F9C0A249F4A2800ACC137 /* ContactsApiServiceImplm.swift */,
-				2D2F2338257959E6001F7227 /* ContactsService.swift */,
 			);
 			path = ApiService;
 			sourceTree = "<group>";
