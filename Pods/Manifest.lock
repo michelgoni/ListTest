@@ -2,16 +2,9 @@ PODS:
   - Action (4.1.0):
     - RxCocoa (~> 5.0)
     - RxSwift (~> 5.0)
-  - Alamofire (5.2.1)
-  - Differentiator (4.0.1)
   - Kingfisher (5.14.0):
     - Kingfisher/Core (= 5.14.0)
   - Kingfisher/Core (5.14.0)
-  - Moya/Core (14.0.0):
-    - Alamofire (~> 5.0)
-  - Moya/RxSwift (14.0.0):
-    - Moya/Core
-    - RxSwift (~> 5.0)
   - Nimble (8.1.1)
   - "NSObject+Rx (5.1.0)":
     - RxSwift (~> 5.1)
@@ -21,10 +14,6 @@ PODS:
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
-  - RxDataSources (4.0.1):
-    - Differentiator (~> 4.0)
-    - RxCocoa (~> 5.0)
-    - RxSwift (~> 5.0)
   - RxKingfisher (1.0.0):
     - Kingfisher (~> 5)
     - RxCocoa (~> 5)
@@ -46,13 +35,11 @@ PODS:
 
 DEPENDENCIES:
   - Action
-  - Moya/RxSwift
   - Nimble
   - "NSObject+Rx"
   - Quick
   - RxBlocking
   - RxCocoa
-  - RxDataSources (~> 4.0)
   - RxKingfisher
   - RxSwift
   - RxSwiftExt (~> 5)
@@ -62,16 +49,12 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Action
-    - Alamofire
-    - Differentiator
     - Kingfisher
-    - Moya
     - Nimble
     - "NSObject+Rx"
     - Quick
     - RxBlocking
     - RxCocoa
-    - RxDataSources
     - RxKingfisher
     - RxRelay
     - RxSwift
@@ -82,16 +65,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Action: 79e6c5dc91e13eea045ab6744b3e5609086671aa
-  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
-  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   Kingfisher: 7b64389a43139c903ec434788344c288217c792d
-  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   Nimble: 5f8a2fb6fa343a7242dfdd9d42f7267419d464b2
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   Quick: 6d9559f40647bc4d510103842ef2fdd882d753e2
   RxBlocking: 5f700a78cad61ce253ebd37c9a39b5ccc76477b4
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
-  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxKingfisher: 0f07678aca3e6a20143dfba67ec2d2c70d443a9a
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
@@ -99,6 +78,6 @@ SPEC CHECKSUMS:
   RxTest: 711632d5644dffbeb62c936a521b5b008a1e1faa
   TransportsUI: bede78da1cc2420e3f359c4f46809f7f582a2333
 
-PODFILE CHECKSUM: 8716d9bf3cefd2285949d869ada8abc3c5ddfdd2
+PODFILE CHECKSUM: 9adae379bd4a1279e4808d8932dfcfb909a4bc89
 
 COCOAPODS: 1.11.2

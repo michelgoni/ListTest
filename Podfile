@@ -14,7 +14,6 @@ target 'List' do
   pod 'NSObject+Rx'
   pod 'Action'
   pod 'RxSwiftExt', '~> 5'
-  pod 'RxDataSources', '~> 4.0'
   pod 'RxKingfisher'
   
   target 'ListTests' do
@@ -58,7 +57,6 @@ target 'DataLayer' do
   use_frameworks!
   pod 'RxSwift'
   pod 'RxCocoa'
-  pod 'Moya/RxSwift'
 end
 
 target 'DataLayerTests' do
