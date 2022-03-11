@@ -1585,6 +1585,7 @@
 		};
 		B43F9BD2249F3DD100ACC137 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4073C3227DBA05C004EE6A8 /* ConfigFile.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1645,6 +1646,7 @@
 		};
 		B43F9BD3249F3DD100ACC137 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4073C3227DBA05C004EE6A8 /* ConfigFile.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
