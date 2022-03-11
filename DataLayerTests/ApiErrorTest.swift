@@ -20,44 +20,44 @@ class ApiErrorTest: QuickSpec {
     override func spec() {
         
         beforeEach {
-            self.moyaError = self.makeMoyaError()
+//            self.moyaError = self.makeMoyaError()
         }
         
-        describe("The Api implementation") {
-            context("when receives a Moya error") {
-                it(" decodes it properly") {
-                    
-                    let listError = try self.moyaError.decoded() as ListError
-                    expect(listError.code) == "InvalidCredentials"
-                }
-            }
-        }
+//        describe("The Api implementation") {
+//            context("when receives a Moya error") {
+//                it(" decodes it properly") {
+//
+//                    let listError = try self.moyaError.decoded() as ListError
+//                    expect(listError.code) == "InvalidCredentials"
+//                }
+//            }
+//        }
+//
+//        describe("The Api implementation") {
+//            context("when receives a Moya error") {
+//                it("decodes it properly in a Domain error") {
+//
+//                    let listError: ListError = try self.moyaError.decoded()
+//                    expect(listError).to(beAKindOf(ListError.self))
+//                }
+//            }
+//        }
         
-        describe("The Api implementation") {
-            context("when receives a Moya error") {
-                it("decodes it properly in a Domain error") {
-                    
-                    let listError: ListError = try self.moyaError.decoded()
-                    expect(listError).to(beAKindOf(ListError.self))
-                }
-            }
-        }
-        
-        describe("The Api implementation") {
-            context("when receives a custom error") {
-                it("fails with a proper custom error and message") {
-                   
-                    let listError = try self.moyaError.decoded() as ListError
-                    self.sut = DomainError.customError(listError.message)
-                    switch self.sut {
-                    case .customError(let text):
-                        expect(text) == "That hash, timestamp and key combination is invalid."
-                    default: fail()
-                    }
-                }
-            }
-        }
-        
+//        describe("The Api implementation") {
+//            context("when receives a custom error") {
+//                it("fails with a proper custom error and message") {
+//                   
+//                    let listError = try self.moyaError.decoded() as ListError
+//                    self.sut = DomainError.customError(listError.message)
+//                    switch self.sut {
+//                    case .customError(let text):
+//                        expect(text) == "That hash, timestamp and key combination is invalid."
+//                    default: fail()
+//                    }
+//                }
+//            }
+//        }
+//        
         describe("The Api implementation") {
             context("when the request fails") {
                 it("fails with request fail error") {
@@ -101,10 +101,10 @@ class ApiErrorTest: QuickSpec {
         
     }
     
-    private func makeMoyaError() -> Data {
-                                          """
-                                          {"code":"InvalidCredentials","message":"That hash, timestamp and key combination is invalid."}
-                                          """.data(using: .utf8)!
-    }
+//    private func makeMoyaError() -> Data {
+//                                          """
+//                                          {"code":"InvalidCredentials","message":"That hash, timestamp and key combination is invalid."}
+//                                          """.data(using: .utf8)!
+//    }
     
 }
