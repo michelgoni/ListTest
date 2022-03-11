@@ -9,8 +9,15 @@
 import Foundation
 import DomainLayer
 
-public enum ApiError: Error {
+public enum ApiError: Error, CustomStringConvertible {
     case requestFailed
+    
+    public var description: String {
+        switch self {
+        case .requestFailed:
+            return "Request failed"
+        }
+    }
  
 }
 

@@ -17,7 +17,7 @@ extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
         
         self.map(D.self)
             .catchError { error in
-                if let apiError = error as? MoyaError {
+                if let apiError = error as? ApiError {
                     
                     return .error(apiError)
                 }

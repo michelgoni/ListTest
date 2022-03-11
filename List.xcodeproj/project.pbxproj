@@ -21,12 +21,7 @@
 		2D8C202B25FBDC03002B0219 /* DataLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8C201525FBDC03002B0219 /* DataLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2D8C205125FBDC34002B0219 /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCE0EFF25F52A38004C8868 /* DomainLayer.framework */; };
 		2D8C205225FBDC34002B0219 /* DomainLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCE0EFF25F52A38004C8868 /* DomainLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2D8C205625FBDC4C002B0219 /* MoyaApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C69A258FC167006871CC /* MoyaApiService.swift */; };
-		2D8C205725FBDC4C002B0219 /* MoyaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F233C25795A93001F7227 /* MoyaService.swift */; };
-		2D8C205825FBDC4C002B0219 /* ListMoyaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C69E258FC18A006871CC /* ListMoyaProvider.swift */; };
-		2D8C205925FBDC4C002B0219 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F232E25795630001F7227 /* ApiError.swift */; };
 		2D8C205E25FBDC54002B0219 /* ContactsApiServiceImplm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9C0A249F4A2800ACC137 /* ContactsApiServiceImplm.swift */; };
-		2D8C205F25FBDC54002B0219 /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F2338257959E6001F7227 /* ContactsService.swift */; };
 		2D8C206025FBDC54002B0219 /* ContactsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9C08249F49D700ACC137 /* ContactsApiService.swift */; };
 		2D8C206525FBDC58002B0219 /* ContactsRepositoryImplm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9C05249F49A200ACC137 /* ContactsRepositoryImplm.swift */; };
 		2D8C206A25FBDC5F002B0219 /* DataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BFC249F489500ACC137 /* DataClass.swift */; };
@@ -39,7 +34,6 @@
 		2D8C207925FBDCC0002B0219 /* PrimitiveSequence+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAC23249F586F00180834 /* PrimitiveSequence+Extensions.swift */; };
 		2D8C207A25FBDCC0002B0219 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BDF249F417400ACC137 /* String+Extensions.swift */; };
 		2D8C207B25FBDCC0002B0219 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BE1249F419500ACC137 /* Date+Extensions.swift */; };
-		2D8C207C25FBDCC0002B0219 /* Moya+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D87C70E258FCF28006871CC /* Moya+.swift */; };
 		2D8C207D25FBDCC0002B0219 /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBACFF525B0C2EF004CB8F9 /* Data+.swift */; };
 		2DBAD00725B0C4D8004CB8F9 /* ErrorResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DBAD00625B0C4D8004CB8F9 /* ErrorResponse.json */; };
 		2DCE0F0825F52A38004C8868 /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCE0EFF25F52A38004C8868 /* DomainLayer.framework */; };
@@ -57,6 +51,7 @@
 		9FC9FE24C6A24AF916511E0A /* Pods_DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40586E219CC12BE0BCB2EAB /* Pods_DataLayer.framework */; };
 		B424742724D8611E0036F25A /* SelectedContactsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B424742624D8611E0036F25A /* SelectedContactsViewModelTest.swift */; };
 		B424742924D8735C0036F25A /* SelectedContactsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B424742824D8735C0036F25A /* SelectedContactsViewControllerTest.swift */; };
+		B43C6CF327DB26A500B38E76 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F232E25795630001F7227 /* ApiError.swift */; };
 		B43F9BB9249F3DD000ACC137 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BB8249F3DD000ACC137 /* AppDelegate.swift */; };
 		B43F9BBB249F3DD000ACC137 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43F9BBA249F3DD000ACC137 /* SceneDelegate.swift */; };
 		B43F9BC0249F3DD000ACC137 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B43F9BBE249F3DD000ACC137 /* Main.storyboard */; };
@@ -1233,24 +1228,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D8C207425FBDC7D002B0219 /* PaginatorParams.swift in Sources */,
-				2D8C205825FBDC4C002B0219 /* ListMoyaProvider.swift in Sources */,
 				2D8C207925FBDCC0002B0219 /* PrimitiveSequence+Extensions.swift in Sources */,
 				2D8C205E25FBDC54002B0219 /* ContactsApiServiceImplm.swift in Sources */,
-				2D8C205F25FBDC54002B0219 /* ContactsService.swift in Sources */,
 				2D8C206D25FBDC5F002B0219 /* Extension.swift in Sources */,
-				2D8C205925FBDC4C002B0219 /* ApiError.swift in Sources */,
 				2D8C207D25FBDCC0002B0219 /* Data+.swift in Sources */,
 				2D8C206E25FBDC5F002B0219 /* SuperHeroResponse.swift in Sources */,
 				2D8C206B25FBDC5F002B0219 /* Results.swift in Sources */,
 				2D8C206025FBDC54002B0219 /* ContactsApiService.swift in Sources */,
-				2D8C205625FBDC4C002B0219 /* MoyaApiService.swift in Sources */,
+				B43C6CF327DB26A500B38E76 /* ApiError.swift in Sources */,
 				2D8C207B25FBDCC0002B0219 /* Date+Extensions.swift in Sources */,
 				2D8C207325FBDC7D002B0219 /* BaseApiParams.swift in Sources */,
 				2D8C207A25FBDCC0002B0219 /* String+Extensions.swift in Sources */,
-				2D8C207C25FBDCC0002B0219 /* Moya+.swift in Sources */,
 				2D8C206A25FBDC5F002B0219 /* DataClass.swift in Sources */,
 				2D8C206525FBDC58002B0219 /* ContactsRepositoryImplm.swift in Sources */,
-				2D8C205725FBDC4C002B0219 /* MoyaService.swift in Sources */,
 				2D8C206C25FBDC5F002B0219 /* Thumbnail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

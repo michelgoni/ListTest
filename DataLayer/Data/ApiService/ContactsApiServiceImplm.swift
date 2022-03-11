@@ -8,7 +8,6 @@
 
 import Foundation
 import RxSwift
-import Moya
 import RxCocoa
 
 class ContactsAPiService2 {
@@ -51,13 +50,13 @@ class ContactsAPiService2 {
     
 }
 
-public class ContactsApiServiceImplm: MoyaApiService<ContactsService>, ContactsApiService {
+public class ContactsApiServiceImplm: ContactsApiService {
     
     private var params = BaseApiParams(date: Date(),
                                        publicApiKey: "ab96482ca6c6b9304f381e5ac433ce59",
                                        privateKey: "95b8baf2f2882d5ead42665c539b60d2b9741e93")
     
-    
+    public init(){}
     
     public func getSuperHeroContacts(offset: Int) -> Single<SuperHeroResponse> {
         let value = buildRequest( pathComponent: "characters", params: params, query: .getContacts(params: params, offset: offset))
