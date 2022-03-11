@@ -13,7 +13,7 @@ import CryptoKit
 public class BaseApiParams {
     let date: Date
     let publicApiKey: String
-    let privateKey: String
+    private let privateKey: String
     
     public init(date: Date,publicApiKey: String, privateKey: String ) {
         self.date = date

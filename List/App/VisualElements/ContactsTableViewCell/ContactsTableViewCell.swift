@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import RxKingfisher
-import Kingfisher
 import RxSwift
 import DomainLayer
 
@@ -36,10 +34,11 @@ class ContactsTableViewCell: UITableViewCell, UITableViewCellRepresentable {
     }
     
     func setup(with data: Any) {
-        if let contactElement = data as? ContactRepresentable, let imageUrl = URL(string: contactElement.image) {
+        if let contactElement = data as? ContactRepresentable {
             contactLabel.text = contactElement.name
             accessoryType = contactElement.isSelected ? .checkmark : .none
-           contactImage.kf.setImage(with: imageUrl)
+            contactImage.loadImage(contactElement.image)
+           
         }
     }
 }

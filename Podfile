@@ -13,10 +13,6 @@ target 'List' do
   pod 'RxCocoa'
   pod 'NSObject+Rx'
   pod 'Action'
-  pod 'RxSwiftExt', '~> 5'
-  pod 'RxDataSources', '~> 4.0'
-  pod 'RxKingfisher'
-  pod 'Moya/RxSwift'
   
   target 'ListTests' do
     inherit! :search_paths
@@ -59,7 +55,6 @@ target 'DataLayer' do
   use_frameworks!
   pod 'RxSwift'
   pod 'RxCocoa'
-  pod 'Moya/RxSwift'
 end
 
 target 'DataLayerTests' do

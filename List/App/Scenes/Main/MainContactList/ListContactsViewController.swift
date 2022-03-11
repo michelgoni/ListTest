@@ -8,12 +8,10 @@
 
 import UIKit
 import RxSwift
-import RxDataSources
 import Action
 import NSObject_Rx
 import RxCocoa
 import TransportsUI
-import RxSwiftExt
 import DomainLayer
 
 public final class ListContactsViewController: BaseViewController {
@@ -44,27 +42,15 @@ public final class ListContactsViewController: BaseViewController {
     
     private func bindTableView() {
         
-        let dataSource = RxTableViewSectionedReloadDataSource<SectionOfCustomData>(
-            configureCell: { dataSource, tableView, indexPath, item in
-                let cell = tableView.dequeueReusableCell(withIdentifier: ContactsTableViewCell.identifier, for: indexPath) as! ContactsTableViewCell
-                cell.setup(with: item)
-                return cell
-            })
-        
         data = Observable.merge(viewModel.getContacts.elements,
                                 viewModel.updatedContacts.elements,
                                 viewModel.searchContacts.elements,
                                 viewModel.loadNextPageContacts.elements)
         
-        let value = data?.map({ (result) -> [SectionOfCustomData] in
-            var contactData = [SectionOfCustomData]()
-            contactData.append(SectionOfCustomData(items: result))
-            return contactData
-        })
-        
-        value?.bind(to: tableView.rx
-                        .items(dataSource: dataSource))
-            .disposed(by: rx.disposeBag)
+        data?.bind(to: tableView.rx.items(cellIdentifier: ContactsTableViewCell.identifier,
+                                          cellType: ContactsTableViewCell.self)) { _, model, cell in
+            cell.setup(with: model)
+        } .disposed(by: rx.disposeBag)
     }
     
     private func bindPaginator() {

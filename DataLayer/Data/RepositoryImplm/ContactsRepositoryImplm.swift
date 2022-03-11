@@ -22,18 +22,12 @@ public class ContactsRepositoryImplm: ContactsRepository {
     // MARK: -ContactsRepository
     public func getContacts(offset: Int) -> Single<Result<[Contact], DomainError>> {
         
-         contactsApiService
+        return contactsApiService
             .getSuperHeroContacts(offset: offset)
             .map {
-                if offset == 10 {
-                    self.value.append(contentsOf: $0.data.results.map(Contact.init))
-                    return $0.data.results.map(Contact.init)
-                }else {
-                    self.value.append(contentsOf: $0.data.results.map(Contact.init))
-                    return self.value
-                }
-            }
-            .mapResponse()
+                self.value.append(contentsOf: $0.data.results.map(Contact.init))
+                return self.value
+            }.mapResponse()
     }
     
     public func searchContacts(query: String) -> Single<Result<[Contact], DomainError>> {
