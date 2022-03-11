@@ -12,11 +12,11 @@ import RxCocoa
 
 public class ContactsApiServiceImplm: ContactsApiService {
     
-    private var params = BaseApiParams(date: Date(),
-                                       publicApiKey: "ab96482ca6c6b9304f381e5ac433ce59",
-                                       privateKey: "95b8baf2f2882d5ead42665c539b60d2b9741e93")
+    var params: BaseApiParams
     
-    public init(){}
+    public init(params: BaseApiParams ){
+        self.params = params
+    }
     
     public func getSuperHeroContacts(offset: Int) -> Single<SuperHeroResponse> {
         let value = buildRequest(params: params,

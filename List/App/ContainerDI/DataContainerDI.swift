@@ -13,10 +13,6 @@ class DataContainerDI {
 
     static let shared = DataContainerDI()
     
-    private static var baseUrl: String {
-        "http://gateway.marvel.com"
-    }
-
     private var baseApiParms: BaseApiParams {
         return BaseApiParams(date: Date(),
                              publicApiKey: Environment.apiKey,
@@ -24,6 +20,6 @@ class DataContainerDI {
     }
     
     lazy var contacts: ContactsApiService = {
-        return ContactsApiServiceImplm()
+        return ContactsApiServiceImplm(params: baseApiParms)
     }()
 }
