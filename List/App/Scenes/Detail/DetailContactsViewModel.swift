@@ -39,12 +39,12 @@ public class DetailContacts: DetailContactsViewModel {
             }).disposed(by: disposeBag)
     }
     
-    lazy public var dismiss: CocoaAction = { this in
+    lazy public var dismiss: CocoaAction = { [unowned self] in
         CocoaAction { _ in
             
-            this.coordinator.pop()
+            self.coordinator.pop()
                 .asObservable()
                 .map{_ in}
         }
-    }(self)
+    }()
 }

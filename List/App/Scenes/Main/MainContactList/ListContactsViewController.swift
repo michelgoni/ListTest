@@ -198,6 +198,5 @@ extension ListContactsViewController: Bindable {
         viewModel.getContacts.execute()
         bindPaginator()
         bindErrors()
-        
     }
 }

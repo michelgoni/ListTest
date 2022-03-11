@@ -34,33 +34,33 @@ public class ContactsViewModelImplm: ContactsViewModel {
         self.coordinator = coordinator
     }
     
-    lazy public var getContacts: Action<Void, [Contact]> = { this in
+    lazy public var getContacts: Action<Void, [Contact]> = { [unowned self] in
         Action <Void, [Contact]> {
 
-            return this.useCase
+            return self.useCase
                 .getContacts(offset: self.offset)
                 .mapResult()
         }
-    }(self)
+    }()
     
-    lazy public var loadNextPageContacts: Action<Void, [Contact]> = { this in
+    lazy public var loadNextPageContacts: Action<Void, [Contact]> = { [unowned self] in
         Action <Void, [Contact]> {
             self.offset += 10
-            return this.useCase
+            return self.useCase
                 .getContacts(offset: self.offset)
                 .mapResult()
         }
-    }(self)
+    }()
     
-    lazy public var resetContacts: CocoaAction = { this in
+    lazy public var resetContacts: CocoaAction = { [unowned self] in
         CocoaAction { _ in
-             this.getContacts.execute()
+             self.getContacts.execute()
                 .asObservable()
                 .map{ _ in}
         }
-    }(self)
+    }()
     
-    lazy public var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> = { _ in
+    lazy public var updatedContacts: Action<(contact: Contact, contacts: [Contact]), [Contact]> = {
         
         Action<(contact: Contact, contacts: [Contact]), [Contact]> { value in
             var newContacts = [Contact]()
@@ -70,32 +70,30 @@ public class ContactsViewModelImplm: ContactsViewModel {
             return .just(newContacts)
         }
         
-    }(self)
+    }()
     
-    lazy public var selectedContacts: Action<[Contact], Void> = {  this in
+    lazy public var selectedContacts: Action<[Contact], Void> = { [unowned self] in
         Action<[Contact], Void> { contacts in
             
             let detailContactsViewModel = DetailContacts(
                 contacts: contacts,
-                coordinator: this.coordinator,
+                coordinator: self.coordinator,
                 resetContacts: self.resetContacts)
             
-            return this.coordinator
+            return self.coordinator
                 .transition(to: .selectedContacts(detailContactsViewModel), type: .modal)
                 .asObservable()
                 .map {_ in}
         }
-    }(self)
+    }()
     
-    
-    lazy public var searchContacts: Action<String, [Contact]> = { this in
+    lazy public var searchContacts: Action<String, [Contact]> = { [unowned self] in
         
         Action<String, [Contact]> { query in
             
-            this.useCase
+            self.useCase
                 .searchContacts(query: query)
                 .mapResult()
-           
         }
-    }(self)
+    }()
 }
