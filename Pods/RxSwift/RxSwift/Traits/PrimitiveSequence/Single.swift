@@ -398,6 +398,6 @@ extension PrimitiveSequenceType where Trait == SingleTrait {
     /// 
     /// - returns: Completable trait that represents `self`.
     public func asCompletable() -> Completable {
-        self.primitiveSequence.source.ignoreElements().asCompletable()
+        return self.primitiveSequence.source.ignoreElements()
     }
 }

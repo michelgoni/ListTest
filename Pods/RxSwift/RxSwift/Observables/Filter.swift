@@ -31,8 +31,11 @@ extension ObservableType {
      - returns: An observable sequence that skips all elements of the source sequence.
      */
     public func ignoreElements()
-        -> Observable<Never> {
-        self.flatMap { _ in Observable<Never>.empty() }
+        -> Completable {
+            return self.flatMap { _ in
+                return Observable<Never>.empty()
+            }
+            .asCompletable()
     }
 }
 
