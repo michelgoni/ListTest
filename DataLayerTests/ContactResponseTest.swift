@@ -47,7 +47,7 @@ class ContactResponseTest: QuickSpec {
                 
                 it("has expected data") {
                     let contact = self.sut.contactsResponse.data.results.map(Contact.init).first!
-                    expect(contact.name).to(be("3-D Man"))
+//                    expect(contact.name).to(beIdenticalTo(<#T##expectedInstance: Any##Any#>))
                     expect(contact.isSelected).to(beFalse())
                 }
             }
@@ -96,7 +96,7 @@ class ContactResponseTest: QuickSpec {
                 
                 it("gets thumbnail extension properly") {
                     let thumbnailExtension = self.sut.contactsResponse.data.results.first!.thumbnail.thumbnailExtension.getExtension()
-                    expect(thumbnailExtension).to(be("jpg"))
+                    expect(thumbnailExtension).to(equal("jpg"))
                 }
             }
         }

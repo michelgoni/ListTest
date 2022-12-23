@@ -41,7 +41,7 @@ class ContactsUseCaseTest: QuickSpec {
                
                 it("is only once called") {
                     let result = try? self.sut.getContacts(offset: 10).toBlocking().first()
-                    expect([result].count).to(be(1))
+                    expect([result].count).to(equal(1))
                 }
             }
         }
@@ -97,7 +97,8 @@ class ContactsUseCaseTest: QuickSpec {
                     
                     switch result {
                     case .success(let contacts):
-                        expect([contacts].count).to(be(1))
+                        expect([contacts].count).to(equal(1))
+
                     case .failure:
                         fail()
                     case .none:

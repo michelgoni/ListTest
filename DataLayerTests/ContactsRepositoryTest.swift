@@ -50,7 +50,7 @@ class ContactsRepositoryTest: QuickSpec {
                     
                     switch result {
                     case .success(let contacts):
-                        expect([contacts].count).to(be(1))
+                       expect([contacts].count).to(equal(1))
                     default:
                         fail()
                     }
