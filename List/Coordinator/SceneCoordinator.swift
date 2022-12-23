@@ -36,38 +36,37 @@ open class SceneCoordinator: NSObject, SceneCoordinatorType {
     }
     
     @discardableResult
-    public func transition(to scene: Scene, type: SceneTransitionType) -> Completable {
-        let subject = PublishSubject<Void>()
-        let viewController = scene.viewController()
-        switch type {
+    func transition(to scene: Scene, type: SceneTransitionType) -> Completable {
+      let subject = PublishSubject<Void>()
+      let viewController = scene.viewController()
+      switch type {
         case .root:
-            currentViewController = SceneCoordinator.actualViewController(for: viewController)
-            window.rootViewController = viewController
-            subject.onCompleted()
-            
+          currentViewController = SceneCoordinator.actualViewController(for: viewController)
+          window.rootViewController = viewController
+          subject.onCompleted()
+
         case .push:
-            guard let navigationController = currentViewController.navigationController else {
-                fatalError("Can't push a view controller without a current navigation controller")
-            }
-            // one-off subscription to be notified when push complete
-            navigationController.delegate = self
-            _ = navigationController.rx.delegate
-                .sentMessage(#selector(UINavigationControllerDelegate.navigationController(_:didShow:animated:)))
-                .map { _ in }
-                .bind(to: subject)
-            navigationController.pushViewController(viewController, animated: true)
-            currentViewController = SceneCoordinator.actualViewController(for: viewController)
-            
+          guard let navigationController = currentViewController.navigationController else {
+            fatalError("Can't push a view controller without a current navigation controller")
+          }
+          // one-off subscription to be notified when push complete
+          _ = navigationController.rx.delegate
+            .sentMessage(#selector(UINavigationControllerDelegate.navigationController(_:didShow:animated:)))
+            .map { _ in }
+            .bind(to: subject)
+          navigationController.pushViewController(viewController, animated: true)
+          currentViewController = SceneCoordinator.actualViewController(for: viewController)
+
         case .modal:
-            viewController.modalPresentationStyle = .fullScreen
-            currentViewController.present(viewController, animated: true) {
-                subject.onCompleted()
-            }
-            currentViewController = SceneCoordinator.actualViewController(for: viewController)
-        }
-        return subject.asObservable()
-            .take(1)
-            .ignoreElements()
+          viewController.modalPresentationStyle = .fullScreen
+          currentViewController.present(viewController, animated: true) {
+            subject.onCompleted()
+          }
+          currentViewController = SceneCoordinator.actualViewController(for: viewController)
+      }
+      return subject.asObservable()
+        .take(1)
+        .ignoreElements()
     }
     
     @discardableResult
@@ -93,7 +92,7 @@ open class SceneCoordinator: NSObject, SceneCoordinatorType {
         } else {
             fatalError("Not a modal, no navigation controller: can't navigate back from \(currentViewController)")
         }
-        return subject.asObservable()
+        return subject
             .take(1)
             .ignoreElements()
     }
