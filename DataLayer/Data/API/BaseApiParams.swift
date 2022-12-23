@@ -8,7 +8,7 @@
 
 import Foundation
 import CommonCrypto
-import CryptoKit
+import CryptoSwift
 
 public class BaseApiParams {
     let date: Date
@@ -22,14 +22,11 @@ public class BaseApiParams {
     }
     
     var timeStamp: String {
-        guard let date = date.toMillis() else {
-            return ""
-        }
-        return "\(date.description)"
+        "\(Int(Date().timeIntervalSince1970))"
     }
     
     var hash: String   {
-        return "\(timeStamp)\(privateKey)\(publicApiKey)".md5
+        return "\(timeStamp)\(privateKey)\(publicApiKey)".md5()
     }
 }
 

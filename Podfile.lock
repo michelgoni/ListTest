@@ -2,6 +2,7 @@ PODS:
   - Action (5.0.0):
     - RxCocoa (~> 6.0)
     - RxSwift (~> 6.0)
+  - CryptoSwift (1.6.0)
   - Nimble (10.0.0)
   - "NSObject+Rx (5.2.2)":
     - RxSwift (~> 6.2)
@@ -20,6 +21,7 @@ PODS:
 
 DEPENDENCIES:
   - Action
+  - CryptoSwift
   - Nimble
   - "NSObject+Rx"
   - Quick
@@ -32,6 +34,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Action
+    - CryptoSwift
     - Nimble
     - "NSObject+Rx"
     - Quick
@@ -45,6 +48,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Action: 47f1825511907b4fcd79dd7a7db9526c20f78018
+  CryptoSwift: 562f8eceb40e80796fffc668b0cad9313284cfa6
   Nimble: 5316ef81a170ce87baf72dd961f22f89a602ff84
   "NSObject+Rx": 61cf1f7306a73dcef8b36649198af0813ec18dfd
   Quick: 749aa754fd1e7d984f2000fe051e18a3a9809179
@@ -55,6 +59,6 @@ SPEC CHECKSUMS:
   RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
   TransportsUI: bede78da1cc2420e3f359c4f46809f7f582a2333
 
-PODFILE CHECKSUM: 0b65412b24935cadbf6dc64184c09949d67e5d12
+PODFILE CHECKSUM: c8eb3c301a84a43c162a1f035232c591d543e719
 
 COCOAPODS: 1.11.3

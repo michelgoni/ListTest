@@ -13,6 +13,7 @@ target 'List' do
   pod 'RxCocoa'
   pod 'NSObject+Rx'
   pod 'Action'
+
   
   target 'ListTests' do
     inherit! :search_paths
@@ -49,12 +50,14 @@ target 'DomainLayerTests' do
   pod 'Quick'
   pod 'Nimble'
   pod 'RxTest'
+
 end
 
 target 'DataLayer' do
   use_frameworks!
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'CryptoSwift'
 end
 
 target 'DataLayerTests' do
