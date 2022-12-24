@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LA5-Fc-ukn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LA5-Fc-ukn">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,9 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AkY-MS-rgI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AkY-MS-rgI">
                                 <rect key="frame" x="0.0" y="88" width="414" height="738"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="1eN-91-Pyr">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -28,7 +27,7 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactsTableViewCell" textLabel="4Mt-uT-caz" style="IBUITableViewCellStyleDefault" id="kJ7-Cg-f71">
-                                        <rect key="frame" x="0.0" y="72" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="94" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kJ7-Cg-f71" id="TlW-lg-z6P">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -76,10 +75,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Ame-Ek-Og6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CAd-rR-VhP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AkY-MS-rgI" secondAttribute="bottom" constant="36" id="Cgh-uf-hod"/>
+                            <constraint firstItem="AkY-MS-rgI" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Dh2-4P-1aU"/>
                             <constraint firstItem="UgI-4v-M2R" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="REn-OV-V1T"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ame-Ek-Og6" secondAttribute="bottom" id="TNZ-nv-BCn"/>
                             <constraint firstAttribute="trailing" secondItem="Ame-Ek-Og6" secondAttribute="trailing" id="W74-ep-4YE"/>
+                            <constraint firstItem="AkY-MS-rgI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bWm-zp-SEp"/>
                             <constraint firstItem="UgI-4v-M2R" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ev3-lW-bGF"/>
+                            <constraint firstItem="AkY-MS-rgI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="88" id="rbH-uq-Ypn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="i3T-IG-8pV"/>
@@ -103,7 +106,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SsK-Ju-0Lg">
-                                <rect key="frame" x="64" y="152" width="286" height="646"/>
+                                <rect key="frame" x="64" y="156" width="286" height="642"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -137,7 +140,7 @@
                 <navigationController storyboardIdentifier="ListViewController" automaticallyAdjustsScrollViewInsets="NO" id="LA5-Fc-ukn" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qPc-b6-Bqa">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -155,7 +158,7 @@
                 <navigationController storyboardIdentifier="FinalList" automaticallyAdjustsScrollViewInsets="NO" id="3gD-2Z-Zzj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FP1-iV-Gjg">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
